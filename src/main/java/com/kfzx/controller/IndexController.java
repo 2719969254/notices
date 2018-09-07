@@ -2,13 +2,12 @@ package com.kfzx.controller;
 
 import com.kfzx.service.PublicService;
 import com.kfzx.util.MyUtil;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author VicterTian
@@ -18,16 +17,15 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 @RequestMapping("/")
 public class IndexController {
-	@Autowired
+	@Resource
 	private PublicService publicService;
 	/**
 	 * 显示主页
 	 *
 	 * @return ModelAndView
-	 * @throws Exception 抛出一切异常
 	 */
 	@RequestMapping("/index")
-	public ModelAndView index() throws Exception {
+	public ModelAndView index() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/pc/index");
 		return mav;
@@ -51,7 +49,7 @@ public class IndexController {
 	 * 后台主页
 	 */
 	@RequestMapping("/admin/main")
-	public ModelAndView admin_main(HttpServletResponse res, HttpServletRequest req) throws Exception {
+	public ModelAndView admin_main(HttpServletRequest req){
 		ModelAndView mav = new ModelAndView();
 		publicService.addLeftMenu(mav);
 		System.out.println(MyUtil.getRemoteAddress(req));
