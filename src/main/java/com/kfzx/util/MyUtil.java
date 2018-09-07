@@ -35,7 +35,7 @@ public class MyUtil {
 	 */
 	public static String getRemoteAddress(HttpServletRequest request) {
 		String ip = request.getHeader("x-forwarded-for");
-		// System.out.println("x-forwarded-for ip: " + ip);
+		System.out.println("x-forwarded-for ip: " + ip);
 		if (ip != null && ip.length() != 0 && !"unknown".equalsIgnoreCase(ip)) {
 			// 多次反向代理后会有多个ip值，第一个ip才是真实ip
 			if( ip.indexOf(",")!=-1 ){
@@ -44,29 +44,29 @@ public class MyUtil {
 		}
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 			ip = request.getHeader("Proxy-Client-IP");
-			//  System.out.println("Proxy-Client-IP ip: " + ip);
+			System.out.println("Proxy-Client-IP ip: " + ip);
 		}
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 			ip = request.getHeader("WL-Proxy-Client-IP");
-			//  System.out.println("WL-Proxy-Client-IP ip: " + ip);
+			System.out.println("WL-Proxy-Client-IP ip: " + ip);
 		}
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 			ip = request.getHeader("HTTP_CLIENT_IP");
-			//  System.out.println("HTTP_CLIENT_IP ip: " + ip);
+			System.out.println("HTTP_CLIENT_IP ip: " + ip);
 		}
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 			ip = request.getHeader("HTTP_X_FORWARDED_FOR");
-			// System.out.println("HTTP_X_FORWARDED_FOR ip: " + ip);
+			System.out.println("HTTP_X_FORWARDED_FOR ip: " + ip);
 		}
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 			ip = request.getHeader("X-Real-IP");
-			// System.out.println("X-Real-IP ip: " + ip);
+			System.out.println("X-Real-IP ip: " + ip);
 		}
 		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 			ip = request.getRemoteAddr();
-			//  System.out.println("getRemoteAddr ip: " + ip);
+			System.out.println("getRemoteAddr ip: " + ip);
 		}
-		//System.out.println("获取客户端ip: " + ip);
+		System.out.println("获取客户端ip: " + ip);
 		return ip;
 		/*String ip = request.getHeader("x-forwarded-for");
 		if (ip == null || ip.length() == 0 || ip.equalsIgnoreCase("unknown")) {
@@ -123,18 +123,22 @@ public class MyUtil {
 	 */
 	private static String[] arrContrast(String[] arr1, String[] arr2) {
 		List<String> list = new LinkedList<String>();
-		for (String str : arr1) { // 处理第一个数组,list里面的值为1,2,3,4
+		// 处理第一个数组,list里面的值为1,2,3,4
+		for (String str : arr1) {
 			if (!list.contains(str)) {
 				list.add(str);
 			}
 		}
-		for (String str : arr2) { // 如果第二个数组存在和第一个数组相同的值，就删除
+		// 如果第二个数组存在和第一个数组相同的值，就删除
+		for (String str : arr2) {
 			if (list.contains(str)) {
 				list.remove(str);
 			}
 		}
-		String[] result = {}; // 创建空数组
-		return list.toArray(result); // List to Array
+		// 创建空数组
+		String[] result = {};
+		// List to Array
+		return list.toArray(result);
 	}
 
 	/**
@@ -144,7 +148,9 @@ public class MyUtil {
 		return org.apache.commons.lang.StringUtils.join(list.toArray(), separator);
 	}
 
-	// 将image str 转成图片 存起来。
+	/**
+	 * 将image str 转成图片 存起来。
+ 	 */
 	public static boolean GenerateImage(String imgStr, String Folder, String imgFilePath) {// 对字节数组字符串
 		if (imgStr == null){
 			// 图像数据为空
@@ -180,7 +186,8 @@ public class MyUtil {
 			return false;
 		}
 		File folder = new File(filePath);
-		if (folder.exists()) {// IsDirectory( ) 判断文件夹是否存在
+		// IsDirectory( ) 判断文件夹是否存在
+		if (folder.exists()) {
 			return true;
 		} else {
 			return folder.mkdirs();

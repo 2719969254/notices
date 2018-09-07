@@ -1,18 +1,13 @@
 package com.kfzx.util;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 
 /**
- * �ַ���������
- *
+ * 字符串工具类
  */
 public class StringUtil {
 
 	/**
-	 * �ж��Ƿ��ǿ�
+	 * 判断是否是空
 	 */
 	public static boolean isEmpty(String str) {
 		if (str == null || "".equals(str.trim())) {
@@ -23,7 +18,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * �ж��Ƿ��ǿ�
+	 * 判断是否不是空
 	 */
 	public static boolean isNotEmpty(String str) {
 		if ((str != null) && !"".equals(str.trim())) {
@@ -34,7 +29,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * ��ʽ��ģ����ѯ
+	 * 格式化模糊查询
 	 */
 	public static String formatLike(String str) {
 		if (isNotEmpty(str)) {
@@ -43,8 +38,4 @@ public class StringUtil {
 			return null;
 		}
 	}
-
-	
-
-	
 }
