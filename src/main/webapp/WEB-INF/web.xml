@@ -47,9 +47,9 @@
     </listener>
 
     <!--  初始化 application  -->
-  <!--  <listener>
+   <listener>
         <listener-class>com.kfzx.service.Impl.InitComponent</listener-class>
-    </listener>-->
+    </listener>
 
 
     <!-- 添加对springmvc的支持 -->

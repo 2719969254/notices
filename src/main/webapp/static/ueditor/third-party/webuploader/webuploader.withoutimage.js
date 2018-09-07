@@ -2,19 +2,19 @@
 
 
 /**
- * @fileOverview ÈÃÄÚ²¿¸÷¸ö²¿¼þµÄ´úÂë¿ÉÒÔÓÃ[amd](https://github.com/amdjs/amdjs-api/wiki/AMD)Ä£¿é¶¨Òå·½Ê½×éÖ¯ÆðÀ´¡£
+ * @fileOverview ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[amd](https://github.com/amdjs/amdjs-api/wiki/AMD)Ä£ï¿½é¶¨ï¿½å·½Ê½ï¿½ï¿½Ö¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
- * AMD API ÄÚ²¿µÄ¼òµ¥²»ÍêÈ«ÊµÏÖ£¬ÇëºöÂÔ¡£Ö»ÓÐµ±WebUploader±»ºÏ²¢³ÉÒ»¸öÎÄ¼þµÄÊ±ºò²Å»áÒýÈë¡£
+ * AMD API ï¿½Ú²ï¿½ï¿½Ä¼òµ¥²ï¿½ï¿½ï¿½È«Êµï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½Ô¡ï¿½Ö»ï¿½Ðµï¿½WebUploaderï¿½ï¿½ï¿½Ï²ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Å»ï¿½ï¿½ï¿½ï¿½ë¡£
  */
 (function( root, factory ) {
     var modules = {},
 
-        // ÄÚ²¿require, ¼òµ¥²»ÍêÈ«ÊµÏÖ¡£
+        // ï¿½Ú²ï¿½require, ï¿½òµ¥²ï¿½ï¿½ï¿½È«Êµï¿½Ö¡ï¿½
         // https://github.com/amdjs/amdjs-api/wiki/require
         _require = function( deps, callback ) {
             var args, len, i;
 
-            // Èç¹ûdeps²»ÊÇÊý×é£¬ÔòÖ±½Ó·µ»ØÖ¸¶¨module
+            // ï¿½ï¿½ï¿½depsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é£¬ï¿½ï¿½Ö±ï¿½Ó·ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½module
             if ( typeof deps === 'string' ) {
                 return getModule( deps );
             } else {
@@ -27,7 +27,7 @@
             }
         },
 
-        // ÄÚ²¿define£¬ÔÝÊ±²»Ö§³Ö²»Ö¸¶¨id.
+        // ï¿½Ú²ï¿½defineï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ö§ï¿½Ö²ï¿½Ö¸ï¿½ï¿½id.
         _define = function( id, deps, factory ) {
             if ( arguments.length === 2 ) {
                 factory = deps;
@@ -39,7 +39,7 @@
             });
         },
 
-        // ÉèÖÃmodule, ¼æÈÝCommonJsÐ´·¨¡£
+        // ï¿½ï¿½ï¿½ï¿½module, ï¿½ï¿½ï¿½ï¿½CommonJsÐ´ï¿½ï¿½ï¿½ï¿½
         setModule = function( id, factory, args ) {
             var module = {
                     exports: factory
@@ -55,7 +55,7 @@
             modules[ id ] = module.exports;
         },
 
-        // ¸ù¾Ýid»ñÈ¡module
+        // ï¿½ï¿½ï¿½ï¿½idï¿½ï¿½È¡module
         getModule = function( id ) {
             var module = modules[ id ] || root[ id ];
 
@@ -66,7 +66,7 @@
             return module;
         },
 
-        // ½«ËùÓÐmodules£¬½«Â·¾¶ids×°»»³É¶ÔÏó¡£
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½modulesï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ids×°ï¿½ï¿½ï¿½É¶ï¿½ï¿½ï¿½
         exportsTo = function( obj ) {
             var key, host, parts, part, last, ucFirst;
 
@@ -131,7 +131,7 @@
         return window.jQuery || window.Zepto;
     });
     /**
-     * @fileOverview Dom ²Ù×÷Ïà¹Ø
+     * @fileOverview Dom ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     define('dollar',[
         'dollar-third'
@@ -139,7 +139,7 @@
         return _;
     });
     /**
-     * @fileOverview Ê¹ÓÃjQueryµÄPromise
+     * @fileOverview Ê¹ï¿½ï¿½jQueryï¿½ï¿½Promise
      */
     define('promise-third',[
         'dollar'
@@ -162,24 +162,24 @@
         return _;
     });
     /**
-     * @fileOverview »ù´¡Àà·½·¨¡£
+     * @fileOverview ï¿½ï¿½ï¿½ï¿½ï¿½à·½ï¿½ï¿½ï¿½ï¿½
      */
     
     /**
-     * Web UploaderÄÚ²¿ÀàµÄÏêÏ¸ËµÃ÷£¬ÒÔÏÂÌá¼°µÄ¹¦ÄÜÀà£¬¶¼¿ÉÒÔÔÚ`WebUploader`Õâ¸ö±äÁ¿ÖÐ·ÃÎÊµ½¡£
+     * Web Uploaderï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¼°ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½à£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`WebUploader`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½Êµï¿½ï¿½ï¿½
      *
-     * As you know, Web UploaderµÄÃ¿¸öÎÄ¼þ¶¼ÊÇÓÃ¹ý[AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)¹æ·¶ÖÐµÄ`define`×éÖ¯ÆðÀ´µÄ, Ã¿¸öModule¶¼»áÓÐ¸ömodule id.
-     * Ä¬ÈÏmodule id¸ÃÎÄ¼þµÄÂ·¾¶£¬¶ø´ËÂ·¾¶½«»á×ª»¯³ÉÃû×Ö¿Õ¼ä´æ·ÅÔÚWebUploaderÖÐ¡£Èç£º
+     * As you know, Web Uploaderï¿½ï¿½Ã¿ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¹ï¿½[AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)ï¿½æ·¶ï¿½Ðµï¿½`define`ï¿½ï¿½Ö¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, Ã¿ï¿½ï¿½Moduleï¿½ï¿½ï¿½ï¿½ï¿½Ð¸ï¿½module id.
+     * Ä¬ï¿½ï¿½module idï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¿Õ¼ï¿½ï¿½ï¿½ï¿½ï¿½WebUploaderï¿½Ð¡ï¿½ï¿½ç£º
      *
-     * * module `base`£ºWebUploader.Base
+     * * module `base`ï¿½ï¿½WebUploader.Base
      * * module `file`: WebUploader.File
      * * module `lib/dnd`: WebUploader.Lib.Dnd
      * * module `runtime/html5/dnd`: WebUploader.Runtime.Html5.Dnd
      *
      *
-     * ÒÔÏÂÎÄµµ½«¿ÉÄÜÊ¡ÂÔ`WebUploader`Ç°×º¡£
+     * ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¡ï¿½ï¿½`WebUploader`Ç°×ºï¿½ï¿½
      * @module WebUploader
-     * @title WebUploader APIÎÄµµ
+     * @title WebUploader APIï¿½Äµï¿½
      */
     define('base',[
         'dollar',
@@ -190,7 +190,7 @@
             call = Function.call;
     
         // http://jsperf.com/uncurrythis
-        // ·´¿ÆÀï»¯
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï»¯
         function uncurryThis( fn ) {
             return function() {
                 return call.apply( fn, arguments );
@@ -217,18 +217,18 @@
     
     
         /**
-         * »ù´¡Àà£¬Ìá¹©Ò»Ð©¼òµ¥³£ÓÃµÄ·½·¨¡£
+         * ï¿½ï¿½ï¿½ï¿½ï¿½à£¬ï¿½á¹©Ò»Ð©ï¿½òµ¥³ï¿½ï¿½ÃµÄ·ï¿½ï¿½ï¿½ï¿½ï¿½
          * @class Base
          */
         return {
     
             /**
-             * @property {String} version µ±Ç°°æ±¾ºÅ¡£
+             * @property {String} version ï¿½ï¿½Ç°ï¿½æ±¾ï¿½Å¡ï¿½
              */
             version: '0.1.2',
     
             /**
-             * @property {jQuery|Zepto} $ ÒýÓÃÒÀÀµµÄjQuery»òÕßZepto¶ÔÏó¡£
+             * @property {jQuery|Zepto} $ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½jQueryï¿½ï¿½ï¿½ï¿½Zeptoï¿½ï¿½ï¿½ï¿½
              */
             $: $,
     
@@ -239,14 +239,14 @@
             when: promise.when,
     
             /**
-             * @description  ¼òµ¥µÄä¯ÀÀÆ÷¼ì²é½á¹û¡£
+             * @description  ï¿½òµ¥µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              *
-             * * `webkit`  webkit°æ±¾ºÅ£¬Èç¹ûä¯ÀÀÆ÷Îª·ÇwebkitÄÚºË£¬´ËÊôÐÔÎª`undefined`¡£
-             * * `chrome`  chromeä¯ÀÀÆ÷°æ±¾ºÅ£¬Èç¹ûä¯ÀÀÆ÷Îªchrome£¬´ËÊôÐÔÎª`undefined`¡£
-             * * `ie`  ieä¯ÀÀÆ÷°æ±¾ºÅ£¬Èç¹ûä¯ÀÀÆ÷Îª·Çie£¬´ËÊôÐÔÎª`undefined`¡£**ÔÝ²»Ö§³Öie10+**
-             * * `firefox`  firefoxä¯ÀÀÆ÷°æ±¾ºÅ£¬Èç¹ûä¯ÀÀÆ÷Îª·Çfirefox£¬´ËÊôÐÔÎª`undefined`¡£
-             * * `safari`  safariä¯ÀÀÆ÷°æ±¾ºÅ£¬Èç¹ûä¯ÀÀÆ÷Îª·Çsafari£¬´ËÊôÐÔÎª`undefined`¡£
-             * * `opera`  operaä¯ÀÀÆ÷°æ±¾ºÅ£¬Èç¹ûä¯ÀÀÆ÷Îª·Çopera£¬´ËÊôÐÔÎª`undefined`¡£
+             * * `webkit`  webkitï¿½æ±¾ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½webkitï¿½ÚºË£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª`undefined`ï¿½ï¿½
+             * * `chrome`  chromeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªchromeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª`undefined`ï¿½ï¿½
+             * * `ie`  ieï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ieï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª`undefined`ï¿½ï¿½**ï¿½Ý²ï¿½Ö§ï¿½ï¿½ie10+**
+             * * `firefox`  firefoxï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½firefoxï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª`undefined`ï¿½ï¿½
+             * * `safari`  safariï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½safariï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª`undefined`ï¿½ï¿½
+             * * `opera`  operaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½operaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª`undefined`ï¿½ï¿½
              *
              * @property {Object} [browser]
              */
@@ -273,10 +273,10 @@
             })( navigator.userAgent ),
     
             /**
-             * @description  ²Ù×÷ÏµÍ³¼ì²é½á¹û¡£
+             * @description  ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              *
-             * * `android`  Èç¹ûÔÚandroidä¯ÀÀÆ÷»·¾³ÏÂ£¬´ËÖµÎª¶ÔÓ¦µÄandroid°æ±¾ºÅ£¬·ñÔòÎª`undefined`¡£
-             * * `ios` Èç¹ûÔÚiosä¯ÀÀÆ÷»·¾³ÏÂ£¬´ËÖµÎª¶ÔÓ¦µÄios°æ±¾ºÅ£¬·ñÔòÎª`undefined`¡£
+             * * `android`  ï¿½ï¿½ï¿½ï¿½ï¿½androidï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½Ó¦ï¿½ï¿½androidï¿½æ±¾ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½Îª`undefined`ï¿½ï¿½
+             * * `ios` ï¿½ï¿½ï¿½ï¿½ï¿½iosï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½Ó¦ï¿½ï¿½iosï¿½æ±¾ï¿½Å£ï¿½ï¿½ï¿½ï¿½ï¿½Îª`undefined`ï¿½ï¿½
              * @property {Object} [os]
              */
             os: (function( ua ) {
@@ -294,16 +294,16 @@
             })( navigator.userAgent ),
     
             /**
-             * ÊµÏÖÀàÓëÀàÖ®¼äµÄ¼Ì³Ð¡£
+             * Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½Ä¼Ì³Ð¡ï¿½
              * @method inherits
              * @grammar Base.inherits( super ) => child
              * @grammar Base.inherits( super, protos ) => child
              * @grammar Base.inherits( super, protos, statics ) => child
-             * @param  {Class} super ¸¸Àà
-             * @param  {Object | Function} [protos] ×ÓÀà»òÕß¶ÔÏó¡£Èç¹û¶ÔÏóÖÐ°üº¬constructor£¬×ÓÀà½«ÊÇÓÃ´ËÊôÐÔÖµ¡£
-             * @param  {Function} [protos.constructor] ×ÓÀà¹¹ÔìÆ÷£¬²»Ö¸¶¨µÄ»°½«´´½¨¸öÁÙÊ±µÄÖ±½ÓÖ´ÐÐ¸¸Àà¹¹ÔìÆ÷µÄ·½·¨¡£
-             * @param  {Object} [statics] ¾²Ì¬ÊôÐÔ»ò·½·¨¡£
-             * @return {Class} ·µ»Ø×ÓÀà¡£
+             * @param  {Class} super ï¿½ï¿½ï¿½ï¿½
+             * @param  {Object | Function} [protos] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð°ï¿½ï¿½ï¿½constructorï¿½ï¿½ï¿½ï¿½ï¿½à½«ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½
+             * @param  {Function} [protos.constructor] ï¿½ï¿½ï¿½à¹¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ö±ï¿½ï¿½Ö´ï¿½Ð¸ï¿½ï¿½à¹¹ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½
+             * @param  {Object} [statics] ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½Ô»ò·½·ï¿½ï¿½ï¿½
+             * @return {Class} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¡£
              * @example
              * function Person() {
              *     console.log( 'Super' );
@@ -318,14 +318,14 @@
              *     }
              * });
              *
-             * // ÒòÎªÃ»ÓÐÖ¸¶¨¹¹ÔìÆ÷£¬¸¸ÀàµÄ¹¹ÔìÆ÷½«»áÖ´ÐÐ¡£
+             * // ï¿½ï¿½ÎªÃ»ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¡ï¿½
              * var instance = new Manager();    // => Super
              *
-             * // ¼Ì³Ð×Ó¸¸ÀàµÄ·½·¨
+             * // ï¿½Ì³ï¿½ï¿½Ó¸ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
              * instance.hello();    // => hello
              * instance.world();    // => World
              *
-             * // ×ÓÀàµÄ__super__ÊôÐÔÖ¸Ïò¸¸Àà
+             * // ï¿½ï¿½ï¿½ï¿½ï¿½__super__ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½
              * console.log( Manager.__super__ === Person );    // => true
              */
             inherits: function( Super, protos, staticProtos ) {
@@ -342,16 +342,16 @@
                     };
                 }
     
-                // ¸´ÖÆ¾²Ì¬·½·¨
+                // ï¿½ï¿½ï¿½Æ¾ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½
                 $.extend( true, child, Super, staticProtos || {} );
     
                 /* jshint camelcase: false */
     
-                // ÈÃ×ÓÀàµÄ__super__ÊôÐÔÖ¸Ïò¸¸Àà¡£
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½__super__ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½à¡£
                 child.__super__ = Super.prototype;
     
-                // ¹¹½¨Ô­ÐÍ£¬Ìí¼ÓÔ­ÐÍ·½·¨»òÊôÐÔ¡£
-                // ÔÝÊ±ÓÃObject.createÊµÏÖ¡£
+                // ï¿½ï¿½ï¿½ï¿½Ô­ï¿½Í£ï¿½ï¿½ï¿½ï¿½Ô­ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¡ï¿½
+                // ï¿½ï¿½Ê±ï¿½ï¿½Object.createÊµï¿½Ö¡ï¿½
                 child.prototype = createObject( Super.prototype );
                 protos && $.extend( true, child.prototype, protos );
     
@@ -359,13 +359,13 @@
             },
     
             /**
-             * Ò»¸ö²»×öÈÎºÎÊÂÇéµÄ·½·¨¡£¿ÉÒÔÓÃÀ´¸³Öµ¸øÄ¬ÈÏµÄcallback.
+             * Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ä¬ï¿½Ïµï¿½callback.
              * @method noop
              */
             noop: noop,
     
             /**
-             * ·µ»ØÒ»¸öÐÂµÄ·½·¨£¬´Ë·½·¨½«ÒÑÖ¸¶¨µÄ`context`À´Ö´ÐÐ¡£
+             * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ÂµÄ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½`context`ï¿½ï¿½Ö´ï¿½Ð¡ï¿½
              * @grammar Base.bindFn( fn, context ) => Function
              * @method bindFn
              * @example
@@ -383,7 +383,7 @@
             bindFn: bindFn,
     
             /**
-             * ÒýÓÃConsole.logÈç¹û´æÔÚµÄ»°£¬·ñÔòÒýÓÃÒ»¸ö[¿Õº¯Êýloop](#WebUploader:Base.log)¡£
+             * ï¿½ï¿½ï¿½ï¿½Console.logï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½[ï¿½Õºï¿½ï¿½ï¿½loop](#WebUploader:Base.log)ï¿½ï¿½
              * @grammar Base.log( args... ) => undefined
              * @method log
              */
@@ -400,7 +400,7 @@
                     setTimeout( cb, 1 );
                 };
     
-                // @bug µ±ä¯ÀÀÆ÷²»ÔÚµ±Ç°´°¿ÚÊ±¾ÍÍ£ÁË¡£
+                // @bug ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Í£ï¿½Ë¡ï¿½
                 // var next = window.requestAnimationFrame ||
                 //     window.webkitRequestAnimationFrame ||
                 //     window.mozRequestAnimationFrame ||
@@ -413,8 +413,8 @@
             })(),
     
             /**
-             * ±»[uncurrythis](http://www.2ality.com/2011/11/uncurrying-this.html)µÄÊý×éslice·½·¨¡£
-             * ½«ÓÃÀ´½«·ÇÊý×é¶ÔÏó×ª»¯³ÉÊý×é¶ÔÏó¡£
+             * ï¿½ï¿½[uncurrythis](http://www.2ality.com/2011/11/uncurrying-this.html)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sliceï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+             * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              * @grammar Base.slice( target, start[, end] ) => Array
              * @method slice
              * @example
@@ -428,7 +428,7 @@
             slice: uncurryThis( [].slice ),
     
             /**
-             * Éú³ÉÎ¨Ò»µÄID
+             * ï¿½ï¿½ï¿½ï¿½Î¨Ò»ï¿½ï¿½ID
              * @method guid
              * @grammar Base.guid() => String
              * @grammar Base.guid( prefx ) => String
@@ -449,14 +449,14 @@
             })(),
     
             /**
-             * ¸ñÊ½»¯ÎÄ¼þ´óÐ¡, Êä³ö³É´øµ¥Î»µÄ×Ö·û´®
+             * ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡, ï¿½ï¿½ï¿½ï¿½É´ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
              * @method formatSize
              * @grammar Base.formatSize( size ) => String
              * @grammar Base.formatSize( size, pointLength ) => String
              * @grammar Base.formatSize( size, pointLength, units ) => String
-             * @param {Number} size ÎÄ¼þ´óÐ¡
-             * @param {Number} [pointLength=2] ¾«È·µ½µÄÐ¡ÊýµãÊý¡£
-             * @param {Array} [units=[ 'B', 'K', 'M', 'G', 'TB' ]] µ¥Î»Êý×é¡£´Ó×Ö½Ú£¬µ½Ç§×Ö½Ú£¬Ò»Ö±ÍùÉÏÖ¸¶¨¡£Èç¹ûµ¥Î»Êý×éÀïÃæÖ»Ö¸¶¨ÁËµ½ÁËK(Ç§×Ö½Ú)£¬Í¬Ê±ÎÄ¼þ´óÐ¡´óÓÚM, ´Ë·½·¨µÄÊä³ö½«»¹ÊÇÏÔÊ¾³É¶àÉÙK.
+             * @param {Number} size ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡
+             * @param {Number} [pointLength=2] ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+             * @param {Array} [units=[ 'B', 'K', 'M', 'G', 'TB' ]] ï¿½ï¿½Î»ï¿½ï¿½ï¿½é¡£ï¿½ï¿½ï¿½Ö½Ú£ï¿½ï¿½ï¿½Ç§ï¿½Ö½Ú£ï¿½Ò»Ö±ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»Ö¸ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½K(Ç§ï¿½Ö½ï¿½)ï¿½ï¿½Í¬Ê±ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½M, ï¿½Ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½É¶ï¿½ï¿½ï¿½K.
              * @example
              * console.log( Base.formatSize( 100 ) );    // => 100B
              * console.log( Base.formatSize( 1024 ) );    // => 1.00K
@@ -480,7 +480,7 @@
         };
     });
     /**
-     * ÊÂ¼þ´¦ÀíÀà£¬¿ÉÒÔ¶ÀÁ¢Ê¹ÓÃ£¬Ò²¿ÉÒÔÀ©Õ¹¸ø¶ÔÏóÊ¹ÓÃ¡£
+     * ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à£¬ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½Ê¹ï¿½Ã£ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¡ï¿½
      * @fileOverview Mediator
      */
     define('mediator',[
@@ -491,7 +491,7 @@
             separator = /\s+/,
             protos;
     
-        // ¸ù¾ÝÌõ¼þ¹ýÂË³öÊÂ¼þhandlers.
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½Â¼ï¿½handlers.
         function findHandlers( arr, name, callback, context ) {
             return $.grep( arr, function( handler ) {
                 return handler &&
@@ -503,7 +503,7 @@
         }
     
         function eachEvent( events, callback, iterator ) {
-            // ²»Ö§³Ö¶ÔÏó£¬Ö»Ö§³Ö¶à¸öeventÓÃ¿Õ¸ñ¸ô¿ª
+            // ï¿½ï¿½Ö§ï¿½Ö¶ï¿½ï¿½ï¿½Ö»Ö§ï¿½Ö¶ï¿½ï¿½eventï¿½Ã¿Õ¸ï¿½ï¿½ï¿½ï¿½
             $.each( (events || '').split( separator ), function( _, key ) {
                 iterator( key, callback );
             });
@@ -530,13 +530,13 @@
         protos = {
     
             /**
-             * °ó¶¨ÊÂ¼þ¡£
+             * ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½
              *
-             * `callback`·½·¨ÔÚÖ´ÐÐÊ±£¬arguments½«»áÀ´Ô´ÓÚtriggerµÄÊ±ºòÐ¯´øµÄ²ÎÊý¡£Èç
+             * `callback`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½Ê±ï¿½ï¿½argumentsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½triggerï¿½ï¿½Ê±ï¿½ï¿½Ð¯ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              * ```javascript
              * var obj = {};
              *
-             * // Ê¹µÃobjÓÐÊÂ¼þÐÐÎª
+             * // Ê¹ï¿½ï¿½objï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Îª
              * Mediator.installTo( obj );
              *
              * obj.on( 'testa', function( arg1, arg2 ) {
@@ -546,11 +546,11 @@
              * obj.trigger( 'testa', 'arg1', 'arg2' );
              * ```
              *
-             * Èç¹û`callback`ÖÐ£¬Ä³Ò»¸ö·½·¨`return false`ÁË£¬ÔòºóÐøµÄÆäËû`callback`¶¼²»»á±»Ö´ÐÐµ½¡£
-             * ÇÐ»áÓ°Ïìµ½`trigger`·½·¨µÄ·µ»ØÖµ£¬Îª`false`¡£
+             * ï¿½ï¿½ï¿½`callback`ï¿½Ð£ï¿½Ä³Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`return false`ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`callback`ï¿½ï¿½ï¿½ï¿½ï¿½á±»Ö´ï¿½Ðµï¿½ï¿½ï¿½
+             * ï¿½Ð»ï¿½Ó°ï¿½ìµ½`trigger`ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½Öµï¿½ï¿½Îª`false`ï¿½ï¿½
              *
-             * `on`»¹¿ÉÒÔÓÃÀ´Ìí¼ÓÒ»¸öÌØÊâÊÂ¼þ`all`, ÕâÑùËùÓÐµÄÊÂ¼þ´¥·¢¶¼»áÏìÓ¦µ½¡£Í¬Ê±´ËÀà`callback`ÖÐµÄargumentsÓÐÒ»¸ö²»Í¬´¦£¬
-             * ¾ÍÊÇµÚÒ»¸ö²ÎÊýÎª`type`£¬¼ÇÂ¼µ±Ç°ÊÇÊ²Ã´ÊÂ¼þÔÚ´¥·¢¡£´ËÀà`callback`µÄÓÅÏÈ¼¶±È½ÅµÍ£¬»áÔÙÕý³£`callback`Ö´ÐÐÍêºó´¥·¢¡£
+             * `on`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½`all`, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½ï¿½`callback`ï¿½Ðµï¿½argumentsï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½
+             * ï¿½ï¿½ï¿½Çµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª`type`ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ç°ï¿½ï¿½Ê²Ã´ï¿½Â¼ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`callback`ï¿½ï¿½ï¿½ï¿½ï¿½È¼ï¿½ï¿½È½ÅµÍ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`callback`Ö´ï¿½ï¿½ï¿½ï¿½ó´¥·ï¿½ï¿½ï¿½
              * ```javascript
              * obj.on( 'all', function( type, arg1, arg2 ) {
              *     console.log( type, arg1, arg2 ); // => 'testa', 'arg1', 'arg2'
@@ -559,10 +559,10 @@
              *
              * @method on
              * @grammar on( name, callback[, context] ) => self
-             * @param  {String}   name     ÊÂ¼þÃû£¬Ö§³Ö¶à¸öÊÂ¼þÓÃ¿Õ¸ñ¸ô¿ª
-             * @param  {Function} callback ÊÂ¼þ´¦ÀíÆ÷
-             * @param  {Object}   [context]  ÊÂ¼þ´¦ÀíÆ÷µÄÉÏÏÂÎÄ¡£
-             * @return {self} ·µ»Ø×ÔÉí£¬·½±ãÁ´Ê½
+             * @param  {String}   name     ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½Ö¶ï¿½ï¿½ï¿½Â¼ï¿½ï¿½Ã¿Õ¸ï¿½ï¿½ï¿½ï¿½
+             * @param  {Function} callback ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+             * @param  {Object}   [context]  ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½
+             * @return {self} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
              * @chainable
              * @class Mediator
              */
@@ -591,13 +591,13 @@
             },
     
             /**
-             * °ó¶¨ÊÂ¼þ£¬ÇÒµ±handlerÖ´ÐÐÍêºó£¬×Ô¶¯½â³ý°ó¶¨¡£
+             * ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Òµï¿½handlerÖ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ó¶¨¡ï¿½
              * @method once
              * @grammar once( name, callback[, context] ) => self
-             * @param  {String}   name     ÊÂ¼þÃû
-             * @param  {Function} callback ÊÂ¼þ´¦ÀíÆ÷
-             * @param  {Object}   [context]  ÊÂ¼þ´¦ÀíÆ÷µÄÉÏÏÂÎÄ¡£
-             * @return {self} ·µ»Ø×ÔÉí£¬·½±ãÁ´Ê½
+             * @param  {String}   name     ï¿½Â¼ï¿½ï¿½ï¿½
+             * @param  {Function} callback ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+             * @param  {Object}   [context]  ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½
+             * @return {self} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
              * @chainable
              */
             once: function( name, callback, context ) {
@@ -621,13 +621,13 @@
             },
     
             /**
-             * ½â³ýÊÂ¼þ°ó¶¨
+             * ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½
              * @method off
              * @grammar off( [name[, callback[, context] ] ] ) => self
-             * @param  {String}   [name]     ÊÂ¼þÃû
-             * @param  {Function} [callback] ÊÂ¼þ´¦ÀíÆ÷
-             * @param  {Object}   [context]  ÊÂ¼þ´¦ÀíÆ÷µÄÉÏÏÂÎÄ¡£
-             * @return {self} ·µ»Ø×ÔÉí£¬·½±ãÁ´Ê½
+             * @param  {String}   [name]     ï¿½Â¼ï¿½ï¿½ï¿½
+             * @param  {Function} [callback] ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+             * @param  {Object}   [context]  ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½
+             * @return {self} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
              * @chainable
              */
             off: function( name, cb, ctx ) {
@@ -652,12 +652,12 @@
             },
     
             /**
-             * ´¥·¢ÊÂ¼þ
+             * ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
              * @method trigger
              * @grammar trigger( name[, args...] ) => self
-             * @param  {String}   type     ÊÂ¼þÃû
-             * @param  {*} [...] ÈÎÒâ²ÎÊý
-             * @return {Boolean} Èç¹ûhandlerÖÐreturn falseÁË£¬Ôò·µ»Øfalse, ·ñÔò·µ»Øtrue
+             * @param  {String}   type     ï¿½Â¼ï¿½ï¿½ï¿½
+             * @param  {*} [...] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+             * @return {Boolean} ï¿½ï¿½ï¿½handlerï¿½ï¿½return falseï¿½Ë£ï¿½ï¿½ò·µ»ï¿½false, ï¿½ï¿½ï¿½ò·µ»ï¿½true
              */
             trigger: function( type ) {
                 var args, events, allEvents;
@@ -676,18 +676,18 @@
         };
     
         /**
-         * ÖÐ½éÕß£¬Ëü±¾ÉíÊÇ¸öµ¥Àý£¬µ«¿ÉÒÔÍ¨¹ý[installTo](#WebUploader:Mediator:installTo)·½·¨£¬Ê¹ÈÎºÎ¶ÔÏó¾ß±¸ÊÂ¼þÐÐÎª¡£
-         * Ö÷ÒªÄ¿µÄÊÇ¸ºÔðÄ£¿éÓëÄ£¿éÖ®¼äµÄºÏ×÷£¬½µµÍñîºÏ¶È¡£
+         * ï¿½Ð½ï¿½ï¿½ß£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½[installTo](#WebUploader:Mediator:installTo)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ÎºÎ¶ï¿½ï¿½ï¿½ß±ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Îªï¿½ï¿½
+         * ï¿½ï¿½ÒªÄ¿ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½Ö®ï¿½ï¿½Äºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶È¡ï¿½
          *
          * @class Mediator
          */
         return $.extend({
     
             /**
-             * ¿ÉÒÔÍ¨¹ýÕâ¸ö½Ó¿Ú£¬Ê¹ÈÎºÎ¶ÔÏó¾ß±¸ÊÂ¼þ¹¦ÄÜ¡£
+             * ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿Ú£ï¿½Ê¹ï¿½ÎºÎ¶ï¿½ï¿½ï¿½ß±ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ü¡ï¿½
              * @method installTo
-             * @param  {Object} obj ÐèÒª¾ß±¸ÊÂ¼þÐÐÎªµÄ¶ÔÏó¡£
-             * @return {Object} ·µ»Øobj.
+             * @param  {Object} obj ï¿½ï¿½Òªï¿½ß±ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Îªï¿½Ä¶ï¿½ï¿½ï¿½
+             * @return {Object} ï¿½ï¿½ï¿½ï¿½obj.
              */
             installTo: function( obj ) {
                 return $.extend( obj, protos );
@@ -696,7 +696,7 @@
         }, protos );
     });
     /**
-     * @fileOverview UploaderÉÏ´«Àà
+     * @fileOverview Uploaderï¿½Ï´ï¿½ï¿½ï¿½
      */
     define('uploader',[
         'base',
@@ -706,7 +706,7 @@
         var $ = Base.$;
     
         /**
-         * ÉÏ´«Èë¿ÚÀà¡£
+         * ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½à¡£
          * @class Uploader
          * @constructor
          * @grammar new Uploader( opts ) => Uploader
@@ -714,7 +714,7 @@
          * var uploader = WebUploader.Uploader({
          *     swf: 'path_of_swf/Uploader.swf',
          *
-         *     // ¿ªÆð·ÖÆ¬ÉÏ´«¡£
+         *     // ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½Ï´ï¿½ï¿½ï¿½
          *     chunked: true
          * });
          */
@@ -724,11 +724,11 @@
         }
     
         // default Options
-        // widgetsÖÐÓÐÏàÓ¦À©Õ¹
+        // widgetsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½Õ¹
         Uploader.options = {};
         Mediator.installTo( Uploader.prototype );
     
-        // ÅúÁ¿Ìí¼Ó´¿ÃüÁîÊ½·½·¨¡£
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         $.each({
             upload: 'start-upload',
             stop: 'stop-upload',
@@ -768,18 +768,18 @@
             },
     
             /**
-             * »ñÈ¡»òÕßÉèÖÃUploaderÅäÖÃÏî¡£
+             * ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Uploaderï¿½ï¿½ï¿½ï¿½ï¿½î¡£
              * @method option
              * @grammar option( key ) => *
              * @grammar option( key, val ) => self
              * @example
              *
-             * // ³õÊ¼×´Ì¬Í¼Æ¬ÉÏ´«Ç°²»»áÑ¹Ëõ
+             * // ï¿½ï¿½Ê¼×´Ì¬Í¼Æ¬ï¿½Ï´ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½ï¿½
              * var uploader = new WebUploader.Uploader({
              *     resize: null;
              * });
              *
-             * // ÐÞ¸ÄºóÍ¼Æ¬ÉÏ´«Ç°£¬³¢ÊÔ½«Í¼Æ¬Ñ¹Ëõµ½1600 * 1600
+             * // ï¿½Þ¸Äºï¿½Í¼Æ¬ï¿½Ï´ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½Í¼Æ¬Ñ¹ï¿½ï¿½ï¿½ï¿½1600 * 1600
              * uploader.options( 'resize', {
              *     width: 1600,
              *     height: 1600
@@ -804,12 +804,12 @@
             },
     
             /**
-             * »ñÈ¡ÎÄ¼þÍ³¼ÆÐÅÏ¢¡£·µ»ØÒ»¸ö°üº¬Ò»ÏÂÐÅÏ¢µÄ¶ÔÏó¡£
-             * * `successNum` ÉÏ´«³É¹¦µÄÎÄ¼þÊý
-             * * `uploadFailNum` ÉÏ´«Ê§°ÜµÄÎÄ¼þÊý
-             * * `cancelNum` ±»É¾³ýµÄÎÄ¼þÊý
-             * * `invalidNum` ÎÞÐ§µÄÎÄ¼þÊý
-             * * `queueNum` »¹ÔÚ¶ÓÁÐÖÐµÄÎÄ¼þÊý
+             * ï¿½ï¿½È¡ï¿½Ä¼ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ä¶ï¿½ï¿½ï¿½
+             * * `successNum` ï¿½Ï´ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+             * * `uploadFailNum` ï¿½Ï´ï¿½Ê§ï¿½Üµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+             * * `cancelNum` ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+             * * `invalidNum` ï¿½ï¿½Ð§ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+             * * `queueNum` ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
              * @method getStats
              * @grammar getStats() => Object
              */
@@ -829,7 +829,7 @@
                 };
             },
     
-            // ÐèÒªÖØÐ´´Ë·½·¨À´À´Ö§³Öopts.onEventºÍinstance.onEventµÄ´¦ÀíÆ÷
+            // ï¿½ï¿½Òªï¿½ï¿½Ð´ï¿½Ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½opts.onEventï¿½ï¿½instance.onEventï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½
             trigger: function( type/*, args...*/ ) {
                 var args = [].slice.call( arguments, 1 ),
                     opts = this.options,
@@ -837,18 +837,18 @@
                         type.substring( 1 );
     
                 if (
-                        // µ÷ÓÃÍ¨¹ýon·½·¨×¢²áµÄhandler.
+                        // ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½onï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½handler.
                         Mediator.trigger.apply( this, arguments ) === false ||
     
-                        // µ÷ÓÃopts.onEvent
+                        // ï¿½ï¿½ï¿½ï¿½opts.onEvent
                         $.isFunction( opts[ name ] ) &&
                         opts[ name ].apply( this, args ) === false ||
     
-                        // µ÷ÓÃthis.onEvent
+                        // ï¿½ï¿½ï¿½ï¿½this.onEvent
                         $.isFunction( this[ name ] ) &&
                         this[ name ].apply( this, args ) === false ||
     
-                        // ¹ã²¥ËùÓÐuploaderµÄÊÂ¼þ¡£
+                        // ï¿½ã²¥ï¿½ï¿½ï¿½ï¿½uploaderï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½
                         Mediator.trigger.apply( Mediator,
                         [ this, type ].concat( args ) ) === false ) {
     
@@ -858,12 +858,12 @@
                 return true;
             },
     
-            // widgets/widget.js½«²¹³ä´Ë·½·¨µÄÏêÏ¸ÎÄµµ¡£
+            // widgets/widget.jsï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½Äµï¿½ï¿½ï¿½
             request: Base.noop
         });
     
         /**
-         * ´´½¨UploaderÊµÀý£¬µÈÍ¬ÓÚnew Uploader( opts );
+         * ï¿½ï¿½ï¿½ï¿½UploaderÊµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½new Uploader( opts );
          * @method create
          * @class Base
          * @static
@@ -873,13 +873,13 @@
             return new Uploader( opts );
         };
     
-        // ±©Â¶Uploader£¬¿ÉÒÔÍ¨¹ýËüÀ´À©Õ¹ÒµÎñÂß¼­¡£
+        // ï¿½ï¿½Â¶Uploaderï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹Òµï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½
         Base.Uploader = Uploader;
     
         return Uploader;
     });
     /**
-     * @fileOverview Runtime¹ÜÀíÆ÷£¬¸ºÔðRuntimeµÄÑ¡Ôñ, Á¬½Ó
+     * @fileOverview Runtimeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Runtimeï¿½ï¿½Ñ¡ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
      */
     define('runtime/runtime',[
         'base',
@@ -889,7 +889,7 @@
         var $ = Base.$,
             factories = {},
     
-            // »ñÈ¡¶ÔÏóµÄµÚÒ»¸ökey
+            // ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½key
             getFirstKey = function( obj ) {
                 for ( var key in obj ) {
                     if ( obj.hasOwnProperty( key ) ) {
@@ -899,7 +899,7 @@
                 return null;
             };
     
-        // ½Ó¿ÚÀà¡£
+        // ï¿½Ó¿ï¿½ï¿½à¡£
         function Runtime( options ) {
             this.options = $.extend({
                 container: document.body
@@ -952,9 +952,9 @@
     
     
         /**
-         * Ìí¼ÓRuntimeÊµÏÖ¡£
-         * @param {String} type    ÀàÐÍ
-         * @param {Runtime} factory ¾ßÌåRuntimeÊµÏÖ¡£
+         * ï¿½ï¿½ï¿½RuntimeÊµï¿½Ö¡ï¿½
+         * @param {String} type    ï¿½ï¿½ï¿½ï¿½
+         * @param {Runtime} factory ï¿½ï¿½ï¿½ï¿½RuntimeÊµï¿½Ö¡ï¿½
          */
         Runtime.addRuntime = function( type, factory ) {
             factories[ type ] = factory;
@@ -990,7 +990,7 @@
     });
     
     /**
-     * @fileOverview Runtime¹ÜÀíÆ÷£¬¸ºÔðRuntimeµÄÑ¡Ôñ, Á¬½Ó
+     * @fileOverview Runtimeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Runtimeï¿½ï¿½Ñ¡ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
      */
     define('runtime/client',[
         'base',
@@ -1016,7 +1016,7 @@
                     }
     
                     for ( i in obj ) {
-                        // ÓÐÐ©ÀàÐÍ²»ÄÜÖØÓÃ£¬±ÈÈçfilepicker.
+                        // ï¿½ï¿½Ð©ï¿½ï¿½ï¿½Í²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½filepicker.
                         if ( standalone && obj[ i ].__standalone ) {
                             continue;
                         }
@@ -1039,7 +1039,7 @@
     
             this.uid = Base.guid('client_');
     
-            // ÔÊÐíruntimeÃ»ÓÐ³õÊ¼»¯Ö®Ç°£¬×¢²áÒ»Ð©·½·¨ÔÚ³õÊ¼»¯ºóÖ´ÐÐ¡£
+            // ï¿½ï¿½ï¿½ï¿½runtimeÃ»ï¿½Ð³ï¿½Ê¼ï¿½ï¿½Ö®Ç°ï¿½ï¿½×¢ï¿½ï¿½Ò»Ð©ï¿½ï¿½ï¿½ï¿½ï¿½Ú³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¡ï¿½
             this.runtimeReady = function( cb ) {
                 return deferred.done( cb );
             };
@@ -1057,10 +1057,10 @@
                     runtime = cache.get( opts );
                 }
     
-                // ÏñfilePickerÖ»ÄÜ¶ÀÁ¢´æÔÚ£¬²»ÄÜ¹«ÓÃ¡£
+                // ï¿½ï¿½filePickerÖ»ï¿½Ü¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½Ü¹ï¿½ï¿½Ã¡ï¿½
                 runtime = runtime || cache.get( null, standalone );
     
-                // ÐèÒª´´½¨
+                // ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½
                 if ( !runtime ) {
                     runtime = Runtime.create( opts, opts.runtimeOrder );
                     runtime.__promise = deferred.promise();
@@ -1069,7 +1069,7 @@
                     cache.add( runtime );
                     runtime.__client = 1;
                 } else {
-                    // À´×Ôcache
+                    // ï¿½ï¿½ï¿½ï¿½cache
                     Base.$.extend( runtime.options, opts );
                     runtime.__promise.then( deferred.resolve );
                     runtime.__client++;
@@ -1129,7 +1129,7 @@
         return RuntimeClient;
     });
     /**
-     * @fileOverview ´íÎóÐÅÏ¢
+     * @fileOverview ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
      */
     define('lib/dnd',[
         'base',
@@ -1178,7 +1178,7 @@
         return DragAndDrop;
     });
     /**
-     * @fileOverview ×é¼þ»ùÀà¡£
+     * @fileOverview ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¡£
      */
     define('widgets/widget',[
         'base',
@@ -1216,8 +1216,8 @@
     
             init: Base.noop,
     
-            // ÀàBackboneµÄÊÂ¼þ¼àÌýÉùÃ÷£¬¼àÌýuploaderÊµÀýÉÏµÄÊÂ¼þ
-            // widgetÖ±½ÓÎÞ·¨¼àÌýÊÂ¼þ£¬ÊÂ¼þÖ»ÄÜÍ¨¹ýuploaderÀ´´«µÝ
+            // ï¿½ï¿½Backboneï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½uploaderÊµï¿½ï¿½ï¿½Ïµï¿½ï¿½Â¼ï¿½
+            // widgetÖ±ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Â¼ï¿½Ö»ï¿½ï¿½Í¨ï¿½ï¿½uploaderï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             invoke: function( apiName, args ) {
     
                 /*
@@ -1227,7 +1227,7 @@
                  */
                 var map = this.responseMap;
     
-                // Èç¹ûÎÞAPIÏìÓ¦ÉùÃ÷ÔòºöÂÔ
+                // ï¿½ï¿½ï¿½ï¿½ï¿½APIï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 if ( !map || !(apiName in map) || !(map[ apiName ] in this) ||
                         !$.isFunction( this[ map[ apiName ] ] ) ) {
     
@@ -1239,7 +1239,7 @@
             },
     
             /**
-             * ·¢ËÍÃüÁî¡£µ±´«Èë`callback`»òÕß`handler`ÖÐ·µ»Ø`promise`Ê±¡£·µ»ØÒ»¸öµ±ËùÓÐ`handler`ÖÐµÄpromise¶¼Íê³ÉºóÍê³ÉµÄÐÂ`promise`¡£
+             * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î¡£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`callback`ï¿½ï¿½ï¿½ï¿½`handler`ï¿½Ð·ï¿½ï¿½ï¿½`promise`Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`handler`ï¿½Ðµï¿½promiseï¿½ï¿½ï¿½ï¿½Éºï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½`promise`ï¿½ï¿½
              * @method request
              * @grammar request( command, args ) => * | Promise
              * @grammar request( command, args, callback ) => Promise
@@ -1250,10 +1250,10 @@
             }
         });
     
-        // À©Õ¹Uploader.
+        // ï¿½ï¿½Õ¹Uploader.
         $.extend( Uploader.prototype, {
     
-            // ¸²Ð´_initÓÃÀ´³õÊ¼»¯widgets
+            // ï¿½ï¿½Ð´_initï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½widgets
             _init: function() {
                 var me = this,
                     widgets = me._widgets = [];
@@ -1281,7 +1281,7 @@
     
                     if ( rlt !== IGNORE ) {
     
-                        // Deferred¶ÔÏó
+                        // Deferredï¿½ï¿½ï¿½ï¿½
                         if ( Base.isPromise( rlt ) ) {
                             dfds.push( rlt );
                         } else {
@@ -1290,13 +1290,13 @@
                     }
                 }
     
-                // Èç¹ûÓÐcallback£¬ÔòÓÃÒì²½·½Ê½¡£
+                // ï¿½ï¿½ï¿½ï¿½ï¿½callbackï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì²½ï¿½ï¿½Ê½ï¿½ï¿½
                 if ( callback || dfds.length ) {
                     promise = Base.when.apply( Base, dfds );
                     key = promise.pipe ? 'pipe' : 'then';
     
-                    // ºÜÖØÒª²»ÄÜÉ¾³ý¡£É¾³ýÁË»áËÀÑ­»·¡£
-                    // ±£Ö¤Ö´ÐÐË³Ðò¡£ÈÃcallback×ÜÊÇÔÚÏÂÒ»¸ötickÖÐÖ´ÐÐ¡£
+                    // ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½Ë»ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½
+                    // ï¿½ï¿½Ö¤Ö´ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½callbackï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½tickï¿½ï¿½Ö´ï¿½Ð¡ï¿½
                     return promise[ key ](function() {
                                 var deferred = Base.Deferred(),
                                     args = arguments;
@@ -1314,9 +1314,9 @@
         });
     
         /**
-         * Ìí¼Ó×é¼þ
-         * @param  {object} widgetProto ×é¼þÔ­ÐÍ£¬¹¹Ôìº¯ÊýÍ¨¹ýconstructorÊôÐÔ¶¨Òå
-         * @param  {object} responseMap APIÃû³ÆÓëº¯ÊýÊµÏÖµÄÓ³Éä
+         * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+         * @param  {object} widgetProto ï¿½ï¿½ï¿½Ô­ï¿½Í£ï¿½ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½Í¨ï¿½ï¿½constructorï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½
+         * @param  {object} responseMap APIï¿½ï¿½ï¿½ï¿½ï¿½ëº¯ï¿½ï¿½Êµï¿½Öµï¿½Ó³ï¿½ï¿½
          * @example
          *     Uploader.register( {
          *         init: function( options ) {},
@@ -1345,7 +1345,7 @@
         return Widget;
     });
     /**
-     * @fileOverview DragAndDrop Widget¡£
+     * @fileOverview DragAndDrop Widgetï¿½ï¿½
      */
     define('widgets/filednd',[
         'base',
@@ -1358,7 +1358,7 @@
         Uploader.options.dnd = '';
     
         /**
-         * @property {Selector} [dnd=undefined]  Ö¸¶¨Drag And DropÍÏ×§µÄÈÝÆ÷£¬Èç¹û²»Ö¸¶¨£¬Ôò²»Æô¶¯¡£
+         * @property {Selector} [dnd=undefined]  Ö¸ï¿½ï¿½Drag And Dropï¿½ï¿½×§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
          * @namespace options
          * @for Uploader
          */
@@ -1366,7 +1366,7 @@
         /**
          * @event dndAccept
          * @param {DataTransferItemList} items DataTransferItem
-         * @description ×èÖ¹´ËÊÂ¼þ¿ÉÒÔ¾Ü¾øÄ³Ð©ÀàÐÍµÄÎÄ¼þÍÏÈë½øÀ´¡£Ä¿Ç°Ö»ÓÐ chrome Ìá¹©ÕâÑùµÄ API£¬ÇÒÖ»ÄÜÍ¨¹ý mime-type ÑéÖ¤¡£
+         * @description ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ô¾Ü¾ï¿½Ä³Ð©ï¿½ï¿½ï¿½Íµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Ç°Ö»ï¿½ï¿½ chrome ï¿½á¹©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ APIï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Í¨ï¿½ï¿½ mime-type ï¿½ï¿½Ö¤ï¿½ï¿½
          * @for  Uploader
          */
         return Uploader.register({
@@ -1393,7 +1393,7 @@
                     me.request( 'add-file', [ files ]);
                 });
     
-                // ¼ì²âÎÄ¼þÊÇ·ñÈ«²¿ÔÊÐíÌí¼Ó¡£
+                // ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ç·ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½
                 dnd.on( 'accept', function( items ) {
                     return me.owner.trigger( 'dndAccept', items );
                 });
@@ -1406,7 +1406,7 @@
     });
     
     /**
-     * @fileOverview ´íÎóÐÅÏ¢
+     * @fileOverview ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
      */
     define('lib/filepaste',[
         'base',
@@ -1446,7 +1446,7 @@
         return FilePaste;
     });
     /**
-     * @fileOverview ×é¼þ»ùÀà¡£
+     * @fileOverview ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¡£
      */
     define('widgets/filepaste',[
         'base',
@@ -1457,7 +1457,7 @@
         var $ = Base.$;
     
         /**
-         * @property {Selector} [paste=undefined]  Ö¸¶¨¼àÌýpasteÊÂ¼þµÄÈÝÆ÷£¬Èç¹û²»Ö¸¶¨£¬²»ÆôÓÃ´Ë¹¦ÄÜ¡£´Ë¹¦ÄÜÎªÍ¨¹ýÕ³ÌùÀ´Ìí¼Ó½ØÆÁµÄÍ¼Æ¬¡£½¨ÒéÉèÖÃÎª`document.body`.
+         * @property {Selector} [paste=undefined]  Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½pasteï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã´Ë¹ï¿½ï¿½Ü¡ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½ÎªÍ¨ï¿½ï¿½Õ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª`document.body`.
          * @namespace options
          * @for Uploader
          */
@@ -1529,8 +1529,8 @@
         return Blob;
     });
     /**
-     * ÎªÁËÍ³Ò»»¯FlashµÄFileºÍHTML5µÄFile¶ø´æÔÚ¡£
-     * ÒÔÖÁÓÚÒªµ÷ÓÃFlashÀïÃæµÄFile£¬Ò²¿ÉÒÔÏñµ÷ÓÃHTML5°æ±¾µÄFileÒ»ÏÂ¡£
+     * Îªï¿½ï¿½Í³Ò»ï¿½ï¿½Flashï¿½ï¿½Fileï¿½ï¿½HTML5ï¿½ï¿½Fileï¿½ï¿½ï¿½ï¿½ï¿½Ú¡ï¿½
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Flashï¿½ï¿½ï¿½ï¿½ï¿½Fileï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½HTML5ï¿½æ±¾ï¿½ï¿½FileÒ»ï¿½Â¡ï¿½
      * @fileOverview File
      */
     define('lib/file',[
@@ -1548,16 +1548,15 @@
             this.name = file.name || ('untitled' + uid++);
             ext = rExt.exec( file.name ) ? RegExp.$1.toLowerCase() : '';
     
-            // todo Ö§³ÖÆäËûÀàÐÍÎÄ¼þµÄ×ª»»¡£
-    
-            // Èç¹ûÓÐmimetype, µ«ÊÇÎÄ¼þÃûÀïÃæÃ»ÓÐÕÒ³öºó×º¹æÂÉ
+
+            // ï¿½ï¿½ï¿½ï¿½ï¿½mimetype, ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Ò³ï¿½ï¿½ï¿½×ºï¿½ï¿½ï¿½ï¿½
             if ( !ext && this.type ) {
                 ext = /\/(jpg|jpeg|png|gif|bmp)$/i.exec( this.type ) ?
                         RegExp.$1.toLowerCase() : '';
                 this.name += '.' + ext;
             }
     
-            // Èç¹ûÃ»ÓÐÖ¸¶¨mimetype, µ«ÊÇÖªµÀÎÄ¼þºó×º¡£
+            // ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ö¸ï¿½ï¿½mimetype, ï¿½ï¿½ï¿½ï¿½Öªï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½×ºï¿½ï¿½
             if ( !this.type &&  ~'jpg,jpeg,png,gif,bmp'.indexOf( ext ) ) {
                 this.type = 'image/' + (ext === 'jpg' ? 'jpeg' : ext);
             }
@@ -1571,7 +1570,7 @@
     });
     
     /**
-     * @fileOverview ´íÎóÐÅÏ¢
+     * @fileOverview ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
      */
     define('lib/filepicker',[
         'base',
@@ -1587,7 +1586,7 @@
             opts.container = $( opts.id );
     
             if ( !opts.container.length ) {
-                throw new Error('°´Å¥Ö¸¶¨´íÎó');
+                throw new Error('ï¿½ï¿½Å¥Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½');
             }
     
             opts.innerHTML = opts.innerHTML || opts.label ||
@@ -1637,7 +1636,7 @@
                             me.trigger( 'select', $.map( files, function( file ) {
                                 file = new File( me.getRuid(), file );
     
-                                // ¼ÇÂ¼À´Ô´¡£
+                                // ï¿½ï¿½Â¼ï¿½ï¿½Ô´ï¿½ï¿½
                                 file._refer = opts.container;
                                 return file;
                             }), opts.container );
@@ -1704,7 +1703,7 @@
     });
     
     /**
-     * @fileOverview ÎÄ¼þÑ¡ÔñÏà¹Ø
+     * @fileOverview ï¿½Ä¼ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     define('widgets/filepicker',[
         'base',
@@ -1720,12 +1719,12 @@
              * @property {Selector | Object} [pick=undefined]
              * @namespace options
              * @for Uploader
-             * @description Ö¸¶¨Ñ¡ÔñÎÄ¼þµÄ°´Å¥ÈÝÆ÷£¬²»Ö¸¶¨Ôò²»´´½¨°´Å¥¡£
+             * @description Ö¸ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ä°ï¿½Å¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ò²»´ï¿½ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½
              *
-             * * `id` {Seletor} Ö¸¶¨Ñ¡ÔñÎÄ¼þµÄ°´Å¥ÈÝÆ÷£¬²»Ö¸¶¨Ôò²»´´½¨°´Å¥¡£
-             * * `label` {String} Çë²ÉÓÃ `innerHTML` ´úÌæ
-             * * `innerHTML` {String} Ö¸¶¨°´Å¥ÎÄ×Ö¡£²»Ö¸¶¨Ê±ÓÅÏÈ´ÓÖ¸¶¨µÄÈÝÆ÷ÖÐ¿´ÊÇ·ñ×Ô´øÎÄ×Ö¡£
-             * * `multiple` {Boolean} ÊÇ·ñ¿ªÆðÍ¬Ê±Ñ¡Ôñ¶à¸öÎÄ¼þÄÜÁ¦¡£
+             * * `id` {Seletor} Ö¸ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ä°ï¿½Å¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ò²»´ï¿½ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½
+             * * `label` {String} ï¿½ï¿½ï¿½ï¿½ï¿½ `innerHTML` ï¿½ï¿½ï¿½ï¿½
+             * * `innerHTML` {String} Ö¸ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½Ê±ï¿½ï¿½ï¿½È´ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½Ç·ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½Ö¡ï¿½
+             * * `multiple` {Boolean} ï¿½Ç·ï¿½ï¿½ï¿½Í¬Ê±Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              */
             pick: null,
     
@@ -1733,13 +1732,13 @@
              * @property {Arroy} [accept=null]
              * @namespace options
              * @for Uploader
-             * @description Ö¸¶¨½ÓÊÜÄÄÐ©ÀàÐÍµÄÎÄ¼þ¡£ ÓÉÓÚÄ¿Ç°»¹ÓÐext×ªmimeType±í£¬ËùÒÔÕâÀïÐèÒª·Ö¿ªÖ¸¶¨¡£
+             * @description Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð©ï¿½ï¿½ï¿½Íµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿Ç°ï¿½ï¿½ï¿½ï¿½ext×ªmimeTypeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½Ö¿ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½
              *
-             * * `title` {String} ÎÄ×ÖÃèÊö
-             * * `extensions` {String} ÔÊÐíµÄÎÄ¼þºó×º£¬²»´øµã£¬¶à¸öÓÃ¶ººÅ·Ö¸î¡£
-             * * `mimeTypes` {String} ¶à¸öÓÃ¶ººÅ·Ö¸î¡£
+             * * `title` {String} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+             * * `extensions` {String} ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã£¬ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½Å·Ö¸î¡£
+             * * `mimeTypes` {String} ï¿½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½Å·Ö¸î¡£
              *
-             * Èç£º
+             * ï¿½ç£º
              *
              * ```
              * {
@@ -1779,11 +1778,11 @@
              * @for Uploader
              * @grammar addButton( pick ) => Promise
              * @description
-             * Ìí¼ÓÎÄ¼þÑ¡Ôñ°´Å¥£¬Èç¹ûÒ»¸ö°´Å¥²»¹»£¬ÐèÒªµ÷ÓÃ´Ë·½·¨À´Ìí¼Ó¡£²ÎÊý¸ú[options.pick](#WebUploader:Uploader:options)Ò»ÖÂ¡£
+             * ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Ñ¡ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Å¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ã´Ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[options.pick](#WebUploader:Uploader:options)Ò»ï¿½Â¡ï¿½
              * @example
              * uploader.addButton({
              *     id: '#btnContainer',
-             *     innerHTML: 'Ñ¡ÔñÎÄ¼þ'
+             *     innerHTML: 'Ñ¡ï¿½ï¿½ï¿½Ä¼ï¿½'
              * });
              */
             addButton: function( pick ) {
@@ -1834,7 +1833,7 @@
         });
     });
     /**
-     * @fileOverview ÎÄ¼þÊôÐÔ·â×°
+     * @fileOverview ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ô·ï¿½×°
      */
     define('file',[
         'base',
@@ -1852,23 +1851,23 @@
         }
     
         /**
-         * ÎÄ¼þÀà
+         * ï¿½Ä¼ï¿½ï¿½ï¿½
          * @class File
-         * @constructor ¹¹Ôìº¯Êý
+         * @constructor ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
          * @grammar new File( source ) => File
-         * @param {Lib.File} source [lib.File](#Lib.File)ÊµÀý, ´Ësource¶ÔÏóÊÇ´øÓÐRuntimeÐÅÏ¢µÄ¡£
+         * @param {Lib.File} source [lib.File](#Lib.File)Êµï¿½ï¿½, ï¿½ï¿½sourceï¿½ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ï¿½ï¿½Runtimeï¿½ï¿½Ï¢ï¿½Ä¡ï¿½
          */
         function WUFile( source ) {
     
             /**
-             * ÎÄ¼þÃû£¬°üÀ¨À©Õ¹Ãû£¨ºó×º£©
+             * ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ºï¿½ï¿½
              * @property name
              * @type {string}
              */
             this.name = source.name || 'Untitled';
     
             /**
-             * ÎÄ¼þÌå»ý£¨×Ö½Ú£©
+             * ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö½Ú£ï¿½
              * @property size
              * @type {uint}
              * @default 0
@@ -1876,7 +1875,7 @@
             this.size = source.size || 0;
     
             /**
-             * ÎÄ¼þMIMETYPEÀàÐÍ£¬ÓëÎÄ¼þÀàÐÍµÄ¶ÔÓ¦¹ØÏµÇë²Î¿¼[http://t.cn/z8ZnFny](http://t.cn/z8ZnFny)
+             * ï¿½Ä¼ï¿½MIMETYPEï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ÍµÄ¶ï¿½Ó¦ï¿½ï¿½Ïµï¿½ï¿½Î¿ï¿½[http://t.cn/z8ZnFny](http://t.cn/z8ZnFny)
              * @property type
              * @type {string}
              * @default 'application'
@@ -1884,22 +1883,22 @@
             this.type = source.type || 'application';
     
             /**
-             * ÎÄ¼þ×îºóÐÞ¸ÄÈÕÆÚ
+             * ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
              * @property lastModifiedDate
              * @type {int}
-             * @default µ±Ç°Ê±¼ä´Á
+             * @default ï¿½ï¿½Ç°Ê±ï¿½ï¿½ï¿½
              */
             this.lastModifiedDate = source.lastModifiedDate || (new Date() * 1);
     
             /**
-             * ÎÄ¼þID£¬Ã¿¸ö¶ÔÏó¾ßÓÐÎ¨Ò»ID£¬ÓëÎÄ¼þÃûÎÞ¹Ø
+             * ï¿½Ä¼ï¿½IDï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¨Ò»IDï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Þ¹ï¿½
              * @property id
              * @type {string}
              */
             this.id = gid();
     
             /**
-             * ÎÄ¼þÀ©Õ¹Ãû£¬Í¨¹ýÎÄ¼þÃû»ñÈ¡£¬ÀýÈçtest.pngµÄÀ©Õ¹ÃûÎªpng
+             * ï¿½Ä¼ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½test.pngï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½Îªpng
              * @property ext
              * @type {string}
              */
@@ -1907,13 +1906,13 @@
     
     
             /**
-             * ×´Ì¬ÎÄ×ÖËµÃ÷¡£ÔÚ²»Í¬µÄstatusÓï¾³ÏÂÓÐ²»Í¬µÄÓÃÍ¾¡£
+             * ×´Ì¬ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½Í¬ï¿½ï¿½statusï¿½ï¾³ï¿½ï¿½ï¿½Ð²ï¿½Í¬ï¿½ï¿½ï¿½ï¿½Í¾ï¿½ï¿½
              * @property statusText
              * @type {string}
              */
             this.statusText = '';
     
-            // ´æ´¢ÎÄ¼þ×´Ì¬£¬·ÀÖ¹Í¨¹ýÊôÐÔÖ±½ÓÐÞ¸Ä
+            // ï¿½æ´¢ï¿½Ä¼ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½Ö¹Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½Þ¸ï¿½
             statusMap[ this.id ] = WUFile.Status.INITED;
     
             this.source = source;
@@ -1927,11 +1926,11 @@
         $.extend( WUFile.prototype, {
     
             /**
-             * ÉèÖÃ×´Ì¬£¬×´Ì¬±ä»¯Ê±»á´¥·¢`change`ÊÂ¼þ¡£
+             * ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½×´Ì¬ï¿½ä»¯Ê±ï¿½á´¥ï¿½ï¿½`change`ï¿½Â¼ï¿½ï¿½ï¿½
              * @method setStatus
              * @grammar setStatus( status[, statusText] );
-             * @param {File.Status|String} status [ÎÄ¼þ×´Ì¬Öµ](#WebUploader:File:File.Status)
-             * @param {String} [statusText=''] ×´Ì¬ËµÃ÷£¬³£ÔÚerrorÊ±Ê¹ÓÃ£¬ÓÃhttp, abort,serverµÈÀ´±ê¼ÇÊÇÓÉÓÚÊ²Ã´Ô­Òòµ¼ÖÂÎÄ¼þ´íÎó¡£
+             * @param {File.Status|String} status [ï¿½Ä¼ï¿½×´Ì¬Öµ](#WebUploader:File:File.Status)
+             * @param {String} [statusText=''] ×´Ì¬Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½errorÊ±Ê¹ï¿½Ã£ï¿½ï¿½ï¿½http, abort,serverï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê²Ã´Ô­ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
              */
             setStatus: function( status, text ) {
     
@@ -1942,7 +1941,7 @@
                 if ( status !== prevStatus ) {
                     statusMap[ this.id ] = status;
                     /**
-                     * ÎÄ¼þ×´Ì¬±ä»¯
+                     * ï¿½Ä¼ï¿½×´Ì¬ï¿½ä»¯
                      * @event statuschange
                      */
                     this.trigger( 'statuschange', status, prevStatus );
@@ -1951,22 +1950,22 @@
             },
     
             /**
-             * »ñÈ¡ÎÄ¼þ×´Ì¬
+             * ï¿½ï¿½È¡ï¿½Ä¼ï¿½×´Ì¬
              * @return {File.Status}
              * @example
-                     ÎÄ¼þ×´Ì¬¾ßÌå°üÀ¨ÒÔÏÂ¼¸ÖÖÀàÐÍ£º
+                     ï¿½Ä¼ï¿½×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½
                      {
-                         // ³õÊ¼»¯
+                         // ï¿½ï¿½Ê¼ï¿½ï¿½
                         INITED:     0,
-                        // ÒÑÈë¶ÓÁÐ
+                        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                         QUEUED:     1,
-                        // ÕýÔÚÉÏ´«
+                        // ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½
                         PROGRESS:     2,
-                        // ÉÏ´«³ö´í
+                        // ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½
                         ERROR:         3,
-                        // ÉÏ´«³É¹¦
+                        // ï¿½Ï´ï¿½ï¿½É¹ï¿½
                         COMPLETE:     4,
-                        // ÉÏ´«È¡Ïû
+                        // ï¿½Ï´ï¿½È¡ï¿½ï¿½
                         CANCELLED:     5
                     }
              */
@@ -1975,7 +1974,7 @@
             },
     
             /**
-             * »ñÈ¡ÎÄ¼þÔ­Ê¼ÐÅÏ¢¡£
+             * ï¿½ï¿½È¡ï¿½Ä¼ï¿½Ô­Ê¼ï¿½ï¿½Ï¢ï¿½ï¿½
              * @return {*}
              */
             getSource: function() {
@@ -1990,36 +1989,36 @@
         Mediator.installTo( WUFile.prototype );
     
         /**
-         * ÎÄ¼þ×´Ì¬Öµ£¬¾ßÌå°üÀ¨ÒÔÏÂ¼¸ÖÖÀàÐÍ£º
-         * * `inited` ³õÊ¼×´Ì¬
-         * * `queued` ÒÑ¾­½øÈë¶ÓÁÐ, µÈ´ýÉÏ´«
-         * * `progress` ÉÏ´«ÖÐ
-         * * `complete` ÉÏ´«Íê³É¡£
-         * * `error` ÉÏ´«³ö´í£¬¿ÉÖØÊÔ
-         * * `interrupt` ÉÏ´«ÖÐ¶Ï£¬¿ÉÐø´«¡£
-         * * `invalid` ÎÄ¼þ²»ºÏ¸ñ£¬²»ÄÜÖØÊÔÉÏ´«¡£»á×Ô¶¯´Ó¶ÓÁÐÖÐÒÆ³ý¡£
-         * * `cancelled` ÎÄ¼þ±»ÒÆ³ý¡£
+         * ï¿½Ä¼ï¿½×´Ì¬Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½
+         * * `inited` ï¿½ï¿½Ê¼×´Ì¬
+         * * `queued` ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½È´ï¿½ï¿½Ï´ï¿½
+         * * `progress` ï¿½Ï´ï¿½ï¿½ï¿½
+         * * `complete` ï¿½Ï´ï¿½ï¿½ï¿½É¡ï¿½
+         * * `error` ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+         * * `interrupt` ï¿½Ï´ï¿½ï¿½Ð¶Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+         * * `invalid` ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ï¸ñ£¬²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½
+         * * `cancelled` ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½
          * @property {Object} Status
          * @namespace File
          * @class File
          * @static
          */
         WUFile.Status = {
-            INITED:     'inited',    // ³õÊ¼×´Ì¬
-            QUEUED:     'queued',    // ÒÑ¾­½øÈë¶ÓÁÐ, µÈ´ýÉÏ´«
-            PROGRESS:   'progress',    // ÉÏ´«ÖÐ
-            ERROR:      'error',    // ÉÏ´«³ö´í£¬¿ÉÖØÊÔ
-            COMPLETE:   'complete',    // ÉÏ´«Íê³É¡£
-            CANCELLED:  'cancelled',    // ÉÏ´«È¡Ïû¡£
-            INTERRUPT:  'interrupt',    // ÉÏ´«ÖÐ¶Ï£¬¿ÉÐø´«¡£
-            INVALID:    'invalid'    // ÎÄ¼þ²»ºÏ¸ñ£¬²»ÄÜÖØÊÔÉÏ´«¡£
+            INITED:     'inited',    // ï¿½ï¿½Ê¼×´Ì¬
+            QUEUED:     'queued',    // ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½È´ï¿½ï¿½Ï´ï¿½
+            PROGRESS:   'progress',    // ï¿½Ï´ï¿½ï¿½ï¿½
+            ERROR:      'error',    // ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            COMPLETE:   'complete',    // ï¿½Ï´ï¿½ï¿½ï¿½É¡ï¿½
+            CANCELLED:  'cancelled',    // ï¿½Ï´ï¿½È¡ï¿½ï¿½ï¿½ï¿½
+            INTERRUPT:  'interrupt',    // ï¿½Ï´ï¿½ï¿½Ð¶Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            INVALID:    'invalid'    // ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ï¸ñ£¬²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½
         };
     
         return WUFile;
     });
     
     /**
-     * @fileOverview ÎÄ¼þ¶ÓÁÐ
+     * @fileOverview ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     define('queue',[
         'base',
@@ -2031,20 +2030,20 @@
             STATUS = WUFile.Status;
     
         /**
-         * ÎÄ¼þ¶ÓÁÐ, ÓÃÀ´´æ´¢¸÷¸ö×´Ì¬ÖÐµÄÎÄ¼þ¡£
+         * ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½Ðµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
          * @class Queue
          * @extends Mediator
          */
         function Queue() {
     
             /**
-             * Í³¼ÆÎÄ¼þÊý¡£
-             * * `numOfQueue` ¶ÓÁÐÖÐµÄÎÄ¼þÊý¡£
-             * * `numOfSuccess` ÉÏ´«³É¹¦µÄÎÄ¼þÊý
-             * * `numOfCancel` ±»ÒÆ³ýµÄÎÄ¼þÊý
-             * * `numOfProgress` ÕýÔÚÉÏ´«ÖÐµÄÎÄ¼þÊý
-             * * `numOfUploadFailed` ÉÏ´«´íÎóµÄÎÄ¼þÊý¡£
-             * * `numOfInvalid` ÎÞÐ§µÄÎÄ¼þÊý¡£
+             * Í³ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+             * * `numOfQueue` ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+             * * `numOfSuccess` ï¿½Ï´ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+             * * `numOfCancel` ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+             * * `numOfProgress` ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½Ðµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+             * * `numOfUploadFailed` ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
+             * * `numOfInvalid` ï¿½ï¿½Ð§ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
              * @property {Object} stats
              */
             this.stats = {
@@ -2056,20 +2055,20 @@
                 numOfInvalid: 0
             };
     
-            // ÉÏ´«¶ÓÁÐ£¬½ö°üÀ¨µÈ´ýÉÏ´«µÄÎÄ¼þ
+            // ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
             this._queue = [];
     
-            // ´æ´¢ËùÓÐÎÄ¼þ
+            // ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
             this._map = {};
         }
     
         $.extend( Queue.prototype, {
     
             /**
-             * ½«ÐÂÎÄ¼þ¼ÓÈë¶Ô¶ÓÁÐÎ²²¿
+             * ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½Î²ï¿½ï¿½
              *
              * @method append
-             * @param  {File} file   ÎÄ¼þ¶ÔÏó
+             * @param  {File} file   ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
              */
             append: function( file ) {
                 this._queue.push( file );
@@ -2078,10 +2077,10 @@
             },
     
             /**
-             * ½«ÐÂÎÄ¼þ¼ÓÈë¶Ô¶ÓÁÐÍ·²¿
+             * ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½Í·ï¿½ï¿½
              *
              * @method prepend
-             * @param  {File} file   ÎÄ¼þ¶ÔÏó
+             * @param  {File} file   ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
              */
             prepend: function( file ) {
                 this._queue.unshift( file );
@@ -2090,10 +2089,10 @@
             },
     
             /**
-             * »ñÈ¡ÎÄ¼þ¶ÔÏó
+             * ï¿½ï¿½È¡ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
              *
              * @method getFile
-             * @param  {String} fileId   ÎÄ¼þID
+             * @param  {String} fileId   ï¿½Ä¼ï¿½ID
              * @return {File}
              */
             getFile: function( fileId ) {
@@ -2104,10 +2103,10 @@
             },
     
             /**
-             * ´Ó¶ÓÁÐÖÐÈ¡³öÒ»¸öÖ¸¶¨×´Ì¬µÄÎÄ¼þ¡£
+             * ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ò»ï¿½ï¿½Ö¸ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
              * @grammar fetch( status ) => File
              * @method fetch
-             * @param {String} status [ÎÄ¼þ×´Ì¬Öµ](#WebUploader:File:File.Status)
+             * @param {String} status [ï¿½Ä¼ï¿½×´Ì¬Öµ](#WebUploader:File:File.Status)
              * @return {File} [File](#WebUploader:File)
              */
             fetch: function( status ) {
@@ -2128,10 +2127,10 @@
             },
     
             /**
-             * ¶Ô¶ÓÁÐ½øÐÐÅÅÐò£¬ÄÜ¹»¿ØÖÆÎÄ¼þÉÏ´«Ë³Ðò¡£
+             * ï¿½Ô¶ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ï´ï¿½Ë³ï¿½ï¿½
              * @grammar sort( fn ) => undefined
              * @method sort
-             * @param {Function} fn ÅÅÐò·½·¨
+             * @param {Function} fn ï¿½ï¿½ï¿½ò·½·ï¿½
              */
             sort: function( fn ) {
                 if ( typeof fn === 'function' ) {
@@ -2140,10 +2139,10 @@
             },
     
             /**
-             * »ñÈ¡Ö¸¶¨ÀàÐÍµÄÎÄ¼þÁÐ±í, ÁÐ±íÖÐÃ¿Ò»¸ö³ÉÔ±Îª[File](#WebUploader:File)¶ÔÏó¡£
+             * ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½Ä¼ï¿½ï¿½Ð±ï¿½, ï¿½Ð±ï¿½ï¿½ï¿½Ã¿Ò»ï¿½ï¿½ï¿½ï¿½Ô±Îª[File](#WebUploader:File)ï¿½ï¿½ï¿½ï¿½
              * @grammar getFiles( [status1[, status2 ...]] ) => Array
              * @method getFiles
-             * @param {String} [status] [ÎÄ¼þ×´Ì¬Öµ](#WebUploader:File:File.Status)
+             * @param {String} [status] [ï¿½Ä¼ï¿½×´Ì¬Öµ](#WebUploader:File:File.Status)
              */
             getFiles: function() {
                 var sts = [].slice.call( arguments, 0 ),
@@ -2235,7 +2234,7 @@
         return Queue;
     });
     /**
-     * @fileOverview ¶ÓÁÐ
+     * @fileOverview ï¿½ï¿½ï¿½ï¿½
      */
     define('widgets/queue',[
         'base',
@@ -2272,7 +2271,7 @@
                     opts.accept = [ opts.accept ];
                 }
     
-                // acceptÖÐµÄÖÐÉú³ÉÆ¥ÅäÕýÔò¡£
+                // acceptï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 if ( opts.accept ) {
                     arr = [];
     
@@ -2293,14 +2292,14 @@
                 me.queue = new Queue();
                 me.stats = me.queue.stats;
     
-                // Èç¹ûµ±Ç°²»ÊÇhtml5ÔËÐÐÊ±£¬ÄÇ¾ÍËãÁË¡£
-                // ²»Ö´ÐÐºóÐø²Ù×÷
+                // ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½html5ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ë¡ï¿½
+                // ï¿½ï¿½Ö´ï¿½Ðºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 if ( this.request('predict-runtime-type') !== 'html5' ) {
                     return;
                 }
     
-                // ´´½¨Ò»¸ö html5 ÔËÐÐÊ±µÄ placeholder
-                // ÒÔÖÁÓÚÍâ²¿Ìí¼ÓÔ­Éú File ¶ÔÏóµÄÊ±ºòÄÜÕýÈ·°ü¹üÒ»ÏÂ¹© webuploader Ê¹ÓÃ¡£
+                // ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ html5 ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ placeholder
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â²¿ï¿½ï¿½ï¿½Ô­ï¿½ï¿½ File ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Â¹ï¿½ webuploader Ê¹ï¿½Ã¡ï¿½
                 deferred = Base.Deferred();
                 runtime = new RuntimeClient('Placeholder');
                 runtime.connectRuntime({
@@ -2313,7 +2312,7 @@
             },
     
     
-            // ÎªÁËÖ§³ÖÍâ²¿Ö±½ÓÌí¼ÓÒ»¸öÔ­ÉúFile¶ÔÏó¡£
+            // Îªï¿½ï¿½Ö§ï¿½ï¿½ï¿½â²¿Ö±ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ô­ï¿½ï¿½Fileï¿½ï¿½ï¿½ï¿½
             _wrapFile: function( file ) {
                 if ( !(file instanceof WUFile) ) {
     
@@ -2330,11 +2329,11 @@
                 return file;
             },
     
-            // ÅÐ¶ÏÎÄ¼þÊÇ·ñ¿ÉÒÔ±»¼ÓÈë¶ÓÁÐ
+            // ï¿½Ð¶ï¿½ï¿½Ä¼ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             acceptFile: function( file ) {
                 var invalid = !file || file.size < 6 || this.accept &&
     
-                        // Èç¹ûÃû×ÖÖÐÓÐºó×º£¬²Å×öºó×º°×Ãûµ¥´¦Àí¡£
+                        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                         rExt.exec( file.name ) && !this.accept.test( file.name );
     
                 return !invalid;
@@ -2343,15 +2342,15 @@
     
             /**
              * @event beforeFileQueued
-             * @param {File} file File¶ÔÏó
-             * @description µ±ÎÄ¼þ±»¼ÓÈë¶ÓÁÐÖ®Ç°´¥·¢£¬´ËÊÂ¼þµÄhandler·µ»ØÖµÎª`false`£¬Ôò´ËÎÄ¼þ²»»á±»Ìí¼Ó½øÈë¶ÓÁÐ¡£
+             * @param {File} file Fileï¿½ï¿½ï¿½ï¿½
+             * @description ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½handlerï¿½ï¿½ï¿½ï¿½ÖµÎª`false`ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½á±»ï¿½ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½
              * @for  Uploader
              */
     
             /**
              * @event fileQueued
-             * @param {File} file File¶ÔÏó
-             * @description µ±ÎÄ¼þ±»¼ÓÈë¶ÓÁÐÒÔºó´¥·¢¡£
+             * @param {File} file Fileï¿½ï¿½ï¿½ï¿½
+             * @description ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôºó´¥·ï¿½ï¿½ï¿½
              * @for  Uploader
              */
     
@@ -2360,12 +2359,12 @@
     
                 file = me._wrapFile( file );
     
-                // ²»¹ýÀàÐÍÅÐ¶ÏÔÊÐí²»ÔÊÐí£¬ÏÈÅÉËÍ `beforeFileQueued`
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ `beforeFileQueued`
                 if ( !me.owner.trigger( 'beforeFileQueued', file ) ) {
                     return;
                 }
     
-                // ÀàÐÍ²»Æ¥Åä£¬ÔòÅÉËÍ´íÎóÊÂ¼þ£¬²¢·µ»Ø¡£
+                // ï¿½ï¿½ï¿½Í²ï¿½Æ¥ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¡ï¿½
                 if ( !me.acceptFile( file ) ) {
                     me.owner.trigger( 'error', 'Q_TYPE_DENIED', file );
                     return;
@@ -2382,8 +2381,8 @@
     
             /**
              * @event filesQueued
-             * @param {File} files Êý×é£¬ÄÚÈÝÎªÔ­Ê¼File(lib/File£©¶ÔÏó¡£
-             * @description µ±Ò»ÅúÎÄ¼þÌí¼Ó½ø¶ÓÁÐÒÔºó´¥·¢¡£
+             * @param {File} files ï¿½ï¿½ï¿½é£¬ï¿½ï¿½ï¿½ï¿½ÎªÔ­Ê¼File(lib/Fileï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+             * @description ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôºó´¥·ï¿½ï¿½ï¿½
              * @for  Uploader
              */
     
@@ -2391,8 +2390,8 @@
              * @method addFiles
              * @grammar addFiles( file ) => undefined
              * @grammar addFiles( [file1, file2 ...] ) => undefined
-             * @param {Array of File or File} [files] Files ¶ÔÏó Êý×é
-             * @description Ìí¼ÓÎÄ¼þµ½¶ÓÁÐ
+             * @param {Array of File or File} [files] Files ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+             * @description ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              * @for  Uploader
              */
             addFiles: function( files ) {
@@ -2419,8 +2418,8 @@
     
             /**
              * @event fileDequeued
-             * @param {File} file File¶ÔÏó
-             * @description µ±ÎÄ¼þ±»ÒÆ³ý¶ÓÁÐºó´¥·¢¡£
+             * @param {File} file Fileï¿½ï¿½ï¿½ï¿½
+             * @description ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ï¿½Ðºó´¥·ï¿½ï¿½ï¿½
              * @for  Uploader
              */
     
@@ -2428,8 +2427,8 @@
              * @method removeFile
              * @grammar removeFile( file ) => undefined
              * @grammar removeFile( id ) => undefined
-             * @param {File|id} file File¶ÔÏó»òÕâFile¶ÔÏóµÄid
-             * @description ÒÆ³ýÄ³Ò»ÎÄ¼þ¡£
+             * @param {File|id} file Fileï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Fileï¿½ï¿½ï¿½ï¿½ï¿½id
+             * @description ï¿½Æ³ï¿½Ä³Ò»ï¿½Ä¼ï¿½ï¿½ï¿½
              * @for  Uploader
              * @example
              *
@@ -2450,7 +2449,7 @@
              * @method getFiles
              * @grammar getFiles() => Array
              * @grammar getFiles( status1, status2, status... ) => Array
-             * @description ·µ»ØÖ¸¶¨×´Ì¬µÄÎÄ¼þ¼¯ºÏ£¬²»´«²ÎÊý½«·µ»ØËùÓÐ×´Ì¬µÄÎÄ¼þ¡£
+             * @description ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ï£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
              * @for  Uploader
              * @example
              * console.log( uploader.getFiles() );    // => all files
@@ -2468,7 +2467,7 @@
              * @method retry
              * @grammar retry() => undefined
              * @grammar retry( file ) => undefined
-             * @description ÖØÊÔÉÏ´«£¬ÖØÊÔÖ¸¶¨ÎÄ¼þ£¬»òÕß´Ó³ö´íµÄÎÄ¼þ¿ªÊ¼ÖØÐÂÉÏ´«¡£
+             * @description ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß´Ó³ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½
              * @for  Uploader
              * @example
              * function retry() {
@@ -2501,7 +2500,7 @@
             /**
              * @method sort
              * @grammar sort( fn ) => undefined
-             * @description ÅÅÐò¶ÓÁÐÖÐµÄÎÄ¼þ£¬ÔÚÉÏ´«Ö®Ç°µ÷Õû¿ÉÒÔ¿ØÖÆÉÏ´«Ë³Ðò¡£
+             * @description ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½Ë³ï¿½ï¿½
              * @for  Uploader
              */
             sortFiles: function() {
@@ -2511,7 +2510,7 @@
             /**
              * @method reset
              * @grammar reset() => undefined
-             * @description ÖØÖÃuploader¡£Ä¿Ç°Ö»ÖØÖÃÁË¶ÓÁÐ¡£
+             * @description ï¿½ï¿½ï¿½ï¿½uploaderï¿½ï¿½Ä¿Ç°Ö»ï¿½ï¿½ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½Ð¡ï¿½
              * @for  Uploader
              * @example
              * uploader.reset();
@@ -2524,7 +2523,7 @@
     
     });
     /**
-     * @fileOverview Ìí¼Ó»ñÈ¡RuntimeÏà¹ØÐÅÏ¢µÄ·½·¨¡£
+     * @fileOverview ï¿½ï¿½Ó»ï¿½È¡Runtimeï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     define('widgets/runtime',[
         'uploader',
@@ -2547,7 +2546,7 @@
             },
     
             /**
-             * Ô¤²âUploader½«²ÉÓÃÄÄ¸ö`Runtime`
+             * Ô¤ï¿½ï¿½Uploaderï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½`Runtime`
              * @grammar predictRuntmeType() => String
              * @method predictRuntmeType
              * @for  Uploader
@@ -2604,10 +2603,10 @@
             server: '',
             method: 'POST',
     
-            // ¿çÓòÊ±£¬ÊÇ·ñÔÊÐíÐ¯´øcookie, Ö»ÓÐhtml5 runtime²ÅÓÐÐ§
+            // ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ð¯ï¿½ï¿½cookie, Ö»ï¿½ï¿½html5 runtimeï¿½ï¿½ï¿½ï¿½Ð§
             withCredentials: false,
             fileVal: 'file',
-            timeout: 2 * 60 * 1000,    // 2·ÖÖÓ
+            timeout: 2 * 60 * 1000,    // 2ï¿½ï¿½ï¿½ï¿½
             formData: {},
             headers: {},
             sendAsBinary: false
@@ -2615,7 +2614,7 @@
     
         $.extend( Transport.prototype, {
     
-            // Ìí¼ÓBlob, Ö»ÄÜÌí¼ÓÒ»´Î£¬×îºóÒ»´ÎÓÐÐ§¡£
+            // ï¿½ï¿½ï¿½Blob, Ö»ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î£ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½
             appendBlob: function( key, blob, filename ) {
                 var me = this,
                     opts = me.options;
@@ -2624,7 +2623,7 @@
                     me.disconnectRuntime();
                 }
     
-                // Á¬½Óµ½blob¹éÊôµÄÍ¬Ò»¸öruntime.
+                // ï¿½ï¿½ï¿½Óµï¿½blobï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ò»ï¿½ï¿½runtime.
                 me.connectRuntime( blob.ruid, function() {
                     me.exec('init');
                 });
@@ -2634,7 +2633,7 @@
                 opts.filename = filename || opts.filename;
             },
     
-            // Ìí¼ÓÆäËû×Ö¶Î
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½
             append: function( key, value ) {
                 if ( typeof key === 'object' ) {
                     $.extend( this._formData, key );
@@ -2697,13 +2696,13 @@
     
         });
     
-        // ÈÃTransport¾ß±¸ÊÂ¼þ¹¦ÄÜ¡£
+        // ï¿½ï¿½Transportï¿½ß±ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ü¡ï¿½
         Mediator.installTo( Transport.prototype );
     
         return Transport;
     });
     /**
-     * @fileOverview ¸ºÔðÎÄ¼þÉÏ´«Ïà¹Ø¡£
+     * @fileOverview ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ï´ï¿½ï¿½ï¿½Ø¡ï¿½
      */
     define('widgets/upload',[
         'base',
@@ -2717,7 +2716,7 @@
             isPromise = Base.isPromise,
             Status = WUFile.Status;
     
-        // Ìí¼ÓÄ¬ÈÏÅäÖÃÏî
+        // ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         $.extend( Uploader.options, {
     
     
@@ -2725,9 +2724,9 @@
              * @property {Boolean} [prepareNextFile=false]
              * @namespace options
              * @for Uploader
-             * @description ÊÇ·ñÔÊÐíÔÚÎÄ¼þ´«ÊäÊ±ÌáÇ°°ÑÏÂÒ»¸öÎÄ¼þ×¼±¸ºÃ¡£
-             * ¶ÔÓÚÒ»¸öÎÄ¼þµÄ×¼±¸¹¤×÷±È½ÏºÄÊ±£¬±ÈÈçÍ¼Æ¬Ñ¹Ëõ£¬md5ÐòÁÐ»¯¡£
-             * Èç¹ûÄÜÌáÇ°ÔÚµ±Ç°ÎÄ¼þ´«ÊäÆÚ´¦Àí£¬¿ÉÒÔ½ÚÊ¡×ÜÌåºÄÊ±¡£
+             * @description ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½×¼ï¿½ï¿½ï¿½Ã¡ï¿½
+             * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È½Ïºï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Æ¬Ñ¹ï¿½ï¿½ï¿½ï¿½md5ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½
+             * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Úµï¿½Ç°ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½Ê¡ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
              */
             prepareNextFile: false,
     
@@ -2735,7 +2734,7 @@
              * @property {Boolean} [chunked=false]
              * @namespace options
              * @for Uploader
-             * @description ÊÇ·ñÒª·ÖÆ¬´¦Àí´óÎÄ¼þÉÏ´«¡£
+             * @description ï¿½Ç·ï¿½Òªï¿½ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ï´ï¿½ï¿½ï¿½
              */
             chunked: false,
     
@@ -2743,7 +2742,7 @@
              * @property {Boolean} [chunkSize=5242880]
              * @namespace options
              * @for Uploader
-             * @description Èç¹ûÒª·ÖÆ¬£¬·Ö¶à´óÒ»Æ¬£¿ Ä¬ÈÏ´óÐ¡Îª5M.
+             * @description ï¿½ï¿½ï¿½Òªï¿½ï¿½Æ¬ï¿½ï¿½ï¿½Ö¶ï¿½ï¿½Ò»Æ¬ï¿½ï¿½ Ä¬ï¿½Ï´ï¿½Ð¡Îª5M.
              */
             chunkSize: 5 * 1024 * 1024,
     
@@ -2751,7 +2750,7 @@
              * @property {Boolean} [chunkRetry=2]
              * @namespace options
              * @for Uploader
-             * @description Èç¹ûÄ³¸ö·ÖÆ¬ÓÉÓÚÍøÂçÎÊÌâ³ö´í£¬ÔÊÐí×Ô¶¯ÖØ´«¶àÉÙ´Î£¿
+             * @description ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½Ø´ï¿½ï¿½ï¿½ï¿½Ù´Î£ï¿½
              */
             chunkRetry: 2,
     
@@ -2759,7 +2758,7 @@
              * @property {Boolean} [threads=3]
              * @namespace options
              * @for Uploader
-             * @description ÉÏ´«²¢·¢Êý¡£ÔÊÐíÍ¬Ê±×î´óÉÏ´«½ø³ÌÊý¡£
+             * @description ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              */
             threads: 3,
     
@@ -2768,7 +2767,7 @@
              * @property {Object} [formData]
              * @namespace options
              * @for Uploader
-             * @description ÎÄ¼þÉÏ´«ÇëÇóµÄ²ÎÊý±í£¬Ã¿´Î·¢ËÍ¶¼»á·¢ËÍ´Ë¶ÔÏóÖÐµÄ²ÎÊý¡£
+             * @description ï¿½Ä¼ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½Î·ï¿½ï¿½Í¶ï¿½ï¿½á·¢ï¿½Í´Ë¶ï¿½ï¿½ï¿½ï¿½ÐµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½
              */
             formData: null
     
@@ -2776,26 +2775,26 @@
              * @property {Object} [fileVal='file']
              * @namespace options
              * @for Uploader
-             * @description ÉèÖÃÎÄ¼þÉÏ´«ÓòµÄname¡£
+             * @description ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½nameï¿½ï¿½
              */
     
             /**
              * @property {Object} [method='POST']
              * @namespace options
              * @for Uploader
-             * @description ÎÄ¼þÉÏ´«·½Ê½£¬`POST`»òÕß`GET`¡£
+             * @description ï¿½Ä¼ï¿½ï¿½Ï´ï¿½ï¿½ï¿½Ê½ï¿½ï¿½`POST`ï¿½ï¿½ï¿½ï¿½`GET`ï¿½ï¿½
              */
     
             /**
              * @property {Object} [sendAsBinary=false]
              * @namespace options
              * @for Uploader
-             * @description ÊÇ·ñÒÑ¶þ½øÖÆµÄÁ÷µÄ·½Ê½·¢ËÍÎÄ¼þ£¬ÕâÑùÕû¸öÉÏ´«ÄÚÈÝ`php://input`¶¼ÎªÎÄ¼þÄÚÈÝ£¬
-             * ÆäËû²ÎÊýÔÚ$_GETÊý×éÖÐ¡£
+             * @description ï¿½Ç·ï¿½ï¿½Ñ¶ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½Ä·ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½`php://input`ï¿½ï¿½Îªï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ý£ï¿½
+             * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½$_GETï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½
              */
         });
     
-        // ¸ºÔð½«ÎÄ¼þÇÐÆ¬¡£
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½
         function CuteFile( file, chunkSize ) {
             var pending = [],
                 blob = file.source,
@@ -2847,18 +2846,18 @@
     
                 this.runing = false;
     
-                // ¼ÇÂ¼µ±Ç°ÕýÔÚ´«µÄÊý¾Ý£¬¸úthreadsÏà¹Ø
+                // ï¿½ï¿½Â¼ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½threadsï¿½ï¿½ï¿½
                 this.pool = [];
     
-                // »º´æ¼´½«ÉÏ´«µÄÎÄ¼þ¡£
+                // ï¿½ï¿½ï¿½æ¼´ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
                 this.pending = [];
     
-                // ¸ú×Ù»¹ÓÐ¶àÉÙ·ÖÆ¬Ã»ÓÐÍê³ÉÉÏ´«¡£
+                // ï¿½ï¿½ï¿½Ù»ï¿½ï¿½Ð¶ï¿½ï¿½Ù·ï¿½Æ¬Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½
                 this.remaning = 0;
                 this.__tick = Base.bindFn( this._tick, this );
     
                 owner.on( 'uploadComplete', function( file ) {
-                    // °ÑÆäËû¿éÈ¡ÏûÁË¡£
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ë¡ï¿½
                     file.blocks && $.each( file.blocks, function( _, v ) {
                         v.transport && (v.transport.abort(), v.transport.destroy());
                         delete v.transport;
@@ -2871,12 +2870,12 @@
     
             /**
              * @event startUpload
-             * @description µ±¿ªÊ¼ÉÏ´«Á÷³ÌÊ±´¥·¢¡£
+             * @description ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              * @for  Uploader
              */
     
             /**
-             * ¿ªÊ¼ÉÏ´«¡£´Ë·½·¨¿ÉÒÔ´Ó³õÊ¼×´Ì¬µ÷ÓÃ¿ªÊ¼ÉÏ´«Á÷³Ì£¬Ò²¿ÉÒÔ´ÓÔÝÍ£×´Ì¬µ÷ÓÃ£¬¼ÌÐøÉÏ´«Á÷³Ì¡£
+             * ï¿½ï¿½Ê¼ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Ë·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ó³ï¿½Ê¼×´Ì¬ï¿½ï¿½ï¿½Ã¿ï¿½Ê¼ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Ì£ï¿½Ò²ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½Í£×´Ì¬ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Ì¡ï¿½
              * @grammar upload() => undefined
              * @method upload
              * @for  Uploader
@@ -2884,7 +2883,7 @@
             start: function() {
                 var me = this;
     
-                // ÒÆ³öinvalidµÄÎÄ¼þ
+                // ï¿½Æ³ï¿½invalidï¿½ï¿½ï¿½Ä¼ï¿½
                 $.each( me.request( 'get-files', Status.INVALID ), function() {
                     me.request( 'remove-file', this );
                 });
@@ -2895,7 +2894,7 @@
     
                 me.runing = true;
     
-                // Èç¹ûÓÐÔÝÍ£µÄ£¬ÔòÐø´«
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 $.each( me.pool, function( _, v ) {
                     var file = v.file;
     
@@ -2913,12 +2912,12 @@
     
             /**
              * @event stopUpload
-             * @description µ±¿ªÊ¼ÉÏ´«Á÷³ÌÔÝÍ£Ê±´¥·¢¡£
+             * @description ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              * @for  Uploader
              */
     
             /**
-             * ÔÝÍ£ÉÏ´«¡£µÚÒ»¸ö²ÎÊýÎªÊÇ·ñÖÐ¶ÏÉÏ´«µ±Ç°ÕýÔÚÉÏ´«µÄÎÄ¼þ¡£
+             * ï¿½ï¿½Í£ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Ç·ï¿½ï¿½Ð¶ï¿½ï¿½Ï´ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
              * @grammar stop() => undefined
              * @grammar stop( true ) => undefined
              * @method stop
@@ -2942,7 +2941,7 @@
             },
     
             /**
-             * ÅÐ¶Ï`Uplaode`rÊÇ·ñÕýÔÚÉÏ´«ÖÐ¡£
+             * ï¿½Ð¶ï¿½`Uplaode`rï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½Ð¡ï¿½
              * @grammar isInProgress() => Boolean
              * @method isInProgress
              * @for  Uploader
@@ -2956,7 +2955,7 @@
             },
     
             /**
-             * µô¹ýÒ»¸öÎÄ¼þÉÏ´«£¬Ö±½Ó±ê¼ÇÖ¸¶¨ÎÄ¼þÎªÒÑÉÏ´«×´Ì¬¡£
+             * ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ï´ï¿½ï¿½ï¿½Ö±ï¿½Ó±ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä¼ï¿½Îªï¿½ï¿½ï¿½Ï´ï¿½×´Ì¬ï¿½ï¿½
              * @grammar skipFile( file ) => undefined
              * @method skipFile
              * @for  Uploader
@@ -2967,7 +2966,7 @@
                 file.setStatus( status || Status.COMPLETE );
                 file.skipped = true;
     
-                // Èç¹ûÕýÔÚÉÏ´«¡£
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½
                 file.blocks && $.each( file.blocks, function( _, v ) {
                     var _tr = v.transport;
     
@@ -2983,7 +2982,7 @@
     
             /**
              * @event uploadFinished
-             * @description µ±ËùÓÐÎÄ¼þÉÏ´«½áÊøÊ±´¥·¢¡£
+             * @description ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              * @for  Uploader
              */
             _tick: function() {
@@ -2991,26 +2990,26 @@
                     opts = me.options,
                     fn, val;
     
-                // ÉÏÒ»¸öpromise»¹Ã»ÓÐ½áÊø£¬ÔòµÈ´ýÍê³ÉºóÔÙÖ´ÐÐ¡£
+                // ï¿½ï¿½Ò»ï¿½ï¿½promiseï¿½ï¿½Ã»ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½Éºï¿½ï¿½ï¿½Ö´ï¿½Ð¡ï¿½
                 if ( me._promise ) {
                     return me._promise.always( me.__tick );
                 }
     
-                // »¹ÓÐÎ»ÖÃ£¬ÇÒ»¹ÓÐÎÄ¼þÒª´¦ÀíµÄ»°¡£
+                // ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ã£ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Òªï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½
                 if ( me.pool.length < opts.threads && (val = me._nextBlock()) ) {
                     me._trigged = false;
     
                     fn = function( val ) {
                         me._promise = null;
     
-                        // ÓÐ¿ÉÄÜÊÇreject¹ýÀ´µÄ£¬ËùÒÔÒª¼ì²âvalµÄÀàÐÍ¡£
+                        // ï¿½Ð¿ï¿½ï¿½ï¿½ï¿½ï¿½rejectï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½valï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½
                         val && val.file && me._startSend( val );
                         Base.nextTick( me.__tick );
                     };
     
                     me._promise = isPromise( val ) ? val.always( fn ) : fn( val );
     
-                // Ã»ÓÐÒªÉÏ´«µÄÁË£¬ÇÒÃ»ÓÐÕýÔÚ´«ÊäµÄÁË¡£
+                // Ã»ï¿½ï¿½Òªï¿½Ï´ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½Ë¡ï¿½
                 } else if ( !me.remaning && !me.getStats().numOfQueue ) {
                     me.runing = false;
     
@@ -3027,21 +3026,21 @@
                     opts = me.options,
                     next, done;
     
-                // Èç¹ûµ±Ç°ÎÄ¼þ»¹ÓÐÃ»ÓÐÐèÒª´«ÊäµÄ£¬ÔòÖ±½Ó·µ»ØÊ£ÏÂµÄ¡£
+                // ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ö±ï¿½Ó·ï¿½ï¿½ï¿½Ê£ï¿½ÂµÄ¡ï¿½
                 if ( act && act.has() &&
                         act.file.getStatus() === Status.PROGRESS ) {
     
-                    // ÊÇ·ñÌáÇ°×¼±¸ÏÂÒ»¸öÎÄ¼þ
+                    // ï¿½Ç·ï¿½ï¿½ï¿½Ç°×¼ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½
                     if ( opts.prepareNextFile && !me.pending.length ) {
                         me._prepareNextFile();
                     }
     
                     return act.fetch();
     
-                // ·ñÔò£¬Èç¹ûÕýÔÚÔËÐÐ£¬Ôò×¼±¸ÏÂÒ»¸öÎÄ¼þ£¬²¢µÈ´ýÍê³Éºó·µ»ØÏÂ¸ö·ÖÆ¬¡£
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½ï¿½ï¿½Éºó·µ»ï¿½ï¿½Â¸ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½
                 } else if ( me.runing ) {
     
-                    // Èç¹û»º´æÖÐÓÐ£¬ÔòÖ±½ÓÔÚ»º´æÖÐÈ¡£¬Ã»ÓÐÔòÈ¥queueÖÐÈ¡¡£
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½Ú»ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½È¥queueï¿½ï¿½È¡ï¿½ï¿½
                     if ( !me.pending.length && me.getStats().numOfQueue ) {
                         me._prepareNextFile();
                     }
@@ -3057,7 +3056,7 @@
                         return act.fetch();
                     };
     
-                    // ÎÄ¼þ¿ÉÄÜ»¹ÔÚprepareÖÐ£¬Ò²ÓÐ¿ÉÄÜÒÑ¾­ÍêÈ«×¼±¸ºÃÁË¡£
+                    // ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ü»ï¿½ï¿½ï¿½prepareï¿½Ð£ï¿½Ò²ï¿½Ð¿ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½È«×¼ï¿½ï¿½ï¿½ï¿½ï¿½Ë¡ï¿½
                     return isPromise( next ) ?
                             next[ next.pipe ? 'pipe' : 'then']( done ) :
                             done( next );
@@ -3067,8 +3066,8 @@
     
             /**
              * @event uploadStart
-             * @param {File} file File¶ÔÏó
-             * @description Ä³¸öÎÄ¼þ¿ªÊ¼ÉÏ´«Ç°´¥·¢£¬Ò»¸öÎÄ¼þÖ»»á´¥·¢Ò»´Î¡£
+             * @param {File} file Fileï¿½ï¿½ï¿½ï¿½
+             * @description Ä³ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ê¼ï¿½Ï´ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ä¼ï¿½Ö»ï¿½á´¥ï¿½ï¿½Ò»ï¿½Î¡ï¿½
              * @for  Uploader
              */
             _prepareNextFile: function() {
@@ -3080,7 +3079,7 @@
                 if ( file ) {
                     promise = me.request( 'before-send-file', file, function() {
     
-                        // ÓÐ¿ÉÄÜÎÄ¼þ±»skipµôÁË¡£ÎÄ¼þ±»skipµôºó£¬×´Ì¬¿Ó¶¨²»ÊÇQueued.
+                        // ï¿½Ð¿ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½skipï¿½ï¿½ï¿½Ë¡ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½skipï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½Queued.
                         if ( file.getStatus() === Status.QUEUED ) {
                             me.owner.trigger( 'uploadStart', file );
                             file.setStatus( Status.PROGRESS );
@@ -3090,14 +3089,14 @@
                         return me._finishFile( file );
                     });
     
-                    // Èç¹û»¹ÔÚpendingÖÐ£¬ÔòÌæ»»³ÉÎÄ¼þ±¾Éí¡£
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½pendingï¿½Ð£ï¿½ï¿½ï¿½ï¿½æ»»ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
                     promise.done(function() {
                         var idx = $.inArray( promise, pending );
     
                         ~idx && pending.splice( idx, 1, file );
                     });
     
-                    // befeore-send-fileµÄ¹³×Ó¾ÍÓÐ´íÎó·¢Éú¡£
+                    // befeore-send-fileï¿½Ä¹ï¿½ï¿½Ó¾ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     promise.fail(function( reason ) {
                         file.setStatus( Status.ERROR, reason );
                         me.owner.trigger( 'uploadError', file, reason );
@@ -3108,7 +3107,7 @@
                 }
             },
     
-            // ÈÃ³öÎ»ÖÃÁË£¬¿ÉÒÔÈÃÆäËû·ÖÆ¬¿ªÊ¼ÉÏ´«
+            // ï¿½Ã³ï¿½Î»ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½Ê¼ï¿½Ï´ï¿½
             _popBlock: function( block ) {
                 var idx = $.inArray( block, this.pool );
     
@@ -3117,7 +3116,7 @@
                 this.remaning--;
             },
     
-            // ¿ªÊ¼ÉÏ´«£¬¿ÉÒÔ±»µô¹ý¡£Èç¹ûpromise±»rejectÁË£¬Ôò±íÊ¾Ìø¹ý´Ë·ÖÆ¬¡£
+            // ï¿½ï¿½Ê¼ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½promiseï¿½ï¿½rejectï¿½Ë£ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ë·ï¿½Æ¬ï¿½ï¿½
             _startSend: function( block ) {
                 var me = this,
                     file = block.file,
@@ -3126,15 +3125,15 @@
                 me.pool.push( block );
                 me.remaning++;
     
-                // Èç¹ûÃ»ÓÐ·ÖÆ¬£¬ÔòÖ±½ÓÊ¹ÓÃÔ­Ê¼µÄ¡£
-                // ²»»á¶ªÊ§content-typeÐÅÏ¢¡£
+                // ï¿½ï¿½ï¿½Ã»ï¿½Ð·ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½Ê¹ï¿½ï¿½Ô­Ê¼ï¿½Ä¡ï¿½
+                // ï¿½ï¿½ï¿½á¶ªÊ§content-typeï¿½ï¿½Ï¢ï¿½ï¿½
                 block.blob = block.chunks === 1 ? file.source :
                         file.source.slice( block.start, block.end );
     
-                // hook, Ã¿¸ö·ÖÆ¬·¢ËÍÖ®Ç°¿ÉÄÜÒª×öÐ©Òì²½µÄÊÂÇé¡£
+                // hook, Ã¿ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½ï¿½ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ð©ï¿½ì²½ï¿½ï¿½ï¿½ï¿½ï¿½é¡£
                 promise = me.request( 'before-send', block, function() {
     
-                    // ÓÐ¿ÉÄÜÎÄ¼þÒÑ¾­ÉÏ´«³ö´íÁË£¬ËùÒÔ²»ÐèÒªÔÙ´«ÊäÁË¡£
+                    // ï¿½Ð¿ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ñ¾ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½Òªï¿½Ù´ï¿½ï¿½ï¿½ï¿½Ë¡ï¿½
                     if ( file.getStatus() === Status.PROGRESS ) {
                         me._doSend( block );
                     } else {
@@ -3143,7 +3142,7 @@
                     }
                 });
     
-                // Èç¹ûÎªfailÁË£¬ÔòÌø¹ý´Ë·ÖÆ¬¡£
+                // ï¿½ï¿½ï¿½Îªfailï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë·ï¿½Æ¬ï¿½ï¿½
                 promise.fail(function() {
                     if ( file.remaning === 1 ) {
                         me._finishFile( file ).always(function() {
@@ -3164,52 +3163,52 @@
             /**
              * @event uploadBeforeSend
              * @param {Object} object
-             * @param {Object} data Ä¬ÈÏµÄÉÏ´«²ÎÊý£¬¿ÉÒÔÀ©Õ¹´Ë¶ÔÏóÀ´¿ØÖÆÉÏ´«²ÎÊý¡£
-             * @description µ±Ä³¸öÎÄ¼þµÄ·Ö¿éÔÚ·¢ËÍÇ°´¥·¢£¬Ö÷ÒªÓÃÀ´Ñ¯ÎÊÊÇ·ñÒªÌí¼Ó¸½´ø²ÎÊý£¬´óÎÄ¼þÔÚ¿ªÆð·ÖÆ¬ÉÏ´«µÄÇ°ÌáÏÂ´ËÊÂ¼þ¿ÉÄÜ»á´¥·¢¶à´Î¡£
+             * @param {Object} data Ä¬ï¿½Ïµï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½Ë¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+             * @description ï¿½ï¿½Ä³ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ä·Ö¿ï¿½ï¿½Ú·ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ç·ï¿½Òªï¿½ï¿½Ó¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½Æ¬ï¿½Ï´ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Â´ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ü»á´¥ï¿½ï¿½ï¿½ï¿½Î¡ï¿½
              * @for  Uploader
              */
     
             /**
              * @event uploadAccept
              * @param {Object} object
-             * @param {Object} ret ·þÎñ¶ËµÄ·µ»ØÊý¾Ý£¬json¸ñÊ½£¬Èç¹û·þÎñ¶Ë²»ÊÇjson¸ñÊ½£¬´Óret._rawÖÐÈ¡Êý¾Ý£¬×ÔÐÐ½âÎö¡£
-             * @description µ±Ä³¸öÎÄ¼þÉÏ´«µ½·þÎñ¶ËÏìÓ¦ºó£¬»áÅÉËÍ´ËÊÂ¼þÀ´Ñ¯ÎÊ·þÎñ¶ËÏìÓ¦ÊÇ·ñÓÐÐ§¡£Èç¹û´ËÊÂ¼þhandler·µ»ØÖµÎª`false`, Ôò´ËÎÄ¼þ½«ÅÉËÍ`server`ÀàÐÍµÄ`uploadError`ÊÂ¼þ¡£
+             * @param {Object} ret ï¿½ï¿½ï¿½ï¿½ËµÄ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½jsonï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½jsonï¿½ï¿½Ê½ï¿½ï¿½ï¿½ï¿½ret._rawï¿½ï¿½È¡ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½Ð½ï¿½ï¿½ï¿½ï¿½ï¿½
+             * @description ï¿½ï¿½Ä³ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ó£¬»ï¿½ï¿½ï¿½ï¿½Í´ï¿½ï¿½Â¼ï¿½ï¿½ï¿½Ñ¯ï¿½Ê·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ç·ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½handlerï¿½ï¿½ï¿½ï¿½ÖµÎª`false`, ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`server`ï¿½ï¿½ï¿½Íµï¿½`uploadError`ï¿½Â¼ï¿½ï¿½ï¿½
              * @for  Uploader
              */
     
             /**
              * @event uploadProgress
-             * @param {File} file File¶ÔÏó
-             * @param {Number} percentage ÉÏ´«½ø¶È
-             * @description ÉÏ´«¹ý³ÌÖÐ´¥·¢£¬Ð¯´øÉÏ´«½ø¶È¡£
+             * @param {File} file Fileï¿½ï¿½ï¿½ï¿½
+             * @param {Number} percentage ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½
+             * @description ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Ð¯ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½È¡ï¿½
              * @for  Uploader
              */
     
     
             /**
              * @event uploadError
-             * @param {File} file File¶ÔÏó
-             * @param {String} reason ³ö´íµÄcode
-             * @description µ±ÎÄ¼þÉÏ´«³ö´íÊ±´¥·¢¡£
+             * @param {File} file Fileï¿½ï¿½ï¿½ï¿½
+             * @param {String} reason ï¿½ï¿½ï¿½ï¿½ï¿½code
+             * @description ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              * @for  Uploader
              */
     
             /**
              * @event uploadSuccess
-             * @param {File} file File¶ÔÏó
-             * @param {Object} response ·þÎñ¶Ë·µ»ØµÄÊý¾Ý
-             * @description µ±ÎÄ¼þÉÏ´«³É¹¦Ê±´¥·¢¡£
+             * @param {File} file Fileï¿½ï¿½ï¿½ï¿½
+             * @param {Object} response ï¿½ï¿½ï¿½ï¿½Ë·ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+             * @description ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ï´ï¿½ï¿½É¹ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              * @for  Uploader
              */
     
             /**
              * @event uploadComplete
-             * @param {File} [file] File¶ÔÏó
-             * @description ²»¹Ü³É¹¦»òÕßÊ§°Ü£¬ÎÄ¼þÉÏ´«Íê³ÉÊ±´¥·¢¡£
+             * @param {File} [file] Fileï¿½ï¿½ï¿½ï¿½
+             * @description ï¿½ï¿½ï¿½Ü³É¹ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½ï¿½Ä¼ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              * @for  Uploader
              */
     
-            // ×öÉÏ´«²Ù×÷¡£
+            // ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             _doSend: function( block ) {
                 var me = this,
                     owner = me.owner,
@@ -3228,19 +3227,19 @@
                     Base.nextTick( me.__tick );
                 });
     
-                // ¹ã²¥ÉÏ´«½ø¶È¡£ÒÔÎÄ¼þÎªµ¥Î»¡£
+                // ï¿½ã²¥ï¿½Ï´ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Îªï¿½ï¿½Î»ï¿½ï¿½
                 tr.on( 'progress', function( percentage ) {
                     var totalPercent = 0,
                         uploaded = 0;
     
-                    // ¿ÉÄÜÃ»ÓÐabortµô£¬progress»¹ÊÇÖ´ÐÐ½øÀ´ÁË¡£
+                    // ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½abortï¿½ï¿½ï¿½ï¿½progressï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð½ï¿½ï¿½ï¿½ï¿½Ë¡ï¿½
                     // if ( !file.blocks ) {
                     //     return;
                     // }
     
                     totalPercent = block.percentage = percentage;
     
-                    if ( block.chunks > 1 ) {    // ¼ÆËãÎÄ¼þµÄÕûÌåËÙ¶È¡£
+                    if ( block.chunks > 1 ) {    // ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶È¡ï¿½
                         $.each( file.blocks, function( _, v ) {
                             uploaded += (v.percentage || 0) * (v.end - v.start);
                         });
@@ -3251,7 +3250,7 @@
                     owner.trigger( 'uploadProgress', file, totalPercent || 0 );
                 });
     
-                // ÓÃÀ´Ñ¯ÎÊ£¬ÊÇ·ñ·µ»ØµÄ½á¹ûÊÇÓÐ´íÎóµÄ¡£
+                // ï¿½ï¿½ï¿½ï¿½Ñ¯ï¿½Ê£ï¿½ï¿½Ç·ñ·µ»ØµÄ½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ä¡ï¿½
                 requestAccept = function( reject ) {
                     var fn;
     
@@ -3261,7 +3260,7 @@
                         reject = value;
                     };
     
-                    // ·þÎñ¶ËÏìÓ¦ÁË£¬²»´ú±í³É¹¦ÁË£¬Ñ¯ÎÊÊÇ·ñÏìÓ¦ÕýÈ·¡£
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½Ë£ï¿½Ñ¯ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½È·ï¿½ï¿½
                     if ( !owner.trigger( 'uploadAccept', block, ret, fn ) ) {
                         reject = reject || 'server';
                     }
@@ -3269,11 +3268,11 @@
                     return reject;
                 };
     
-                // ³¢ÊÔÖØÊÔ£¬È»ºó¹ã²¥ÎÄ¼þÉÏ´«³ö´í¡£
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½È»ï¿½ï¿½ã²¥ï¿½Ä¼ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½
                 tr.on( 'error', function( type, flag ) {
                     block.retried = block.retried || 0;
     
-                    // ×Ô¶¯ÖØÊÔ
+                    // ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½
                     if ( block.chunks > 1 && ~'http,abort'.indexOf( type ) &&
                             block.retried < opts.chunkRetry ) {
     
@@ -3293,17 +3292,17 @@
                     }
                 });
     
-                // ÉÏ´«³É¹¦
+                // ï¿½Ï´ï¿½ï¿½É¹ï¿½
                 tr.on( 'load', function() {
                     var reason;
     
-                    // Èç¹û·ÇÔ¤ÆÚ£¬×ªÏòÉÏ´«³ö´í¡£
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½Ú£ï¿½×ªï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½
                     if ( (reason = requestAccept()) ) {
                         tr.trigger( 'error', reason, true );
                         return;
                     }
     
-                    // È«²¿ÉÏ´«Íê³É¡£
+                    // È«ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½É¡ï¿½
                     if ( file.remaning === 1 ) {
                         me._finishFile( file, ret );
                     } else {
@@ -3311,7 +3310,7 @@
                     }
                 });
     
-                // ÅäÖÃÄ¬ÈÏµÄÉÏ´«×Ö¶Î¡£
+                // ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½Ïµï¿½ï¿½Ï´ï¿½ï¿½Ö¶Î¡ï¿½
                 data = $.extend( data, {
                     id: file.id,
                     name: file.name,
@@ -3325,18 +3324,18 @@
                     chunk: block.chunk
                 });
     
-                // ÔÚ·¢ËÍÖ®¼ä¿ÉÒÔÌí¼Ó×Ö¶ÎÊ²Ã´µÄ¡£¡£¡£
-                // Èç¹ûÄ¬ÈÏµÄ×Ö¶Î²»¹»Ê¹ÓÃ£¬¿ÉÒÔÍ¨¹ý¼àÌý´ËÊÂ¼þÀ´À©Õ¹
+                // ï¿½Ú·ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½Ê²Ã´ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½
+                // ï¿½ï¿½ï¿½Ä¬ï¿½Ïµï¿½ï¿½Ö¶Î²ï¿½ï¿½ï¿½Ê¹ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹
                 owner.trigger( 'uploadBeforeSend', block, data, headers );
     
-                // ¿ªÊ¼·¢ËÍ¡£
+                // ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Í¡ï¿½
                 tr.appendBlob( opts.fileVal, block.blob, file.name );
                 tr.append( data );
                 tr.setRequestHeader( headers );
                 tr.send();
             },
     
-            // Íê³ÉÉÏ´«¡£
+            // ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ï¿½
             _finishFile: function( file, ret, hds ) {
                 var owner = this.owner;
     
@@ -3347,7 +3346,7 @@
                         })
                         .fail(function( reason ) {
     
-                            // Èç¹ûÍâ²¿ÒÑ¾­±ê¼ÇÎªinvalidÊ²Ã´µÄ£¬²»ÔÙ¸Ä×´Ì¬¡£
+                            // ï¿½ï¿½ï¿½ï¿½â²¿ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ÎªinvalidÊ²Ã´ï¿½Ä£ï¿½ï¿½ï¿½ï¿½Ù¸ï¿½×´Ì¬ï¿½ï¿½
                             if ( file.getStatus() === Status.PROGRESS ) {
                                 file.setStatus( Status.ERROR, reason );
                             }
@@ -3362,7 +3361,7 @@
         });
     });
     /**
-     * @fileOverview ¸÷ÖÖÑéÖ¤£¬°üÀ¨ÎÄ¼þ×Ü´óÐ¡ÊÇ·ñ³¬³ö¡¢µ¥ÎÄ¼þÊÇ·ñ³¬³öºÍÎÄ¼þÊÇ·ñÖØ¸´¡£
+     * @fileOverview ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ü´ï¿½Ð¡ï¿½Ç·ñ³¬³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ç·ñ³¬³ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ç·ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½
      */
     
     define('widgets/validator',[
@@ -3378,29 +3377,29 @@
     
         /**
          * @event error
-         * @param {String} type ´íÎóÀàÐÍ¡£
-         * @description µ±validate²»Í¨¹ýÊ±£¬»áÒÔÅÉËÍ´íÎóÊÂ¼þµÄÐÎÊ½Í¨Öªµ÷ÓÃÕß¡£Í¨¹ý`upload.on('error', handler)`¿ÉÒÔ²¶»ñµ½´ËÀà´íÎó£¬Ä¿Ç°ÓÐÒÔÏÂ´íÎó»áÔÚÌØ¶¨µÄÇé¿öÏÂÅÉËÍ´íÀ´¡£
+         * @param {String} type ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½
+         * @description ï¿½ï¿½validateï¿½ï¿½Í¨ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ê½Í¨Öªï¿½ï¿½ï¿½ï¿½ï¿½ß¡ï¿½Í¨ï¿½ï¿½`upload.on('error', handler)`ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ñµ½´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½
          *
-         * * `Q_EXCEED_NUM_LIMIT` ÔÚÉèÖÃÁË`fileNumLimit`ÇÒ³¢ÊÔ¸ø`uploader`Ìí¼ÓµÄÎÄ¼þÊýÁ¿³¬³öÕâ¸öÖµÊ±ÅÉËÍ¡£
-         * * `Q_EXCEED_SIZE_LIMIT` ÔÚÉèÖÃÁË`Q_EXCEED_SIZE_LIMIT`ÇÒ³¢ÊÔ¸ø`uploader`Ìí¼ÓµÄÎÄ¼þ×Ü´óÐ¡³¬³öÕâ¸öÖµÊ±ÅÉËÍ¡£
+         * * `Q_EXCEED_NUM_LIMIT` ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`fileNumLimit`ï¿½Ò³ï¿½ï¿½Ô¸ï¿½`uploader`ï¿½ï¿½Óµï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÊ±ï¿½ï¿½ï¿½Í¡ï¿½
+         * * `Q_EXCEED_SIZE_LIMIT` ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½`Q_EXCEED_SIZE_LIMIT`ï¿½Ò³ï¿½ï¿½Ô¸ï¿½`uploader`ï¿½ï¿½Óµï¿½ï¿½Ä¼ï¿½ï¿½Ü´ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÊ±ï¿½ï¿½ï¿½Í¡ï¿½
          * @for  Uploader
          */
     
-        // ±©Â¶¸øÍâÃæµÄapi
+        // ï¿½ï¿½Â¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½api
         api = {
     
-            // Ìí¼ÓÑéÖ¤Æ÷
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
             addValidator: function( type, cb ) {
                 validators[ type ] = cb;
             },
     
-            // ÒÆ³ýÑéÖ¤Æ÷
+            // ï¿½Æ³ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½
             removeValidator: function( type ) {
                 delete validators[ type ];
             }
         };
     
-        // ÔÚUploader³õÊ¼»¯µÄÊ±ºòÆô¶¯ValidatorsµÄ³õÊ¼»¯
+        // ï¿½ï¿½Uploaderï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Validatorsï¿½Ä³ï¿½Ê¼ï¿½ï¿½
         Uploader.register({
             init: function() {
                 var me = this;
@@ -3414,7 +3413,7 @@
          * @property {int} [fileNumLimit=undefined]
          * @namespace options
          * @for Uploader
-         * @description ÑéÖ¤ÎÄ¼þ×ÜÊýÁ¿, ³¬³öÔò²»ÔÊÐí¼ÓÈë¶ÓÁÐ¡£
+         * @description ï¿½ï¿½Ö¤ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½
          */
         api.addValidator( 'fileNumLimit', function() {
             var uploader = this,
@@ -3458,7 +3457,7 @@
          * @property {int} [fileSizeLimit=undefined]
          * @namespace options
          * @for Uploader
-         * @description ÑéÖ¤ÎÄ¼þ×Ü´óÐ¡ÊÇ·ñ³¬³öÏÞÖÆ, ³¬³öÔò²»ÔÊÐí¼ÓÈë¶ÓÁÐ¡£
+         * @description ï¿½ï¿½Ö¤ï¿½Ä¼ï¿½ï¿½Ü´ï¿½Ð¡ï¿½Ç·ñ³¬³ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½
          */
         api.addValidator( 'fileSizeLimit', function() {
             var uploader = this,
@@ -3502,7 +3501,7 @@
          * @property {int} [fileSingleSizeLimit=undefined]
          * @namespace options
          * @for Uploader
-         * @description ÑéÖ¤µ¥¸öÎÄ¼þ´óÐ¡ÊÇ·ñ³¬³öÏÞÖÆ, ³¬³öÔò²»ÔÊÐí¼ÓÈë¶ÓÁÐ¡£
+         * @description ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡ï¿½Ç·ñ³¬³ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½
          */
         api.addValidator( 'fileSingleSizeLimit', function() {
             var uploader = this,
@@ -3529,7 +3528,7 @@
          * @property {int} [duplicate=undefined]
          * @namespace options
          * @for Uploader
-         * @description È¥ÖØ£¬ ¸ù¾ÝÎÄ¼þÃû×Ö¡¢ÎÄ¼þ´óÐ¡ºÍ×îºóÐÞ¸ÄÊ±¼äÀ´Éú³Éhash Key.
+         * @description È¥ï¿½Ø£ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ö¡ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½hash Key.
          */
         api.addValidator( 'duplicate', function() {
             var uploader = this,
@@ -3558,7 +3557,7 @@
                 var hash = file.__hash || (file.__hash = hashString( file.name +
                         file.size + file.lastModifiedDate ));
     
-                // ÒÑ¾­ÖØ¸´ÁË
+                // ï¿½Ñ¾ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½
                 if ( mapping[ hash ] ) {
                     this.trigger( 'error', 'F_DUPLICATE', file );
                     return false;
@@ -3582,7 +3581,7 @@
     });
     
     /**
-     * @fileOverview Runtime¹ÜÀíÆ÷£¬¸ºÔðRuntimeµÄÑ¡Ôñ, Á¬½Ó
+     * @fileOverview Runtimeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Runtimeï¿½ï¿½Ñ¡ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½
      */
     define('runtime/compbase',[],function() {
     
@@ -3627,7 +3626,7 @@
             me.type = type;
     
     
-            // Õâ¸ö·½·¨µÄµ÷ÓÃÕß£¬Êµ¼ÊÉÏÊÇRuntimeClient
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ß£ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½RuntimeClient
             me.exec = function( comp, fn/*, args...*/) {
                 var client = this,
                     uid = client.uid,
@@ -3645,7 +3644,6 @@
             };
     
             me.destory = function() {
-                // @todo É¾³ý³Ø×ÓÖÐµÄËùÓÐÊµÀý
                 return destory && destory.apply( this, arguments );
             };
         }
@@ -3653,7 +3651,7 @@
         Base.inherits( Runtime, {
             constructor: Html5Runtime,
     
-            // ²»ÐèÒªÁ¬½ÓÆäËû³ÌÐò£¬Ö±½ÓÖ´ÐÐcallback
+            // ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½Ö´ï¿½ï¿½callback
             init: function() {
                 var me = this;
                 setTimeout(function() {
@@ -3663,14 +3661,14 @@
     
         });
     
-        // ×¢²áComponents
+        // ×¢ï¿½ï¿½Components
         Html5Runtime.register = function( name, component ) {
             var klass = components[ name ] = Base.inherits( CompBase, component );
             return klass;
         };
     
-        // ×¢²áhtml5ÔËÐÐÊ±¡£
-        // Ö»ÓÐÔÚÖ§³ÖµÄÇ°ÌáÏÂ×¢²á¡£
+        // ×¢ï¿½ï¿½html5ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+        // Ö»ï¿½ï¿½ï¿½ï¿½Ö§ï¿½Öµï¿½Ç°ï¿½ï¿½ï¿½ï¿½×¢ï¿½á¡£
         if ( window.Blob && window.FileReader && window.DataView ) {
             Runtime.addRuntime( type, Html5Runtime );
         }
@@ -3678,7 +3676,7 @@
         return Html5Runtime;
     });
     /**
-     * @fileOverview Blob HtmlÊµÏÖ
+     * @fileOverview Blob HtmlÊµï¿½ï¿½
      */
     define('runtime/html5/blob',[
         'runtime/html5/runtime',
@@ -3739,7 +3737,7 @@
                 if ( !me.dndOver ) {
                     me.dndOver = true;
     
-                    // ×¢ÒâÖ»ÓÐ chrome Ö§³Ö¡£
+                    // ×¢ï¿½ï¿½Ö»ï¿½ï¿½ chrome Ö§ï¿½Ö¡ï¿½
                     items = e.dataTransfer.items;
     
                     if ( items && items.length ) {
@@ -3758,7 +3756,7 @@
             },
     
             _dragOverHandler: function( e ) {
-                // Ö»´¦Àí¿òÄÚµÄ¡£
+                // Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ¡ï¿½
                 var parentElem = this.elem.parent().get( 0 );
                 if ( parentElem && !$.contains( parentElem, e.currentTarget ) ) {
                     return false;
@@ -3789,7 +3787,7 @@
                     ruid = me.getRuid(),
                     parentElem = me.elem.parent().get( 0 );
     
-                // Ö»´¦Àí¿òÄÚµÄ¡£
+                // Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ¡ï¿½
                 if ( parentElem && !$.contains( parentElem, e.currentTarget ) ) {
                     return false;
                 }
@@ -3805,7 +3803,7 @@
                 return false;
             },
     
-            // Èç¹û´«Èë callback ÔòÈ¥²é¿´ÎÄ¼þ¼Ð£¬·ñÔòÖ»¹Üµ±Ç°ÎÄ¼þ¼Ð¡£
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ callback ï¿½ï¿½È¥ï¿½é¿´ï¿½Ä¼ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½Üµï¿½Ç°ï¿½Ä¼ï¿½ï¿½Ð¡ï¿½
             _getTansferFiles: function( e, callback ) {
                 var results  = [],
                     promises = [],
@@ -3855,7 +3853,7 @@
                     entry.createReader().readEntries(function( entries ) {
                         var len = entries.length,
                             promises = [],
-                            arr = [],    // ÎªÁË±£Ö¤Ë³Ðò¡£
+                            arr = [],    // Îªï¿½Ë±ï¿½Ö¤Ë³ï¿½ï¿½
                             i;
     
                         for ( i = 0; i < len; i++ ) {
@@ -3905,7 +3903,7 @@
                     accept = '.*',
                     arr, i, len, item;
     
-                // accetpµÄmimeTypesÖÐÉú³ÉÆ¥ÅäÕýÔò¡£
+                // accetpï¿½ï¿½mimeTypesï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 if ( opts.accept ) {
                     arr = [];
     
@@ -3943,7 +3941,7 @@
                 }
     
                 if ( allowed.length ) {
-                    // ²»×èÖ¹·ÇÎÄ¼þÕ³Ìù£¨ÎÄ×ÖÕ³Ìù£©µÄÊÂ¼þÃ°ÅÝ
+                    // ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½Ä¼ï¿½Õ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½Ã°ï¿½ï¿½
                     e.preventDefault();
                     e.stopPropagation();
                     this.trigger( 'paste', allowed );
@@ -3997,7 +3995,6 @@
                     input.attr( 'multiple', 'multiple' );
                 }
     
-                // @todo Firefox²»Ö§³Öµ¥¶ÀÖ¸¶¨ºó×º
                 if ( opts.accept && opts.accept.length > 0 ) {
                     arr = [];
     
@@ -4042,15 +4039,13 @@
             },
     
             destroy: function() {
-                // todo
             }
         });
     });
     /**
      * @fileOverview Transport
-     * @todo Ö§³Öchunked´«Êä£¬ÓÅÊÆ£º
-     * ¿ÉÒÔ½«´óÎÄ¼þ·Ö³ÉÐ¡¿é£¬°¤¸ö´«Êä£¬¿ÉÒÔÌá¸ß´óÎÄ¼þ³É¹¦ÂÊ£¬µ±Ê§°ÜµÄÊ±ºò£¬Ò²Ö»ÐèÒªÖØ´«ÄÇÐ¡²¿·Ö£¬
-     * ¶ø²»ÐèÒªÖØÍ·ÔÙ´«Ò»´Î¡£ÁíÍâ¶ÏµãÐø´«Ò²ÐèÒªÓÃchunked·½Ê½¡£
+     * ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ö³ï¿½Ð¡ï¿½é£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ä£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß´ï¿½ï¿½Ä¼ï¿½ï¿½É¹ï¿½ï¿½Ê£ï¿½ï¿½ï¿½Ê§ï¿½Üµï¿½Ê±ï¿½ï¿½Ò²Ö»ï¿½ï¿½Òªï¿½Ø´ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½Ö£ï¿½
+     * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Í·ï¿½Ù´ï¿½Ò»ï¿½Î¡ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½Òªï¿½ï¿½chunkedï¿½ï¿½Ê½ï¿½ï¿½
      */
     define('runtime/html5/transport',[
         'base',
@@ -4101,10 +4096,10 @@
                 if ( binary ) {
                     xhr.overrideMimeType('application/octet-stream');
     
-                    // androidÖ±½Ó·¢ËÍblob»áµ¼ÖÂ·þÎñ¶Ë½ÓÊÕµ½µÄÊÇ¿ÕÎÄ¼þ¡£
-                    // bugÏêÇé¡£
+                    // androidÖ±ï¿½Ó·ï¿½ï¿½ï¿½blobï¿½áµ¼ï¿½Â·ï¿½ï¿½ï¿½Ë½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½
+                    // bugï¿½ï¿½ï¿½é¡£
                     // https://code.google.com/p/android/issues/detail?id=39882
-                    // ËùÒÔÏÈÓÃfileReader¶ÁÈ¡³öÀ´ÔÙÍ¨¹ýarraybufferµÄ·½Ê½·¢ËÍ¡£
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½fileReaderï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½arraybufferï¿½Ä·ï¿½Ê½ï¿½ï¿½ï¿½Í¡ï¿½
                     if ( Base.os.android ) {
                         fr = new FileReader();
     
@@ -4259,7 +4254,7 @@
             me.type = type;
     
     
-            // Õâ¸ö·½·¨µÄµ÷ÓÃÕß£¬Êµ¼ÊÉÏÊÇRuntimeClient
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ß£ï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½RuntimeClient
             me.exec = function( comp, fn/*, args...*/ ) {
                 var client = this,
                     uid = client.uid,
@@ -4302,11 +4297,11 @@
                 // Base.log( evt, obj );
             }
     
-            // flashµÄ½ÓÊÜÆ÷¡£
+            // flashï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             window[ jsreciver ] = function() {
                 var args = arguments;
     
-                // ÎªÁËÄÜ²¶»ñµÃµ½¡£
+                // Îªï¿½ï¿½ï¿½Ü²ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½
                 setTimeout(function() {
                     handler.apply( null, args );
                 }, 1 );
@@ -4315,7 +4310,6 @@
             this.jsreciver = jsreciver;
     
             this.destory = function() {
-                // @todo É¾³ý³Ø×ÓÖÐµÄËùÓÐÊµÀý
                 return destory && destory.apply( this, arguments );
             };
     
@@ -4326,7 +4320,6 @@
                 return flash.exec( this.uid, comp, fn, args );
             };
     
-            // @todo
         }
     
         Base.inherits( Runtime, {
@@ -4381,7 +4374,6 @@
         FlashRuntime.register = function( name, component ) {
             component = components[ name ] = Base.inherits( CompBase, $.extend({
     
-                // @todo fix this later
                 flashExec: function() {
                     var owner = this.owner,
                         runtime = this.getRuntime();
@@ -4413,7 +4405,7 @@
                 var copy = $.extend({}, opts ),
                     len, i;
     
-                // ÐÞ¸´FlashÔÙÃ»ÓÐÉèÖÃtitleµÄÇé¿öÏÂÎÞ·¨µ¯³öflashÎÄ¼þÑ¡Ôñ¿òµÄbug.
+                // ï¿½Þ¸ï¿½Flashï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½titleï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½flashï¿½Ä¼ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½bug.
                 len = copy.accept && copy.accept.length;
                 for (  i = 0; i < len; i++ ) {
                     if ( !copy.accept[ i ].title ) {
@@ -4428,12 +4420,11 @@
             },
     
             destroy: function() {
-                // todo
             }
         });
     });
     /**
-     * @fileOverview  Transport flashÊµÏÖ
+     * @fileOverview  Transport flashÊµï¿½ï¿½
      */
     define('runtime/flash/transport',[
         'base',
@@ -4556,7 +4547,7 @@
         });
     });
     /**
-     * @fileOverview Ã»ÓÐÍ¼Ïñ´¦ÀíµÄ°æ±¾¡£
+     * @fileOverview Ã»ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½Ä°æ±¾ï¿½ï¿½
      */
     define('preset/withoutimage',[
         'base',

@@ -533,7 +533,7 @@ if(!Array.prototype.indexOf){
 			// length extensions
 			this.Length = {
 				DPI: function(viewPort) {
-					return 96.0; // TODO: compute?
+					return 96.0;
 				},
 				
 				EM: function(viewPort) {

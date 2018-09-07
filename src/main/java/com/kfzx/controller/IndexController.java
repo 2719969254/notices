@@ -35,8 +35,7 @@ public class IndexController {
 		ModelAndView mav = new ModelAndView();
 
 		String UserAgent = req.getHeader("User-Agent");
-		//判断AppleWebKit 和  Firefox
-
+		//判断AppleWebKit和 Firefox
 		if(MyUtil.checkUserAgent(UserAgent)){
 			mav.setViewName("/pc/login/login");
 		}else{
