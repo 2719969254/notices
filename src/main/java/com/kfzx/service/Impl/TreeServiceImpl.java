@@ -1,4 +1,4 @@
-package com.kfzx.service.Impl;
+package com.kfzx.service.impl;
 
 import com.kfzx.dao.TreeDao;
 import com.kfzx.entity.Tree;
