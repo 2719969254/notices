@@ -11,9 +11,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -31,16 +29,13 @@ public class UserController {
 
 	/**
 	 * 电脑登陆
-	 * @param user
-	 * @param response
-	 * @param request
-	 * @param attr
-	 * @return
-	 * @throws Exception
+	 * @param user 用户对象
+	 * @param response 响应
+	 * @return String
+	 * @throws Exception 一切异常
 	 */
 	@RequestMapping("/login")
-	public String login(User user, HttpServletResponse response, HttpServletRequest request
-			, RedirectAttributes attr) throws Exception {
+	public String login(User user, HttpServletResponse response) throws Exception {
 		JSONObject result = new JSONObject();
 
 		Subject subject = SecurityUtils.getSubject();

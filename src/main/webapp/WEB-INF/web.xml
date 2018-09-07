@@ -48,7 +48,7 @@
 
     <!--  初始化 application  -->
    <listener>
-        <listener-class>com.kfzx.service.Impl.InitComponent</listener-class>
+        <listener-class>com.kfzx.service.impl.InitComponent</listener-class>
     </listener>
 
 

@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author VicterTian
@@ -19,26 +18,25 @@ public class IndexController {
 	/**
 	 * 显示主页
 	 *
-	 * @param request  请求
-	 * @param response 相应
 	 * @return ModelAndView
 	 * @throws Exception 抛出一切异常
 	 */
 	@RequestMapping("/index")
-	public ModelAndView index(HttpServletResponse response, HttpServletRequest request) throws Exception {
+	public ModelAndView index() throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("/pc/index");
 		return mav;
 	}
+
 	@RequestMapping("/login")
-	public ModelAndView login(HttpServletResponse  res,HttpServletRequest req) throws Exception {
+	public ModelAndView login(HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
 
-		String UserAgent = req.getHeader("User-Agent");
+		String userAgent = req.getHeader("User-Agent");
 		//判断AppleWebKit和 Firefox
-		if(MyUtil.checkUserAgent(UserAgent)){
+		if (MyUtil.checkUserAgent(userAgent)) {
 			mav.setViewName("/pc/login/login");
-		}else{
+		} else {
 			mav.setViewName("/admin/common/s_mode");
 		}
 		return mav;

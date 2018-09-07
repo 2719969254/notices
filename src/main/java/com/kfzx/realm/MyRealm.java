@@ -37,22 +37,18 @@ public class MyRealm extends AuthorizingRealm {
 
 	/**
 	 * 登录验证
-	 * <p>
-	 * <p>
 	 * 验证当前登录的用户
 	 */
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 
-		String login_type = (String) SecurityUtils.getSubject().getSession().getAttribute("login_type");
-		switch (login_type) {
+		String loginType = (String) SecurityUtils.getSubject().getSession().getAttribute("login_type");
+		switch (loginType) {
 			case "wx_login":
 				//我上面使用了openid
 				String openid = (String) token.getPrincipal();
 				if (openid != null) {
-					AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(openid, CryptographyUtil.md5(openid, "chenhao"), "xxx");
-					return authcInfo;
-				} else {
+					return new SimpleAuthenticationInfo(openid, CryptographyUtil.md5(openid, "chenhao"), "xxx");
 				}
 				break;
 			case "user_login":
@@ -61,10 +57,7 @@ public class MyRealm extends AuthorizingRealm {
 				User user = userService.findByName(name);
 				if (user != null) {
 					//SecurityUtils.getSubject().getSession().setAttribute("currentUser", user); //把当前用户信息存到session中
-					AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(user.getName(), user.getPassword(), "xxx");
-					return authcInfo;
-				} else {
-
+					return new SimpleAuthenticationInfo(user.getName(), user.getPassword(), "xxx");
 				}
 				break;
 			default:
