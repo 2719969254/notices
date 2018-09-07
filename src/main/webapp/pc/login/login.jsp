@@ -88,13 +88,13 @@
 
             if (name == null || name == "") {
                 layer.closeAll();
-                layer.alert('请输入帐号!');
+                layer.msg('请输入帐号!');
                 return;
             }
 
             if (password == null || password == "") {
                 layer.closeAll();
-                layer.alert('请输入密码!');
+                layer.msg('请输入密码!');
                 return;
             }
 

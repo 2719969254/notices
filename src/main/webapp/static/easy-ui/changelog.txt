@@ -214,7 +214,7 @@ Version 1.3.3
 * New Plugins
  * tooltip: Display a popup message when moving mouse over an element.
  
-Version 1.3.2
+Version 1.2.3
 -------------
 * Bug
  * datagrid: The loading message window can not be centered when changing the width of datagrid. fixed.
@@ -337,7 +337,7 @@ Version 1.2.5
  * datagrid: The subgrid is supported now.
  * searchbox: Add 'selectName' method to select searching type name.
 
-Version 1.2.4
+Version 1.2.3
 -------------
 * Bug
  * menu: The menu position is wrong when scroll bar appears. fixed.
