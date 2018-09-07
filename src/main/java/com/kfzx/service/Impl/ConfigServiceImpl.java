@@ -17,7 +17,6 @@ import javax.servlet.ServletContext;
  */
 @Service("configService")
 public class ConfigServiceImpl implements ConfigService {
-
 	@Resource
 	private ConfigDao configDao;
 
@@ -25,12 +24,10 @@ public class ConfigServiceImpl implements ConfigService {
 	public Integer update(Config config) {
 		int i = configDao.update(config);
 		config = configDao.findById(1);
-
 		//刷新缓存
 		WebApplicationContext webApplicationContext = ContextLoader.getCurrentWebApplicationContext();
 		ServletContext servletContext = webApplicationContext.getServletContext();
 		servletContext.setAttribute("config", config);
-
 		return i;
 	}
 

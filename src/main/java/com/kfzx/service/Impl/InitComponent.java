@@ -23,16 +23,12 @@ public class InitComponent implements ServletContextListener, ApplicationContext
 
 	@Override
 	public void contextInitialized(ServletContextEvent sce) {
-		ServletContext application=sce.getServletContext();
-		ConfigService configService=(ConfigService) applicationContext.getBean("configService");
-
+		ServletContext application = sce.getServletContext();
+		ConfigService configService = (ConfigService) applicationContext.getBean("configService");
 		Config config = configService.findById(1);
-		//保存到 缓存中
+		//保存到缓存中
 		application.setAttribute("config", config);
-
 	}
-
-
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
@@ -40,7 +36,7 @@ public class InitComponent implements ServletContextListener, ApplicationContext
 
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		InitComponent.applicationContext =applicationContext;
+		InitComponent.applicationContext = applicationContext;
 	}
 
 }

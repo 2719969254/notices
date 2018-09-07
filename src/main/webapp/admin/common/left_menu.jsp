@@ -24,26 +24,6 @@
     </dl>
   </li>
   </c:forEach>
-	
-  <!--  
-  <li class="layui-nav-item layui-nav-itemed">
-    <a href="javascript:;">菜单1</a>
-    <dl class="layui-nav-child">
-      <dd id="wxuser" url="http://www.baidu.com" text="111"><a href="#"><i class="layui-icon">&#xe63a;</i>&nbsp; 11111111</a></dd>
-      <dd id="wxuser"><a href="#"><i class="layui-icon">&#xe63a;</i>&nbsp; 222222222</a></dd>
-    </dl>
-  </li>
-  
-  
-   <li class="layui-nav-item layui-nav-itemed">
-    <a href="javascript:;">菜单2</a>
-    <dl class="layui-nav-child">
-      <dd id="deployment"><a href="#"><i class="layui-icon">&#xe609;</i>&nbsp; 菜单2-111111</a></dd>
-      <dd id="processDefinition"><a href="#"><i class="layui-icon">&#xe63c;</i>&nbsp; 菜单2-222222</a></dd>
-    </dl>
-  </li>
- -->
- 
  
 </ul>
 

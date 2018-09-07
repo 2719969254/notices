@@ -1,11 +1,14 @@
 package com.kfzx.controller;
 
+import com.kfzx.service.PublicService;
 import com.kfzx.util.MyUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author VicterTian
@@ -15,6 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/")
 public class IndexController {
+	@Autowired
+	private PublicService publicService;
 	/**
 	 * 显示主页
 	 *
@@ -42,4 +47,21 @@ public class IndexController {
 		return mav;
 	}
 
+	/**
+	 * 后台主页
+	 */
+	@RequestMapping("/admin/main")
+	public ModelAndView admin_main(HttpServletResponse res, HttpServletRequest req) throws Exception {
+		ModelAndView mav = new ModelAndView();
+		publicService.addLeftMenu(mav);
+		System.out.println(MyUtil.getRemoteAddress(req));
+
+		String userAgent = req.getHeader("User-Agent");
+		if (MyUtil.checkUserAgent(userAgent)) {
+			mav.setViewName("/admin/main");
+		} else {
+			mav.setViewName("/admin/common/s_mode");
+		}
+		return mav;
+	}
 }
