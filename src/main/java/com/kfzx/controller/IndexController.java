@@ -1,13 +1,20 @@
 package com.kfzx.controller;
 
 import com.kfzx.service.PublicService;
-import com.kfzx.util.MyUtil;
+import com.kfzx.util.*;
+import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.util.Date;
 
 /**
  * @author VicterTian
@@ -61,5 +68,36 @@ public class IndexController {
 			mav.setViewName("/admin/common/s_mode");
 		}
 		return mav;
+	}
+	/**
+	 * /qrcode/create
+	 * @param content
+	 *  将内容转成二维码返回
+	 */
+	@RequestMapping("/qrcode/create")
+	public String qrcode_create(@RequestParam(value = "content", required = false) String content,
+	                            HttpServletRequest requset, HttpServletResponse response) throws Exception {
+		// 生成二维码QRCode图片
+		BufferedImage bufImg = QRcodeUtil.qRCodeCommon(content, "jpg", QRcodeUtil.getSize(content));
+
+		// 保存到电脑
+		String fileName = DateUtil.formatDate(new Date(), "yyyyMMddHHmmssSSS");
+		String web_path = requset.getSession().getServletContext().getRealPath("");
+		String file_path = "/static/upload_image/qrcode/";
+
+		web_path = web_path +file_path ;
+		FileUtil.makeDirs(web_path);
+		try {
+			// 把img存到服务器上面。 返回地址给对面
+			ImageIO.write(bufImg, "jpg", new File(web_path + fileName + ".jpg"));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		JSONObject result = new JSONObject();
+		result.put("success", true);
+		result.put("path", file_path+fileName + ".jpg");
+		result.put("msg", "请将二维码图片保存到手机上面,或者电脑 ");
+		ResponseUtil.write(response, result.toString());
+		return null;
 	}
 }
