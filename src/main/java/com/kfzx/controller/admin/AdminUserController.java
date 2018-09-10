@@ -38,7 +38,7 @@ public class AdminUserController {
 	 * 添加用户
 	 */
 	@RequestMapping("/add")
-	public String add(User user, HttpServletResponse response, HttpServletRequest request) throws Exception {
+	public String add(User user, HttpServletResponse response) throws Exception {
 		//md5  加盐   加密
 		user.setPassword(CryptographyUtil.md5(user.getPassword(), "chenhao"));
 		user.setCreateDateTime(new Date());
@@ -92,7 +92,7 @@ public class AdminUserController {
 	@RequestMapping("/modifyPassword")
 	public String modifyPassword(String newPassword, HttpServletResponse response) throws Exception {
 		User user = (User) SecurityUtils.getSubject().getSession().getAttribute("currentUser");
-		user.setPassword(CryptographyUtil.md5(newPassword, "chenhao"));
+		user.setPassword(CryptographyUtil.md5(newPassword, "tianzuo"));
 		int resultTotal = userService.update(user);
 		JSONObject result = new JSONObject();
 		if (resultTotal > 0) {
@@ -113,8 +113,7 @@ public class AdminUserController {
 	                   @RequestParam(value = "q", required = false) String q,
 	                   @RequestParam(value = "date1", required = false) String date1,
 	                   @RequestParam(value = "date2", required = false) String date2,
-	                   HttpServletResponse response,
-	                   HttpServletRequest request) throws Exception {
+	                   HttpServletResponse response) throws Exception {
 		PageBean pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(limit));
 		Map<String, Object> map = new HashMap<>(1000);
 		map.put("start", pageBean.getStart());

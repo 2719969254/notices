@@ -1,7 +1,6 @@
 package com.kfzx.controller.houtai;
 
 import com.kfzx.entity.User;
-import com.kfzx.service.PublicService;
 import com.kfzx.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author VicterTian
@@ -23,15 +20,12 @@ public class HouTaiUserController {
 
 	@Resource
 	private UserService userService;
-	@Resource
-	private PublicService publicService;
-
 
 	/**
-	 *    /houtai/user/manage
+	 * /houtai/user/manage
 	 */
 	@RequestMapping("/manage")
-	public ModelAndView manage() throws Exception {
+	public ModelAndView manage() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pageTitle", "用户管理");
 		mav.addObject("title", "用户管理");
@@ -41,7 +35,7 @@ public class HouTaiUserController {
 
 
 	@RequestMapping("/add")
-	public ModelAndView add() throws Exception {
+	public ModelAndView add() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("btn_text", "添加");
 		mav.addObject("save_url", "/admin/user/add");
@@ -51,23 +45,19 @@ public class HouTaiUserController {
 
 
 	@RequestMapping("/edit")
-	public ModelAndView edit(@RequestParam(value="id",required=false)String id
-			,HttpServletResponse response
-			,HttpServletRequest request) throws Exception {
+	public ModelAndView edit(@RequestParam(value = "id", required = false) String id) {
 		ModelAndView mav = new ModelAndView();
-
 		User user = userService.findById(Integer.parseInt(id));
 		mav.addObject("user", user);
 		mav.addObject("btn_text", "修改");
-		mav.addObject("save_url", "/admin/user/update?id="+id);
+		mav.addObject("save_url", "/admin/user/update?id=" + id);
 		mav.setViewName("/admin/page/user/add_or_update");
 		return mav;
 	}
 
 
 	@RequestMapping("/setPersm")
-	public ModelAndView setPersm(@RequestParam(value = "id", required = false) String id,
-	                             HttpServletResponse response, HttpServletRequest request) throws Exception {
+	public ModelAndView setPersm(@RequestParam(value = "id", required = false) String id) {
 
 		//如果id有值就是 更新 如果没有值  就是添加
 		ModelAndView mav = new ModelAndView();
@@ -77,16 +67,12 @@ public class HouTaiUserController {
 	}
 
 	@RequestMapping("/setPassword")
-	public ModelAndView setPassword(@RequestParam(value = "id", required = false) String id,
-	                                HttpServletResponse response, HttpServletRequest request) throws Exception {
+	public ModelAndView setPassword(@RequestParam(value = "id", required = false) String id) {
 		//如果id有值就是 更新 如果没有值  就是添加
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("userId", id);
-		mav.addObject("save_url", "/admin/user/update?id="+id);
+		mav.addObject("save_url", "/admin/user/update?id=" + id);
 		mav.setViewName("admin/page/user/set_password");
 		return mav;
 	}
-
-
-
 }

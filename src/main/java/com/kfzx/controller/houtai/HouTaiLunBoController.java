@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author VicterTian
@@ -37,7 +35,7 @@ public class HouTaiLunBoController {
 	 * /houtai/lunbo/add
 	 */
 	@RequestMapping("/add")
-	public ModelAndView add(){
+	public ModelAndView add() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("btn_text", "添加");
 		mav.addObject("save_url", "/admin/lunbo/add");
@@ -49,7 +47,7 @@ public class HouTaiLunBoController {
 	 * /houtai/lunbo/edit
 	 */
 	@RequestMapping("/edit")
-	public ModelAndView edit(@RequestParam(value = "id", required = false) String id){
+	public ModelAndView edit(@RequestParam(value = "id", required = false) String id) {
 		ModelAndView mav = new ModelAndView();
 		LunBo lunbo = lunBoService.findById(Integer.parseInt(id));
 		mav.addObject("lunbo", lunbo);

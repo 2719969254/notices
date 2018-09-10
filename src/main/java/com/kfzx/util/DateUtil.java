@@ -24,10 +24,10 @@ public class DateUtil {
 
 	/**
 	 * 字符串转日期对象
-	 * @param str
-	 * @param format
-	 * @return
-	 * @throws Exception
+	 * @param str 日期类型字符串
+	 * @param format 格式化类型
+	 * @return Date
+	 * @throws Exception 一切异常
 	 */
 	public static Date formatString(String str,String format) throws Exception{
 		if(StringUtil.isEmpty(str)){
@@ -61,9 +61,9 @@ public class DateUtil {
 
 	/**
 	 * 算2个时间差几分
-	 * @param end
-	 * @param begin
-	 * @return
+	 * @param end end
+	 * @param begin begin
+	 * @return Long
 	 */
 	public static long date_between(Date end,Date begin ){
 		//除以1000是为了转换成秒
@@ -76,8 +76,8 @@ public class DateUtil {
 
 	/**
 	 *  任意格式的日期
-	 * @param date1
-	 * @param date2
+	 * @param date1 date1
+	 * @param date2 date2
 	 * @return 1比2大 返回1   相等返回0   小于返回-1
 	 */
 	public static int compareTo(String date1,String date2){
@@ -93,7 +93,7 @@ public class DateUtil {
 	 * @param dateFormat   时间格式   yyyy-MM-dd HH:mmssSSS
 	 * @param n  加多少天
 	 */
-	public static String dateAddDay(String dateStr,String dateFormat,  int n) {
+	private static String dateAddDay(String dateStr, String dateFormat, int n) {
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
 			Calendar cd = Calendar.getInstance();
@@ -115,7 +115,7 @@ public class DateUtil {
 	 * @param dateFormat   时间格式   yyyy-MM-dd HH:mmssSSS
 	 * @param n  加多少月
 	 */
-	public static String dateAddMonth(String dateStr,String dateFormat,  int n) {
+	private static String dateAddMonth(String dateStr, String dateFormat, int n) {
 		try {
 			SimpleDateFormat sdf = new SimpleDateFormat(dateFormat);
 			Calendar cd = Calendar.getInstance();

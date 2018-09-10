@@ -38,11 +38,8 @@ public class UserController {
 	@RequestMapping("/login")
 	public String login(User user, HttpServletResponse response) throws Exception {
 		JSONObject result = new JSONObject();
-
 		Subject subject = SecurityUtils.getSubject();
-
 		SecurityUtils.getSubject().getSession().setAttribute("login_type", "user_login");
-
 		UsernamePasswordToken token = new UsernamePasswordToken(user.getName(), CryptographyUtil.md5(user.getPassword(), "chenhao"));
 		try {
 			// 登录验证
@@ -64,5 +61,4 @@ public class UserController {
 			return null;
 		}
 	}
-
 }

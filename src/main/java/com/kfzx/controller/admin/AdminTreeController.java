@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
@@ -27,7 +26,7 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/admin/tree")
-public class Admin_Tree_Controller {
+public class AdminTreeController {
 
 	@Resource
 	private TreeService treeService;
@@ -39,18 +38,16 @@ public class Admin_Tree_Controller {
 	 * /admin/tree/getCheckedTreeMenu?userId=11
 	 * 这个方法是设置权限用的
 	 * easyui哪个权限树菜单用。
-	 *
 	 */
 	@RequestMapping("/getCheckedTreeMenu")
-	public String getCheckedTreeMenu(@RequestParam(value = "userId", required = false) String userId,
-	                                 HttpServletRequest requset, HttpServletResponse response) throws Exception {
+	public String getCheckedTreeMenu(@RequestParam(value = "userId", required = false) String userId, HttpServletResponse response) throws Exception {
 		// 先找parent是-1的顶级菜单
 		User user = userService.findById(Integer.parseInt(userId));
 
 		String treeIds = user.getMenuIds();
-		if(treeIds==null){
+		if (treeIds == null) {
 			//不能这null   会报错。 强制设置一个空str
-			treeIds="";
+			treeIds = "";
 		}
 
 		List<Tree> list = getCheckTreesByParentId(-1, treeIds);
@@ -61,17 +58,19 @@ public class Admin_Tree_Controller {
 
 	/**
 	 * 这个方法是设置权限用的   给菜单添加check 选项
+	 * @param father 父节点编号
+	 * @param treeIds
+	 * @return List<Tree>
 	 */
-	public List<Tree> getCheckTreesByParentId(Integer father, String treeIds) throws Exception {
-		Map<String, Object> map = new HashMap<String, Object>();
+	private List<Tree> getCheckTreesByParentId(Integer father, String treeIds){
+		Map<String, Object> map = new HashMap<String, Object>(1000);
 
-		map.put("father", father+"");
+		map.put("father", father + "");
 		List<Tree> list = treeService.getTreesByFatherOrIds(map);
 
 		for (Tree tree : list) {
-			// 如果 是复选框 可以在这里判断
-			// tree.setChecked(true);
-			// 判断id
+
+			// 如果 是复选框 可以在这里判断 tree.setChecked(true); 以下为判断id
 			if (MyUtil.existStrArr(tree.getId() + "", treeIds.split(","))) {
 				// 有没有在ids之内，如果返回true
 				// 不在false
@@ -87,13 +86,11 @@ public class Admin_Tree_Controller {
 	}
 
 
-
-
 	/**
-	 *  拿菜单
+	 * 拿菜单
 	 */
 	@RequestMapping("/getMenu")
-	public String getMenu(HttpServletResponse response)throws Exception {
+	public String getMenu(HttpServletResponse response) throws Exception {
 
 		User currentUser = (User) SecurityUtils.getSubject().getSession().getAttribute("currentUser");
 		currentUser = userService.findById(currentUser.getId());
@@ -101,10 +98,10 @@ public class Admin_Tree_Controller {
 
 		Map<String, Object> map = new HashMap<>(1000);
 		String menuIds = currentUser.getMenuIds();
-		if(menuIds==null){
+		if (menuIds == null) {
 			menuIds = "";
 		}
-		List<Integer> ids =MyUtil.Str_ids_To_ListInteger_ids(menuIds);
+		List<Integer> ids = MyUtil.Str_ids_To_ListInteger_ids(menuIds);
 		map.put("father", -1);
 		map.put("ids", ids);
 		List<Tree> treeList = getTreesByParentId(map);
@@ -117,22 +114,20 @@ public class Admin_Tree_Controller {
 	/**
 	 * 拿菜单
 	 */
-	public List<Tree> getTreesByParentId(Map<String,Object> map) throws Exception {
+	private List<Tree> getTreesByParentId(Map<String, Object> map) {
 		//String parentId,String ids  = map
 		List<Tree> list = treeService.getTreesByFatherOrIds(map);
-		for(Tree tree : list){
-			//如果 是复选框  可以在这里判断
-			//tree.setChecked(true);
-			if("open".equals(tree.getState())){
+		for (Tree tree : list) {
+			//如果是复选框可以在这里判断  tree.setChecked(true);
+			if ("open".equals(tree.getState())) {
 				continue;
-			}else{
+			} else {
 				//更换id不换ids继续查
-				map.put("father", tree.getId()+"");
+				map.put("father", tree.getId() + "");
 				tree.setChildren(getTreesByParentId(map));
 			}
 		}
 		return list;
 	}
-
 }
 

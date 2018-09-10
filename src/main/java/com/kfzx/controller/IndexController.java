@@ -57,7 +57,7 @@ public class IndexController {
 	 * 后台主页
 	 */
 	@RequestMapping("/admin/main")
-	public ModelAndView admin_main(HttpServletRequest req) {
+	public ModelAndView adminMain(HttpServletRequest req) {
 		ModelAndView mav = new ModelAndView();
 		publicService.addLeftMenu(mav);
 		System.out.println(MyUtil.getRemoteAddress(req));
@@ -77,27 +77,27 @@ public class IndexController {
 	 * @param content 将内容转成二维码返回
 	 */
 	@RequestMapping("/qrcode/create")
-	public String qrcode_create(@RequestParam(value = "content", required = false) String content,
-	                            HttpServletRequest requset, HttpServletResponse response) throws Exception {
+	public String qrcodeCreate(@RequestParam(value = "content", required = false) String content,
+	                           HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// 生成二维码QRCode图片
 		BufferedImage bufImg = QRcodeUtil.qRCodeCommon(content, "jpg", QRcodeUtil.getSize(content));
 
 		// 保存到电脑
 		String fileName = DateUtil.formatDate(new Date(), "yyyyMMddHHmmssSSS");
-		String web_path = requset.getSession().getServletContext().getRealPath("");
-		String file_path = "/static/upload_image/qrcode/";
+		String webPath = request.getSession().getServletContext().getRealPath("");
+		String filePath = "/static/upload_image/qrcode/";
 
-		web_path = web_path + file_path;
-		FileUtil.makeDirs(web_path);
+		webPath = webPath + filePath;
+		FileUtil.makeDirs(webPath);
 		try {
 			// 把img存到服务器上面。 返回地址给对面
-			ImageIO.write(bufImg, "jpg", new File(web_path + fileName + ".jpg"));
+			ImageIO.write(bufImg, "jpg", new File(webPath + fileName + ".jpg"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		JSONObject result = new JSONObject();
 		result.put("success", true);
-		result.put("path", file_path + fileName + ".jpg");
+		result.put("path", filePath + fileName + ".jpg");
 		result.put("msg", "请将二维码图片保存到手机上面,或者电脑 ");
 		ResponseUtil.write(response, result.toString());
 		return null;

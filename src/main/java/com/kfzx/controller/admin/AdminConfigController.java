@@ -91,8 +91,8 @@ public class AdminConfigController {
 	 */
 	@RequestMapping("/add_gzh")
 	public String addGzh(@RequestParam(value = "name", required = false) String name,
-	                      @RequestParam("file2") MultipartFile file,
-	                      HttpServletResponse response, HttpServletRequest request) throws Exception {
+	                     @RequestParam("file2") MultipartFile file,
+	                     HttpServletResponse response, HttpServletRequest request) throws Exception {
 		JSONObject result = new JSONObject();
 
 		if (!file.isEmpty()) {
@@ -150,7 +150,6 @@ public class AdminConfigController {
 			String webPath = request.getServletContext().getRealPath("");
 			String filePath = "/static/upload_image/config/";
 			String imageName = "logo.jpg";
-			//把文件名子换成（时间搓.png）
 			//String imageName=DateUtil.formatDate(new Date(), "yyyyMMddhhmmssSSS")+".jpg";
 			file.transferTo(new File(webPath + filePath + imageName));
 			result.put("success", true);

@@ -125,21 +125,21 @@ function seeImg(url){
 	       <tr>
 	        <td>headStr</td>
 	        <td>
-	        	<textarea placeholder="headStr" class="layui-textarea">${config.headStr }</textarea>
+	        	<textarea disabled="disabled" placeholder="headStr" class="layui-textarea">${config.headStr }</textarea>
 	        </td>
 	      </tr>
 	      
 	      <tr>
 	        <td>layui 版本</td>
 	        <td>
-	        	<textarea placeholder="layui 版本" class="layui-textarea">${config.layuiStr }</textarea>
+	        	<textarea disabled="disabled" placeholder="layui 版本" class="layui-textarea">${config.layuiStr }</textarea>
 	        </td>
 	      </tr>
 	      
 	      <tr>
 	        <td>统计代码</td>
 	        <td>
-	        	<textarea placeholder="统计代码" class="layui-textarea">${config.tongjiStr }</textarea>
+	        	<textarea disabled="disabled" placeholder="统计代码" class="layui-textarea">${config.tongjiStr }</textarea>
 	        </td>
 	      </tr>
 			
@@ -190,7 +190,7 @@ function seeImg(url){
 	      <tr>
 	        <td>备案信息</td>
 	        <td>
-	        	<textarea placeholder="备案信息" class="layui-textarea">${config.beian_ }</textarea>
+	        	<textarea disabled="disabled" placeholder="备案信息" class="layui-textarea">${config.beian_ }</textarea>
 	        </td>
 	      </tr>
 	      
@@ -202,14 +202,14 @@ function seeImg(url){
 	      <tr>
 	        <td>页面底部内容</td>
 	        <td>
-	        	<textarea style="height: 500px;" placeholder="页面底部内容" class="layui-textarea">${config.food_info }</textarea>
+	        	<textarea disabled="disabled" style="height: 500px;" placeholder="页面底部内容" class="layui-textarea">${config.food_info }</textarea>
 	        </td>
 	      </tr>
 	      
 	      <tr>
 	        <td>导航内容</td>
 	        <td>
-	        	<textarea style="height: 500px;" placeholder="导航内容" class="layui-textarea">${config.nav_str }</textarea>
+	        	<textarea disabled="disabled" style="height: 500px;" placeholder="导航内容" class="layui-textarea">${config.nav_str }</textarea>
 	        </td>
 	      </tr>
 	      

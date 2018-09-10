@@ -11,7 +11,6 @@ public interface PublicService {
 	/**
 	 *  添加后台路径左面菜单
 	 * @param  mav 添加mav.addObject("leftPage", "/admin/common/left_menu.jsp"); 以及添加leftmenu 的内容
-	 * @param mav
 	 */
 	void addLeftMenu(ModelAndView mav);
 }
