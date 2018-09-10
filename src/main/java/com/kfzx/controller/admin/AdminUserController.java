@@ -2,23 +2,21 @@ package com.kfzx.controller.admin;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.kfzx.entity.LunBo;
 import com.kfzx.entity.PageBean;
 import com.kfzx.entity.User;
-import com.kfzx.service.LunBoService;
-import com.kfzx.util.DateUtil;
+import com.kfzx.service.UserService;
+import com.kfzx.util.CryptographyUtil;
 import com.kfzx.util.ResponseUtil;
+import com.kfzx.util.StringUtil;
 import net.sf.json.JSONObject;
 import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -30,29 +28,28 @@ import java.util.Map;
  * @Date 2018/9/9
  */
 @Controller
-@RequestMapping("/admin/lunbo")
-public class Admin_LunBo_Controller {
+@RequestMapping("/admin/user")
+public class AdminUserController {
 
 	@Resource
-	private LunBoService lunBoService;
+	private UserService userService;
 
 	/**
-	 *  /admin/lunbo/add
+	 * 添加用户
 	 */
 	@RequestMapping("/add")
-	public String add(LunBo lunbo , HttpServletResponse response, HttpServletRequest request) throws Exception {
-		lunbo.setCreateDateTime(new Date());
-		lunbo.setUpdateDateTime(new Date());
+	public String add(User user, HttpServletResponse response, HttpServletRequest request) throws Exception {
+		//md5  加盐   加密
+		user.setPassword(CryptographyUtil.md5(user.getPassword(), "chenhao"));
+		user.setCreateDateTime(new Date());
 
-		User currentUser = (User) SecurityUtils.getSubject().getSession().getAttribute("currentUser");
-		lunbo.setCreateUserId(currentUser.getId());
+		int resultTotal = userService.add(user);
 
-		int resultTotal = lunBoService.add(lunbo);
 		JSONObject result = new JSONObject();
+
 		if (resultTotal > 0) {
 			result.put("success", true);
 			result.put("msg", "添加成功");
-			result.put("btn_disable", true);
 		} else {
 			result.put("success", false);
 			result.put("msg", "添加失败");
@@ -63,21 +60,26 @@ public class Admin_LunBo_Controller {
 
 
 	/**
-	 *  /admin/lunbo/update
+	 * /admin/user/update
+	 *
+	 * @return
+	 * @throws Exception
 	 */
 	@RequestMapping("/update")
-	public String update(LunBo lunbo, HttpServletResponse response, HttpServletRequest request) throws Exception {
-		lunbo.setUpdateDateTime(new Date());
-		int resultTotal = lunBoService.update(lunbo);
+	public String update(User user, HttpServletResponse response, HttpServletRequest request) throws Exception {
+		if (StringUtil.isNotEmpty(user.getPassword())) {
+			user.setPassword(CryptographyUtil.md5(user.getPassword(), "chenhao"));
+		}
+		int resultTotal = userService.update(user);
+
 		JSONObject result = new JSONObject();
 
 		if (resultTotal > 0) {
 			result.put("success", true);
-			result.put("msg", "修改成功");
-			result.put("btn_disable", false);
+			result.put("msg", "添加成功");
 		} else {
 			result.put("success", false);
-			result.put("msg", "修改失败");
+			result.put("msg", "添加失败");
 		}
 		ResponseUtil.write(response, result.toString());
 		return null;
@@ -85,25 +87,44 @@ public class Admin_LunBo_Controller {
 
 
 	/**
-	 * /admin/lunbo/list
+	 * 修改 密码 在不退出登陆的情况下。可以多次修改密码。
 	 */
+	@RequestMapping("/modifyPassword")
+	public String modifyPassword(String newPassword, HttpServletResponse response) throws Exception {
+		User user = (User) SecurityUtils.getSubject().getSession().getAttribute("currentUser");
+		user.setPassword(CryptographyUtil.md5(newPassword, "chenhao"));
+		int resultTotal = userService.update(user);
+		JSONObject result = new JSONObject();
+		if (resultTotal > 0) {
+			result.put("success", true);
+			result.put("msg", "添加成功");
+		} else {
+			result.put("success", false);
+			result.put("msg", "添加失败");
+		}
+		ResponseUtil.write(response, result.toString());
+		return null;
+	}
+
+
 	@RequestMapping("/list")
 	public String list(@RequestParam(value = "page", required = false) String page,
 	                   @RequestParam(value = "limit", required = false) String limit,
-	                   @RequestParam(value = "isUse", required = false) String isUse,
+	                   @RequestParam(value = "q", required = false) String q,
+	                   @RequestParam(value = "date1", required = false) String date1,
+	                   @RequestParam(value = "date2", required = false) String date2,
 	                   HttpServletResponse response,
 	                   HttpServletRequest request) throws Exception {
 		PageBean pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(limit));
-
-		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> map = new HashMap<>(1000);
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
-		map.put("isUse", isUse);
+		map.put("q", StringUtil.formatLike(q));
+		map.put("date1", date1);
+		map.put("date2", date2);
 
-
-		List<LunBo> list = lunBoService.list(map);
-		Integer total = lunBoService.getTotal(map);
-
+		List<User> list = userService.list(map);
+		Integer total = userService.getTotal(map);
 		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm").create();
 
 		map.clear();
@@ -111,15 +132,11 @@ public class Admin_LunBo_Controller {
 		map.put("count", total);
 		map.put("code", 0);
 		map.put("msg", "");
-
 		ResponseUtil.write(response, gson.toJson(map));
 		return null;
 	}
 
-	/**
-	 *   /admin/lunbo/delete
-	 * @param ids
-	 */
+
 	@RequestMapping("/delete")
 	public String delete(@RequestParam(value = "ids", required = false) String ids, HttpServletResponse response)
 			throws Exception {
@@ -127,37 +144,9 @@ public class Admin_LunBo_Controller {
 		JSONObject result = new JSONObject();
 
 		for (int i = 0; i < idsStr.length; i++) {
-			lunBoService.delete(Integer.parseInt(idsStr[i]));
+			userService.delete(Integer.parseInt(idsStr[i]));
 		}
 		result.put("success", true);
-		ResponseUtil.write(response, result.toString());
-		return null;
-	}
-
-
-	/**
-	 *
-	 * /admin/lunbo/add_image_url
-	 */
-	@RequestMapping("/add_image_url")
-	public String add_image_url(
-			@RequestParam(value="name",required=false)String name,
-			@RequestParam("file") MultipartFile file,
-			HttpServletResponse response, HttpServletRequest request) throws Exception {
-		JSONObject result = new JSONObject();
-
-		if(!file.isEmpty()){
-			String webPath=request.getServletContext().getRealPath("");
-			String filePath= "/static/upload_image/lunbo/";
-			//把文件名子换成（时间搓.png）
-			// String imageName="houtai_logo."+file.getOriginalFilename().split("\\.")[1];
-
-			String imageName= DateUtil.formatDate(new Date(), "yyyy-MM-dd-hh-mm-ss-SSS")+".jpg";
-
-			file.transferTo(new File(webPath+filePath+imageName));
-			result.put("success", true);
-			result.put("path", filePath+imageName);
-		}
 		ResponseUtil.write(response, result.toString());
 		return null;
 	}

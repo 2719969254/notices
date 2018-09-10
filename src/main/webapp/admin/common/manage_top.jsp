@@ -103,8 +103,6 @@
  			 
 			<li class="layui-nav-item"><a onclick="toggleFullScreen()">全屏/退出</a></li>
 			
-			<li class="layui-nav-item"><a href="javascript:;">qq14496453</a></li>
-			
 		</ul>
 	</div>
 	

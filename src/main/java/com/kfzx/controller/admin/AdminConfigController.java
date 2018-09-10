@@ -63,7 +63,7 @@ public class AdminConfigController {
 	 * /admin/config/add_houtai_logo
 	 */
 	@RequestMapping("/add_houtai_logo")
-	public String add_houtai_logo(
+	public String addHoutaiLogo(
 			@RequestParam(value = "name", required = false) String name,
 			@RequestParam("file") MultipartFile file,
 			HttpServletResponse response, HttpServletRequest request) throws Exception {
@@ -90,7 +90,7 @@ public class AdminConfigController {
 	 * /admin/config/add_gzh
 	 */
 	@RequestMapping("/add_gzh")
-	public String add_gzh(@RequestParam(value = "name", required = false) String name,
+	public String addGzh(@RequestParam(value = "name", required = false) String name,
 	                      @RequestParam("file2") MultipartFile file,
 	                      HttpServletResponse response, HttpServletRequest request) throws Exception {
 		JSONObject result = new JSONObject();
@@ -115,7 +115,7 @@ public class AdminConfigController {
 	 * /admin/config/add_geren_erweima
 	 */
 	@RequestMapping("/add_geren_erweima")
-	public String add_geren_erweima(
+	public String addGerenErweima(
 			@RequestParam(value = "name", required = false) String name,
 			@RequestParam("file3") MultipartFile file,
 			HttpServletResponse response, HttpServletRequest request) throws Exception {
@@ -140,7 +140,7 @@ public class AdminConfigController {
 	 * /admin/config/add_daohang_icon
 	 */
 	@RequestMapping("/add_logo")
-	public String add_logo(
+	public String addLogo(
 			@RequestParam(value = "name", required = false) String name,
 			@RequestParam("file4") MultipartFile file,
 			HttpServletResponse response, HttpServletRequest request) throws Exception {
@@ -156,7 +156,6 @@ public class AdminConfigController {
 			result.put("success", true);
 			result.put("path", filePath + imageName);
 		}
-
 		ResponseUtil.write(response, result.toString());
 		return null;
 	}

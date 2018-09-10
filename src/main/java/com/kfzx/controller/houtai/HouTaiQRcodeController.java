@@ -13,9 +13,10 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping("/houtai/qrcode")
-public class HouTai_QRcode_Controller {
+public class HouTaiQRcodeController {
 	/**
 	 * 生成二维码
+	 *
 	 * @return ModelAndView
 	 */
 	@RequestMapping("/manage")

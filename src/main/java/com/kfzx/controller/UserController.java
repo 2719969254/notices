@@ -29,7 +29,8 @@ public class UserController {
 
 	/**
 	 * 电脑登陆
-	 * @param user 用户对象
+	 *
+	 * @param user     用户对象
 	 * @param response 响应
 	 * @return String
 	 * @throws Exception 一切异常

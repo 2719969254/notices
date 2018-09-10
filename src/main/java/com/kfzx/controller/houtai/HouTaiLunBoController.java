@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 @RequestMapping("/houtai/lunbo")
-public class HouTai_LunBo_Controller {
+public class HouTaiLunBoController {
 	@Resource
 	private LunBoService lunBoService;
 
@@ -37,7 +37,7 @@ public class HouTai_LunBo_Controller {
 	 * /houtai/lunbo/add
 	 */
 	@RequestMapping("/add")
-	public ModelAndView add() throws Exception {
+	public ModelAndView add(){
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("btn_text", "添加");
 		mav.addObject("save_url", "/admin/lunbo/add");
@@ -49,9 +49,7 @@ public class HouTai_LunBo_Controller {
 	 * /houtai/lunbo/edit
 	 */
 	@RequestMapping("/edit")
-	public ModelAndView edit(@RequestParam(value = "id", required = false) String id
-			, HttpServletResponse response
-			, HttpServletRequest request) throws Exception {
+	public ModelAndView edit(@RequestParam(value = "id", required = false) String id){
 		ModelAndView mav = new ModelAndView();
 		LunBo lunbo = lunBoService.findById(Integer.parseInt(id));
 		mav.addObject("lunbo", lunbo);
