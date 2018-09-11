@@ -29,6 +29,8 @@ public class HouTaiLinkController {
 	@RequestMapping("/manage")
 	public ModelAndView manage() {
 		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("pageTitle", "用户管理");
+		modelAndView.addObject("title", "用户管理");
 		modelAndView.setViewName("/admin/page/link/link_manage");
 		return modelAndView;
 	}

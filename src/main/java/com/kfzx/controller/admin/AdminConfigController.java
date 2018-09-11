@@ -51,7 +51,7 @@ public class AdminConfigController {
 	@RequestMapping("/findById")
 	public String findById(
 			@RequestParam(value = "id", required = false) String id,
-			HttpServletResponse response, HttpServletRequest request) throws Exception {
+			HttpServletResponse response) throws Exception {
 		Gson gson = new Gson();
 		Config config = configService.findById(Integer.parseInt(id));
 		ResponseUtil.write(response, gson.toJson(config));

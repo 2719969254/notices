@@ -1,5 +1,13 @@
 package com.kfzx.controller;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.kfzx.entity.Blog;
+import com.kfzx.entity.BlogFenLei;
+import com.kfzx.entity.LunBo;
+import com.kfzx.service.BlogFenLeiService;
+import com.kfzx.service.BlogService;
+import com.kfzx.service.LunBoService;
 import com.kfzx.service.PublicService;
 import com.kfzx.util.*;
 import net.sf.json.JSONObject;
@@ -7,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
@@ -15,6 +24,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author VicterTian
@@ -26,80 +38,134 @@ import java.util.Date;
 public class IndexController {
 	@Resource
 	private PublicService publicService;
+	@Resource
+	private LunBoService lunBoService;
+	@Resource
+	private BlogFenLeiService blogFenLeiService;
+	@Resource
+	private BlogService blogService;
+
 
 	/**
-	 * 显示主页
-	 *
-	 * @return ModelAndView
+	 * /index
+	 * 请求主页
 	 */
 	@RequestMapping("/index")
-	public ModelAndView index() {
-		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/pc/index");
-		return modelAndView;
+	public ModelAndView index(HttpServletResponse  res,HttpServletRequest req) throws Exception {
+		ModelAndView mav = new ModelAndView();
+
+		List<LunBo> lunboList = lunBoService.index_list();
+		mav.addObject("lunboList", lunboList);
+
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("isUse", 1);
+		map.put("pos", 1);
+		List<BlogFenLei> baseModuleList = blogFenLeiService.list(map);
+
+		mav.addObject("baseModuleList", baseModuleList);
+
+
+		mav.setViewName("/pc/index");
+		return mav;
 	}
 
+
+
+	/**
+	 * 电脑登陆
+	 */
 	@RequestMapping("/login")
-	public ModelAndView login(HttpServletRequest req) {
-		ModelAndView modelAndView = new ModelAndView();
+	public ModelAndView login(HttpServletResponse  res,HttpServletRequest req) throws Exception {
+		ModelAndView mav = new ModelAndView();
 
-		String userAgent = req.getHeader("User-Agent");
-		//判断AppleWebKit和 Firefox
-		if (MyUtil.checkUserAgent(userAgent)) {
-			modelAndView.setViewName("/pc/login/login");
-		} else {
-			modelAndView.setViewName("/admin/common/s_mode");
+		String UserAgent = req.getHeader("User-Agent");
+		//判断AppleWebKit 和  Firefox
+
+		if(MyUtil.checkUserAgent(UserAgent)){
+			mav.setViewName("/pc/login/login");
+		}else{
+			mav.setViewName("/admin/common/s_mode");
 		}
-		return modelAndView;
+		return mav;
 	}
+
+
 
 	/**
 	 * 后台主页
 	 */
 	@RequestMapping("/admin/main")
-	public ModelAndView adminMain(HttpServletRequest req) {
-		ModelAndView modelAndView = new ModelAndView();
-		publicService.addLeftMenu(modelAndView);
-		System.out.println(MyUtil.getRemoteAddress(req));
+	public ModelAndView admin_main(HttpServletResponse  response,HttpServletRequest request) throws Exception {
+		ModelAndView mav = new ModelAndView();
 
-		String userAgent = req.getHeader("User-Agent");
-		if (MyUtil.checkUserAgent(userAgent)) {
-			modelAndView.setViewName("/admin/main");
-		} else {
-			modelAndView.setViewName("/admin/common/s_mode");
+
+
+		publicService.addLeftMenu(mav);
+
+		System.out.println(MyUtil.getRemoteAddress(request));
+
+		String userAgent = request.getHeader("User-Agent");
+		if(MyUtil.checkUserAgent(userAgent)){
+			mav.setViewName("/admin/main");
+		}else{
+			mav.setViewName("/admin/common/s_mode");
 		}
-		return modelAndView;
+		return mav;
 	}
+
 
 	/**
 	 * /qrcode/create
-	 *
-	 * @param content 将内容转成二维码返回
+	 * @param content
+	 *  将内容转成二维码返回
 	 */
 	@RequestMapping("/qrcode/create")
-	public String qrcodeCreate(@RequestParam(value = "content", required = false) String content,
-	                           HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public String getQRCode(@RequestParam(value = "content", required = false) String content,
+	                        HttpServletRequest requset, HttpServletResponse response) throws Exception {
+
 		// 生成二维码QRCode图片
 		BufferedImage bufImg = QRcodeUtil.qRCodeCommon(content, "jpg", QRcodeUtil.getSize(content));
-
 		// 保存到电脑
 		String fileName = DateUtil.formatDate(new Date(), "yyyyMMddHHmmssSSS");
-		String webPath = request.getSession().getServletContext().getRealPath("");
+		String path = requset.getSession().getServletContext().getRealPath("");
 		String filePath = "/static/upload_image/qrcode/";
 
-		webPath = webPath + filePath;
-		FileUtil.makeDirs(webPath);
+		path = path +filePath ;
+		FileUtil.makeDirs(path);
 		try {
 			// 把img存到服务器上面。 返回地址给对面
-			ImageIO.write(bufImg, "jpg", new File(webPath + fileName + ".jpg"));
+			ImageIO.write(bufImg, "jpg", new File(path + fileName + ".jpg"));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		JSONObject result = new JSONObject();
 		result.put("success", true);
-		result.put("path", filePath + fileName + ".jpg");
+		result.put("path", filePath+fileName + ".jpg");
 		result.put("msg", "请将二维码图片保存到手机上面,或者电脑 ");
 		ResponseUtil.write(response, result.toString());
+		return null;
+	}
+
+
+	/**
+	 * /index_base_module?blogFenLeiId1&rows=10
+	 * 拿到首页  基础模块的数据
+	 */
+	@RequestMapping("/index_base_module")
+	public String index_base_module(@RequestParam(value = "blogFenLeiId", required = false) Integer blogFenLeiId
+			,@RequestParam(value = "rows", required = false) Integer rows,HttpServletResponse response,HttpServletRequest request
+			,RedirectAttributes attr)throws Exception{
+
+		Map<String, Object> map = new HashMap<>(1000);
+		map.put("isUse", 1);
+		map.put("blogFenLeiId", blogFenLeiId);
+		map.put("start", 0);
+		map.put("size", rows);
+		List<Blog> blogList = blogService.list2(map);
+
+		Gson gson = new GsonBuilder().setDateFormat("MM-dd").create();
+
+		ResponseUtil.write(response, gson.toJson(blogList));
 		return null;
 	}
 }
