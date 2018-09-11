@@ -26,33 +26,33 @@ public class HouTaiUserController {
 	 */
 	@RequestMapping("/manage")
 	public ModelAndView manage() {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("pageTitle", "用户管理");
-		mav.addObject("title", "用户管理");
-		mav.setViewName("/admin/page/user/user_manage");
-		return mav;
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("pageTitle", "用户管理");
+		modelAndView.addObject("title", "用户管理");
+		modelAndView.setViewName("/admin/page/user/user_manage");
+		return modelAndView;
 	}
 
 
 	@RequestMapping("/add")
 	public ModelAndView add() {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("btn_text", "添加");
-		mav.addObject("save_url", "/admin/user/add");
-		mav.setViewName("/admin/page/user/add_or_update");
-		return mav;
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("btn_text", "添加");
+		modelAndView.addObject("save_url", "/admin/user/add");
+		modelAndView.setViewName("/admin/page/user/add_or_update");
+		return modelAndView;
 	}
 
 
 	@RequestMapping("/edit")
 	public ModelAndView edit(@RequestParam(value = "id", required = false) String id) {
-		ModelAndView mav = new ModelAndView();
+		ModelAndView modelAndView = new ModelAndView();
 		User user = userService.findById(Integer.parseInt(id));
-		mav.addObject("user", user);
-		mav.addObject("btn_text", "修改");
-		mav.addObject("save_url", "/admin/user/update?id=" + id);
-		mav.setViewName("/admin/page/user/add_or_update");
-		return mav;
+		modelAndView.addObject("user", user);
+		modelAndView.addObject("btn_text", "修改");
+		modelAndView.addObject("save_url", "/admin/user/update?id=" + id);
+		modelAndView.setViewName("/admin/page/user/add_or_update");
+		return modelAndView;
 	}
 
 
@@ -60,19 +60,19 @@ public class HouTaiUserController {
 	public ModelAndView setPersm(@RequestParam(value = "id", required = false) String id) {
 
 		//如果id有值就是 更新 如果没有值  就是添加
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("userId", id);
-		mav.setViewName("admin/page/user/set_persm");
-		return mav;
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("userId", id);
+		modelAndView.setViewName("admin/page/user/set_persm");
+		return modelAndView;
 	}
 
 	@RequestMapping("/setPassword")
 	public ModelAndView setPassword(@RequestParam(value = "id", required = false) String id) {
 		//如果id有值就是 更新 如果没有值  就是添加
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("userId", id);
-		mav.addObject("save_url", "/admin/user/update?id=" + id);
-		mav.setViewName("admin/page/user/set_password");
-		return mav;
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("userId", id);
+		modelAndView.addObject("save_url", "/admin/user/update?id=" + id);
+		modelAndView.setViewName("admin/page/user/set_password");
+		return modelAndView;
 	}
 }

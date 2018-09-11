@@ -28,14 +28,14 @@ public class PublicServiceImpl implements PublicService {
 	private UserService userService;
 
 	@Override
-	public void addLeftMenu(ModelAndView mav) {
+	public void addLeftMenu(ModelAndView modelAndView) {
 
-		mav.addObject("leftPage", "/admin/common/left_menu.jsp");
+		modelAndView.addObject("leftPage", "/admin/common/left_menu.jsp");
 
 		User currentUser = (User) SecurityUtils.getSubject().getSession().getAttribute("currentUser");
 		currentUser = userService.findById(currentUser.getId());
 
-		Map<String, Object> map = new HashMap<String, Object>(1000);
+		Map<String, Object> map = new HashMap<>(1000);
 		String menuIds = currentUser.getMenuIds();
 		if (menuIds == null) {
 			menuIds = "";
@@ -46,11 +46,11 @@ public class PublicServiceImpl implements PublicService {
 
 		if (ids.size() > 0) {
 		} else {
-			mav.addObject("treeList", null);
+			modelAndView.addObject("treeList", null);
 		}
 		try {
 			List<Tree> treeList = getTreesByParentId(map);
-			mav.addObject("treeList", treeList);
+			modelAndView.addObject("treeList", treeList);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

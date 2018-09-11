@@ -25,10 +25,10 @@ public class HouTaiConfigController {
 	 */
 	@RequestMapping("/manage")
 	public ModelAndView manage() {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("title", "网站的配置");
-		mav.setViewName("/admin/page/config/config_manage");
-		return mav;
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("title", "网站的配置");
+		modelAndView.setViewName("/admin/page/config/config_manage");
+		return modelAndView;
 	}
 
 	/**
@@ -36,12 +36,12 @@ public class HouTaiConfigController {
 	 */
 	@RequestMapping("/edit")
 	public ModelAndView edit(@RequestParam(value = "id", required = false) String id) {
-		ModelAndView mav = new ModelAndView();
+		ModelAndView modelAndView = new ModelAndView();
 		Config config = configService.findById(Integer.parseInt(id));
-		mav.addObject("config", config);
-		mav.addObject("btn_text", "修改");
-		mav.addObject("save_url", "/admin/config/update?id=" + id);
-		mav.setViewName("/admin/page/config/add_or_update");
-		return mav;
+		modelAndView.addObject("config", config);
+		modelAndView.addObject("btn_text", "修改");
+		modelAndView.addObject("save_url", "/admin/config/update?id=" + id);
+		modelAndView.setViewName("/admin/page/config/add_or_update");
+		return modelAndView;
 	}
 }

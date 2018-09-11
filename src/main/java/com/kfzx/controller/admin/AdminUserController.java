@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.HashMap;
@@ -62,11 +61,11 @@ public class AdminUserController {
 	/**
 	 * /admin/user/update
 	 *
-	 * @return
-	 * @throws Exception
+	 * @return String
+	 * @throws Exception 一切异常
 	 */
 	@RequestMapping("/update")
-	public String update(User user, HttpServletResponse response, HttpServletRequest request) throws Exception {
+	public String update(User user, HttpServletResponse response) throws Exception {
 		if (StringUtil.isNotEmpty(user.getPassword())) {
 			user.setPassword(CryptographyUtil.md5(user.getPassword(), "chenhao"));
 		}
@@ -142,8 +141,8 @@ public class AdminUserController {
 		String[] idsStr = ids.split(",");
 		JSONObject result = new JSONObject();
 
-		for (int i = 0; i < idsStr.length; i++) {
-			userService.delete(Integer.parseInt(idsStr[i]));
+		for (String anIdsStr : idsStr) {
+			userService.delete(Integer.parseInt(anIdsStr));
 		}
 		result.put("success", true);
 		ResponseUtil.write(response, result.toString());

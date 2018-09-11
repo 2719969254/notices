@@ -21,9 +21,9 @@ public class HouTaiQRcodeController {
 	 */
 	@RequestMapping("/manage")
 	public ModelAndView manage() {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("title", "二维码生成");
-		mav.setViewName("/admin/page/qrcode/qrcode_manage");
-		return mav;
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("title", "二维码生成");
+		modelAndView.setViewName("/admin/page/qrcode/qrcode_manage");
+		return modelAndView;
 	}
 }

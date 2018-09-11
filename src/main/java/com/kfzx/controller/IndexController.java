@@ -34,23 +34,23 @@ public class IndexController {
 	 */
 	@RequestMapping("/index")
 	public ModelAndView index() {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/pc/index");
-		return mav;
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("/pc/index");
+		return modelAndView;
 	}
 
 	@RequestMapping("/login")
 	public ModelAndView login(HttpServletRequest req) {
-		ModelAndView mav = new ModelAndView();
+		ModelAndView modelAndView = new ModelAndView();
 
 		String userAgent = req.getHeader("User-Agent");
 		//判断AppleWebKit和 Firefox
 		if (MyUtil.checkUserAgent(userAgent)) {
-			mav.setViewName("/pc/login/login");
+			modelAndView.setViewName("/pc/login/login");
 		} else {
-			mav.setViewName("/admin/common/s_mode");
+			modelAndView.setViewName("/admin/common/s_mode");
 		}
-		return mav;
+		return modelAndView;
 	}
 
 	/**
@@ -58,17 +58,17 @@ public class IndexController {
 	 */
 	@RequestMapping("/admin/main")
 	public ModelAndView adminMain(HttpServletRequest req) {
-		ModelAndView mav = new ModelAndView();
-		publicService.addLeftMenu(mav);
+		ModelAndView modelAndView = new ModelAndView();
+		publicService.addLeftMenu(modelAndView);
 		System.out.println(MyUtil.getRemoteAddress(req));
 
 		String userAgent = req.getHeader("User-Agent");
 		if (MyUtil.checkUserAgent(userAgent)) {
-			mav.setViewName("/admin/main");
+			modelAndView.setViewName("/admin/main");
 		} else {
-			mav.setViewName("/admin/common/s_mode");
+			modelAndView.setViewName("/admin/common/s_mode");
 		}
-		return mav;
+		return modelAndView;
 	}
 
 	/**
