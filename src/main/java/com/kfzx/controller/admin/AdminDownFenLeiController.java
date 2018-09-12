@@ -2,9 +2,9 @@ package com.kfzx.controller.admin;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.kfzx.entity.Link;
+import com.kfzx.entity.DownFenLei;
 import com.kfzx.entity.PageBean;
-import com.kfzx.service.LinkService;
+import com.kfzx.service.DownFenLeiService;
 import com.kfzx.util.ResponseUtil;
 import com.kfzx.util.StringUtil;
 import net.sf.json.JSONObject;
@@ -23,23 +23,23 @@ import java.util.Map;
 /**
  * @author VicterTian
  * @version V1.0
- * @Date 2018/9/11
+ * @Date 2018/9/12
  */
 @Controller
-@RequestMapping("/admin/link")
-public class AdminLinkController {
+@RequestMapping("/admin/down/fenlei")
+public class AdminDownFenLeiController {
 	@Resource
-	private LinkService linkService;
+	private DownFenLeiService downFenLeiService;
 
 	/**
-	 * /admin/link/add
+	 * /admin/down/fenlei/add
 	 */
 	@RequestMapping("/add")
-	public String add(Link link, HttpServletResponse response, HttpServletRequest request) throws Exception {
-		link.setCreateDateTime(new Date());
-		link.setUpdateDateTime(new Date());
+	public String add(DownFenLei fenlei, HttpServletResponse response) throws Exception {
+		fenlei.setCreateDateTime(new Date());
+		fenlei.setUpdateDateTime(new Date());
 
-		int resultTotal = linkService.add(link);
+		int resultTotal = downFenLeiService.add(fenlei);
 		JSONObject result = new JSONObject();
 		if (resultTotal > 0) {
 			result.put("success", true);
@@ -53,12 +53,12 @@ public class AdminLinkController {
 	}
 
 	/**
-	 * /admin/link/update
+	 * /admin/down/fenlei/update
 	 */
 	@RequestMapping("/update")
-	public String update(Link link, HttpServletResponse response, HttpServletRequest request) throws Exception {
-		link.setUpdateDateTime(new Date());
-		int resultTotal = linkService.update(link);
+	public String update(DownFenLei fenlei, HttpServletResponse response, HttpServletRequest request) throws Exception {
+		fenlei.setUpdateDateTime(new Date());
+		int resultTotal = downFenLeiService.update(fenlei);
 		JSONObject result = new JSONObject();
 
 		if (resultTotal > 0) {
@@ -74,22 +74,20 @@ public class AdminLinkController {
 
 
 	/**
-	 * /admin/link/list
+	 * /admin/down/fenlei/list
 	 */
 	@RequestMapping("/list")
 	public String list(@RequestParam(value = "page", required = false) String page,
 	                   @RequestParam(value = "limit", required = false) String rows,
 	                   @RequestParam(value = "q", required = false) String q,
-	                   HttpServletResponse response,
-	                   HttpServletRequest request) throws Exception {
+	                   HttpServletResponse response) throws Exception {
 		PageBean pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
-		Map<String, Object> map = new HashMap<String, Object>();
+		Map<String, Object> map = new HashMap<>(1000);
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
 		map.put("q", StringUtil.formatLike(q));
-
-		List<Link> list = linkService.list(map);
-		Integer total = linkService.getTotal(map);
+		List<DownFenLei> list = downFenLeiService.list(map);
+		Integer total = downFenLeiService.getTotal(map);
 		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm").create();
 
 		map.clear();
@@ -101,7 +99,11 @@ public class AdminLinkController {
 		return null;
 	}
 
-
+	/**
+	 * /admin/down/fenlei/delete
+	 *
+	 * @param ids
+	 */
 	@RequestMapping("/delete")
 	public String delete(@RequestParam(value = "ids", required = false) String ids, HttpServletResponse response)
 			throws Exception {
@@ -109,10 +111,11 @@ public class AdminLinkController {
 		JSONObject result = new JSONObject();
 
 		for (String anIdsStr : idsStr) {
-			linkService.delete(Integer.parseInt(anIdsStr));
+			downFenLeiService.delete(Integer.parseInt(anIdsStr));
 		}
 		result.put("success", true);
 		ResponseUtil.write(response, result.toString());
 		return null;
 	}
+
 }

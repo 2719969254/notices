@@ -11,6 +11,11 @@ import java.util.Map;
  * @Date 2018/9/11
  */
 public interface BlogService {
+	/**
+	 * 添加博客
+	 * @param blog
+	 * @return
+	 */
 	Integer add(Blog blog);
 
 	Integer update(Blog blog);

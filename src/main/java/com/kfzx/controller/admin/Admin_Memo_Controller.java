@@ -2,9 +2,10 @@ package com.kfzx.controller.admin;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.kfzx.entity.Link;
+import com.kfzx.entity.Memo;
 import com.kfzx.entity.PageBean;
-import com.kfzx.service.LinkService;
+import com.kfzx.entity.User;
+import com.kfzx.service.MemoService;
 import com.kfzx.util.ResponseUtil;
 import com.kfzx.util.StringUtil;
 import net.sf.json.JSONObject;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -23,23 +25,28 @@ import java.util.Map;
 /**
  * @author VicterTian
  * @version V1.0
- * @Date 2018/9/11
+ * @Date 2018/9/12
  */
 @Controller
-@RequestMapping("/admin/link")
-public class AdminLinkController {
+@RequestMapping("/admin/memo")
+public class Admin_Memo_Controller {
+
+
+
 	@Resource
-	private LinkService linkService;
+	private MemoService memoService;
 
 	/**
-	 * /admin/link/add
+	 *  /admin/memo/add
 	 */
 	@RequestMapping("/add")
-	public String add(Link link, HttpServletResponse response, HttpServletRequest request) throws Exception {
-		link.setCreateDateTime(new Date());
-		link.setUpdateDateTime(new Date());
+	public String add(Memo memo , HttpServletResponse response, HttpServletRequest request, HttpSession session) throws Exception {
+		memo.setCreateDateTime(new Date());
+		memo.setUpdateDateTime(new Date());
+		User currentUser =  (User) session.getAttribute("currentUser");
+		memo.setCreateUserId(currentUser.getId());
 
-		int resultTotal = linkService.add(link);
+		int resultTotal = memoService.add(memo);
 		JSONObject result = new JSONObject();
 		if (resultTotal > 0) {
 			result.put("success", true);
@@ -53,12 +60,12 @@ public class AdminLinkController {
 	}
 
 	/**
-	 * /admin/link/update
+	 *  /admin/memo/update
 	 */
 	@RequestMapping("/update")
-	public String update(Link link, HttpServletResponse response, HttpServletRequest request) throws Exception {
-		link.setUpdateDateTime(new Date());
-		int resultTotal = linkService.update(link);
+	public String update(Memo memo, HttpServletResponse response, HttpServletRequest request) throws Exception {
+		memo.setUpdateDateTime(new Date());
+		int resultTotal = memoService.update(memo);
 		JSONObject result = new JSONObject();
 
 		if (resultTotal > 0) {
@@ -74,12 +81,13 @@ public class AdminLinkController {
 
 
 	/**
-	 * /admin/link/list
+	 * /admin/memo/list
 	 */
 	@RequestMapping("/list")
 	public String list(@RequestParam(value = "page", required = false) String page,
 	                   @RequestParam(value = "limit", required = false) String rows,
 	                   @RequestParam(value = "q", required = false) String q,
+	                   @RequestParam(value = "memoFenLeiId", required = false) String memoFenLeiId,
 	                   HttpServletResponse response,
 	                   HttpServletRequest request) throws Exception {
 		PageBean pageBean = new PageBean(Integer.parseInt(page), Integer.parseInt(rows));
@@ -87,9 +95,10 @@ public class AdminLinkController {
 		map.put("start", pageBean.getStart());
 		map.put("size", pageBean.getPageSize());
 		map.put("q", StringUtil.formatLike(q));
+		map.put("memoFenLeiId", memoFenLeiId);
 
-		List<Link> list = linkService.list(map);
-		Integer total = linkService.getTotal(map);
+		List<Memo> list = memoService.list(map);
+		Integer total = memoService.getTotal(map);
 		Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm").create();
 
 		map.clear();
@@ -102,17 +111,25 @@ public class AdminLinkController {
 	}
 
 
+	/**
+	 * /admin/memo/delete
+	 */
 	@RequestMapping("/delete")
 	public String delete(@RequestParam(value = "ids", required = false) String ids, HttpServletResponse response)
 			throws Exception {
 		String[] idsStr = ids.split(",");
 		JSONObject result = new JSONObject();
 
-		for (String anIdsStr : idsStr) {
-			linkService.delete(Integer.parseInt(anIdsStr));
+		for (int i = 0; i < idsStr.length; i++) {
+			memoService.delete(Integer.parseInt(idsStr[i]));
 		}
 		result.put("success", true);
 		ResponseUtil.write(response, result.toString());
 		return null;
 	}
+
+
+
+
 }
+
